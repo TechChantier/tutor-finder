@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('tutor_categories', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('tutor_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
             $table->timestamps();
+
+            // Ensuring that a tutor can't select the same category two times
+            $table->unique(['tutor_id', 'category_id']);
         });
     }
 

@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('qualifications', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('tutor_id')->constrained('users')->onDelete('cascade');
+            $table->string('title');
+            $table->text('description')->nullable();
+            $table->string('institution');
+            $table->year('year_obtained');
+            $table->enum('verification_status', ['pending', 'verified', 'rejected'])->default('pending');
             $table->timestamps();
         });
     }

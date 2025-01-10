@@ -13,7 +13,15 @@ return new class extends Migration
     {
         Schema::create('gigs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('learner_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
+            $table->string('title');
+            $table->text('description');
+            $table->decimal('budget', 10, 2);
+            $table->string('location');
+            $table->enum('status', ['open', 'completed', 'cancelled'])->default('open');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
