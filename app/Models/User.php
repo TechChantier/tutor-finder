@@ -6,6 +6,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class User extends Authenticatable
 {
@@ -21,6 +24,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone_number',
+        'whatsapp_number',
+        'user_type',
+        'location',
+        'profile_image'
     ];
 
     /**
@@ -44,5 +52,64 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+      //Relationships For tutors
+      /**
+       * Each tutor (user) can have only ONE profile
+       * usage: $user->tutorProfile->bio
+       */
+    public function tutorProfile(): HasOne
+    {
+        return $this->hasOne(TutorProfile::class);
+    }
+
+    /**
+     * A tutor can have MANY qualifications and The 'tutor_id' in the qualifications table refers to the user's ID
+     * usage: $user->qualifications (gets all qualifications)
+     */
+    public function qualifications(): HasMany
+    {
+        return $this->hasMany(Qualification::class, 'tutor_id');
+    }
+ 
+    /**
+     * A tutor can teach MANY categories
+     * A category can have MANY tutors 
+     * usage:$user->categories (gets all categories they teach)
+     */
+    public function categories(): BelongsToMany
+    {
+        return $this->belongsToMany(Category::class, 'tutor_categories', 'tutor_id', 'category_id');
+    }
+
+    /**
+     * A tutor can make MANY applications to different gigs
+     * usage: $user->applications (gets all their applications)
+     */
+    public function applications(): HasMany
+    {
+        return $this->hasMany(Application::class, 'tutor_id');
+    }
+
+    //Relationships For learners
+    /**
+     * A learner can create MANY gigs
+     * Usage: $user->gigs (gets all gigs created by this learner)
+     */
+    public function gigs(): HasMany
+    {
+        return $this->hasMany(Gig::class, 'learner_id');
+    }
+
+    // Helper methods
+    public function isTutor(): bool
+    {
+        return $this->user_type === 'tutor';
+    }
+
+    public function isLearner(): bool
+    {
+        return $this->user_type === 'learner';
     }
 }
