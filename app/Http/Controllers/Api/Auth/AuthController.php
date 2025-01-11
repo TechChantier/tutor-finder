@@ -3,17 +3,16 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Gig;
 use Illuminate\Http\Request;
 
-class GigController extends Controller
+class AuthController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return Gig::all();
+        //
     }
 
     /**
@@ -27,9 +26,9 @@ class GigController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Gig $gig)
+    public function show(string $id)
     {
-        return $gig;
+        //
     }
 
     /**
