@@ -20,6 +20,10 @@ class Gig extends Model
         'location',
         'status'
     ];
+    
+    public const STATUS_OPEN = 'open';
+    public const STATUS_COMPLETED = 'completed';
+    public const STATUS_CANCELLED = 'cancelled';
 
      public function learner(): BelongsTo
     {

@@ -11,7 +11,7 @@ class StoreRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return $this->user() && $this->user()->isLearner(); // here allowing Only learners to create gigs
     }
 
     /**
@@ -22,7 +22,40 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'category_id' => ['required', 'exists:categories,id'],
+            'title' => ['required', 'string', 'min:10', 'max:255'],
+            'description' => ['required', 'string', 'min:50', 'max:1000'],
+            'budget' => ['required', 'numeric', 'min:1000'],
+            'location' => ['required', 'string', 'max:255'],
+            'status' => ['sometimes', 'string', 'in:open,completed,cancelled'],
+        ];
+    }
+
+    /**
+     * Get custom messages for validator errors.
+     *
+     * @return array
+     */
+    public function messages(): array
+    {
+        return [
+            'title.min' => 'The title should be at least 10 characters to properly describe your learning need',
+            'description.min' => 'Please provide a detailed description of at least 50 characters',
+            'budget.min' => 'The minimum budget should be at least 1000',
+            'category_id.exists' => 'Please select a valid category',
+        ];
+    }
+
+    /**
+     * Get custom attributes for validator errors.
+     *
+     * @return array
+     */
+    public function attributes(): array
+    {
+        return [
+            'category_id' => 'category',
+            'budget' => 'budget amount',
         ];
     }
 }

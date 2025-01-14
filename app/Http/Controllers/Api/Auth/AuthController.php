@@ -1,49 +1,79 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\RegisterRequest;
+use App\Http\Resources\UserResource;
+use App\Models\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
+
 
 class AuthController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function signup(RegisterRequest $request): JsonResponse 
+{
+    $validatedFields = $request->validated();
+
+    // Create user with all validated fields
+    $user = User::create([
+        'name' => $validatedFields['name'],
+        'email' => $validatedFields['email'],
+        'password' => Hash::make($validatedFields['password']),
+        'phone_number' => $validatedFields['phone_number'],
+        'whatsapp_number' => $validatedFields['whatsapp_number'],
+        'user_type' => $validatedFields['user_type'],
+        'location' => $validatedFields['location'],
+        'profile_image' => '',
+    ]);
+
+    // $token = $user->createToken('api-token')->plainTextToken;
+
+    return response()->json([
+        'message' => 'User registered successfully',
+        'user' => new UserResource($user),
+        // 'token' => $token
+    ], 201);
+}
+
+     public function login(Request $request): JsonResponse
     {
-        //
+        $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required', 'min:6']
+        ]);
+
+        $user = User::where('email', $request->email)->first();
+
+        if (!$user) {
+            throw ValidationException::withMessages([
+                'email' => ['The provided credentials are incorrect']
+            ]);
+        }
+
+        if (!Hash::check($request->password, $user->password)) {
+            throw ValidationException::withMessages([
+                'email' => ['The provided credentials are incorrect']
+            ]);
+        }
+
+        $token = $user->createToken('api-token')->plainTextToken;
+
+        return response()->json([
+            'token' => $token ,
+            'authenticated user' => new UserResource($user)
+        ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+     public function logout(Request $request): JsonResponse
     {
-        //
-    }
+        $request->user()->tokens()->delete();
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return response()->json([
+            'message' => 'You are Logged out Successfully'
+        ]);
     }
 }

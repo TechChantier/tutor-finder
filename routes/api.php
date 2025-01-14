@@ -1,8 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\ApplicationController;
-use App\Http\Controllers\Api\Auth\LoginController; 
-use App\Http\Controllers\Api\Auth\RegisterController;
+use App\Http\Controllers\Api\Auth\AuthController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\GigController;
 use App\Http\Controllers\Api\QualificationController;
@@ -27,11 +26,16 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 /**
-* Public Authentication Routes
+* Authentication Routes
 * These routes handle user registration and authentication
 */
-Route::post('/register', [RegisterController::class, 'register']);
-Route::post('/login', [LoginController::class, 'login']);
+Route::controller(AuthController::class)
+    ->group(function () {
+        Route::post('/signup', 'signup');
+        Route::post('/login', 'login');
+        Route::post('/logout', 'logout')
+            ->middleware('auth:sanctum');
+    });
 
 /**
 * Public Category Routes
@@ -54,15 +58,14 @@ Route::get('/gigs/{gig}', [GigController::class, 'show']);
 Route::middleware('auth:sanctum')->group(function () {
    /**
     * Auth Management Routes
-    * Handle user logout and profile management
+    * Handle user profile management
     */
-   Route::post('/logout', [LoginController::class, 'logout']);
    Route::get('/user', [UserController::class, 'show']);
    Route::put('/user', [UserController::class, 'update']);
 
    /**
     * Tutor Profile Management
-    * Handle tutor-specific profile operations
+    * Handle tutor profile operations
     */
    Route::get('/tutor-profile', [TutorProfileController::class, 'show']);
    Route::put('/tutor-profile', [TutorProfileController::class, 'update']);
@@ -72,7 +75,7 @@ Route::middleware('auth:sanctum')->group(function () {
     * Handle creation, updating, and deletion of gigs
     */
    Route::post('/gigs', [GigController::class, 'store']);
-   Route::put('/gigs/{gig}', [GigController::class, 'update']);
+   Route::patch('/gigs/{gig}', [GigController::class, 'update']);
    Route::delete('/gigs/{gig}', [GigController::class, 'destroy']);
    
    /**
