@@ -28,6 +28,7 @@ class GigController extends Controller
     public function __construct() 
     {
         $this->middleware('auth:sanctum')->except(['index', 'show']);
+        $this->authorizeResource(Gig::class, 'gig');
     }
 
     /**
@@ -85,7 +86,7 @@ class GigController extends Controller
      */
     public function update(UpdateRequest $request, Gig $gig)
     {
-        $this->authorize('update', $gig);
+        // $this->authorize('update', $gig);
         $validatedFields = $request->validated();
         $gig->update($validatedFields);
         return new GigResource($this->loadRelationships($gig));

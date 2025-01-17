@@ -14,6 +14,16 @@ class StoreRequest extends FormRequest
         return $this->user() && $this->user()->isLearner(); // here allowing Only learners to create gigs
     }
 
+     /**
+     * Override the failed authorization message
+     */
+    protected function failedAuthorization()
+    {
+        throw new \Illuminate\Auth\Access\AuthorizationException(
+            'Only learners can create gigs. Tutors can view and apply to existing gigs.'
+        );
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *

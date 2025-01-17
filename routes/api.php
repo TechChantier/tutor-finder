@@ -39,10 +39,11 @@ Route::controller(AuthController::class)
 
 /**
 * Public Category Routes
-* Allow browsing of available teaching/learning categories
+* available teaching/learning categories
 */
 Route::get('/categories', [CategoryController::class, 'index']);
-Route::get('/categories/{category}', [CategoryController::class, 'show']);
+// Route::get('/categories/{category}', [CategoryController::class, 'show']);
+Route::get('/categories/{category}/tutors', [CategoryController::class, 'tutors']);
 
 /**
 * Public Gig Routes

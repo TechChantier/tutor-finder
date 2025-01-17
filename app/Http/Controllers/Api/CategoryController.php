@@ -3,47 +3,37 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Resources\CategoryResource;
+use App\Http\Resources\TutorResource;
+use App\Models\Category;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class CategoryController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of categories.
      */
-    public function index()
+    public function index(): AnonymousResourceCollection
     {
-        //
+        $categories = Category::all();
+        return CategoryResource::collection($categories);
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Display the specified category.
      */
-    public function store(Request $request)
-    {
-        //
-    }
+    // public function show(Category $category): CategoryResource
+    // {
+    //     return new CategoryResource($category);
+    // }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function tutors(Category $category): AnonymousResourceCollection
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $tutors = $category->tutors()
+            ->where('user_type', 'tutor')
+            ->with(['tutorProfile', 'qualifications', 'categories'])
+            ->get();
+        
+        return TutorResource::collection($tutors);
     }
 }
