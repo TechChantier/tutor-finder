@@ -85,3 +85,33 @@ class UpdateRequest extends FormRequest
 //         return new TutorProfileResource($profile->fresh());
 //     }
 // }
+
+// public function signup(RegisterRequest $request): JsonResponse 
+// {
+//     $validatedFields = $request->validated();
+
+//     // Create user with all validated fields
+//     $user = User::create([
+//         'name' => $validatedFields['name'],
+//         'email' => $validatedFields['email'],
+//         'password' => Hash::make($validatedFields['password']),
+//         'phone_number' => $validatedFields['phone_number'],
+//         'whatsapp_number' => $validatedFields['whatsapp_number'],
+//         'user_type' => $validatedFields['user_type'],
+//         'location' => $validatedFields['location'],
+//         'profile_image' => '',
+//     ]);
+
+//     // Create tutor profile if user is registering as a tutor
+//     if ($validatedFields['user_type'] === 'tutor') {
+//         $user->tutorProfile()->create([
+//             'verification_status' => 'pending',
+//             'availability_status' => 'available',
+//         ]);
+//     }
+
+//     return response()->json([
+//         'message' => 'User registered successfully',
+//         'user' => new UserResource($user),
+//     ], 201);
+// }
