@@ -11,7 +11,7 @@ class UpdateRequest extends FormRequest
      */
      public function authorize(): bool
     {
-        return $this->user()->isTutor();
+        return $this->user() && $this->user()->isTutor();
     }
 
     protected function failedAuthorization()
