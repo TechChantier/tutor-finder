@@ -30,7 +30,7 @@ class UpdateRequest extends FormRequest
     {
        return [
             'bio' => ['required', 'string', 'min:50', 'max:1000'],
-            'years_of_experience' => ['required', 'integer', 'min:0'],
+            'years_of_experience' => ['sometimes', 'integer', 'min:0'],
             'availability_status' => ['sometimes', 'string', 'in:available,busy'],
         ];
     }

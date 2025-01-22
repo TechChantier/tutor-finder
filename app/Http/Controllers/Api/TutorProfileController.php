@@ -3,13 +3,16 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\TutorProfileResource;
+use App\Http\Requests\TutorProfile\UpdateRequest;
 use Illuminate\Http\Request;
+
 
 class TutorProfileController extends Controller
 {
     public function __construct() 
     {
-        $this->middleware(['auth:sanctum', 'tutor']);
+        $this->middleware(['auth:sanctum']);
     }
 
     /**

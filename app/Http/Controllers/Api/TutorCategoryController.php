@@ -3,47 +3,58 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\TutorCategory\StoreRequest;
+use App\Http\Resources\CategoryResource;
+use App\Models\Category;
+use Illuminate\Http\JsonResponse;
 
 class TutorCategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function __construct()
     {
-        //
+        $this->middleware('auth:sanctum');
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Get categories for authenticated tutor
      */
-    public function store(Request $request)
+    public function index(): JsonResponse
     {
-        //
+        $categories = auth()->user()->categories;
+        return response()->json([
+            'data' => CategoryResource::collection($categories)
+        ]);
     }
 
     /**
-     * Display the specified resource.
+     * Add categories for tutor
      */
-    public function show(string $id)
+    public function store(StoreRequest $request): JsonResponse
     {
-        //
+        $tutor = auth()->user();
+        $tutor->categories()->syncWithoutDetaching($request->validated('category_ids'));
+
+        return response()->json([
+            'message' => 'Categories added successfully',
+            'data' => CategoryResource::collection($tutor->categories)
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+   /**
+ * Remove a category for tutor
+ */
+    public function destroy(Category $category): JsonResponse
     {
-        //
-    }
+        if (!auth()->user()->categories()->where('categories.id', $category->id)->exists()) {
+            return response()->json([
+                'message' => 'Category not found in your teaching list'
+            ], 404);
+        }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        auth()->user()->categories()->detach($category->id);
+        
+        return response()->json([
+            'message' => 'Category removed successfully'
+        ]);
     }
 }

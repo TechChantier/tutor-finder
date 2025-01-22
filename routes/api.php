@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\Auth\AuthController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\GigController;
 use App\Http\Controllers\Api\QualificationController;
+use App\Http\Controllers\Api\TutorCategoryController;
 use App\Http\Controllers\Api\TutorProfileController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
@@ -69,7 +70,7 @@ Route::middleware('auth:sanctum')->group(function () {
     * Handle tutor profile operations
     */
    Route::get('/tutor-profile', [TutorProfileController::class, 'show']);
-   Route::put('/tutor-profile', [TutorProfileController::class, 'update']);
+   Route::patch('/tutor-profile', [TutorProfileController::class, 'update']);
 
    /**
     * Protected Gig Management Routes
@@ -85,6 +86,14 @@ Route::middleware('auth:sanctum')->group(function () {
     */
    Route::apiResource('applications', ApplicationController::class);
    Route::post('/gigs/{gig}/apply', [ApplicationController::class, 'apply']);
+
+    /**
+     * Tutor Categories Management
+     * Handle tutor's teaching categories
+     */
+    Route::get('/tutor/categories', [TutorCategoryController::class, 'index']);
+    Route::post('/tutor/categories', [TutorCategoryController::class, 'store']);
+    Route::delete('/tutor/categories/{category}', [TutorCategoryController::class, 'destroy']);
    
    /**
     * Tutor Routes
