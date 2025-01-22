@@ -30,7 +30,15 @@ class AuthController extends Controller
         'profile_image' => '',
     ]);
 
-    // $token = $user->createToken('api-token')->plainTextToken;
+
+    if ($validatedFields['user_type'] === 'tutor') {
+        $user->tutorProfile()->create([
+            'bio' => '',
+            'years_of_experience' => 0,
+            'verification_status' => 'pending',
+            'availability_status' => 'available',
+        ]);
+    }
 
     return response()->json([
         'message' => 'User registered successfully',

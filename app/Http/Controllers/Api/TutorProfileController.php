@@ -7,43 +7,28 @@ use Illuminate\Http\Request;
 
 class TutorProfileController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function __construct() 
     {
-        //
+        $this->middleware(['auth:sanctum', 'tutor']);
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Get authenticated tutor's profile
      */
-    public function store(Request $request)
+    public function show(Request $request)
     {
-        //
+        return new TutorProfileResource($request->user()->tutorProfile);
     }
 
     /**
-     * Display the specified resource.
+     * Update authenticated tutor's profile
      */
-    public function show(string $id)
+    public function update(UpdateRequest $request)
     {
-        //
-    }
+        $profile = $request->user()->tutorProfile;
+        
+        $profile->update($request->validated());
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return new TutorProfileResource($profile->fresh());
     }
 }

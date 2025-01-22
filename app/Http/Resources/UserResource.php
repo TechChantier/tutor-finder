@@ -14,7 +14,7 @@ class UserResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return [
+        $data = [
             'id' => $this->id,
             'name' => $this->name,
             'email' => $this->email,
@@ -26,5 +26,17 @@ class UserResource extends JsonResource
             'created_at' => $this->created_at->format('Y-m-d H:i:s'),
             'updated_at' => $this->updated_at->format('Y-m-d H:i:s'),
         ];
+
+        // Add tutor profile data if user is a tutor and profile exists
+        if ($this->user_type === 'tutor' && $this->tutorProfile) {
+            $data['tutor_profile'] = [
+                'bio' => $this->tutorProfile->bio,
+                'years_of_experience' => $this->tutorProfile->years_of_experience,
+                'verification_status' => $this->tutorProfile->verification_status,
+                'availability_status' => $this->tutorProfile->availability_status,
+            ];
+        }
+
+        return $data;
     }
 }

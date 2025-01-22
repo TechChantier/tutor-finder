@@ -62,7 +62,7 @@ Route::middleware('auth:sanctum')->group(function () {
     * Handle user profile management
     */
    Route::get('/user', [UserController::class, 'show']);
-   Route::put('/user', [UserController::class, 'update']);
+//    Route::put('/user', [UserController::class, 'update']);
 
    /**
     * Tutor Profile Management
