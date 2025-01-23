@@ -11,7 +11,7 @@ class StoreRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true;
+        return $this->user()->isTutor();
     }
 
     /**
@@ -22,7 +22,24 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'proposal_message' => ['required', 'string', 'min:40', 'max:1000'],
+        ];
+    }
+
+    protected function withValidator($validator)
+    {
+        $validator->after(function ($validator) {
+            if ($this->gig->applications()->where('tutor_id', auth()->id())->exists()) {
+                $validator->errors()->add('gig', 'You have already applied to this gig');
+            }
+        });
+    }
+
+
+    public function messages(): array
+    {
+        return [
+            'proposal_message.min' => 'Please provide a detailed proposal of at least 40 characters'
         ];
     }
 }
