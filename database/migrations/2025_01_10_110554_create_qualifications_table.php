@@ -18,7 +18,6 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('institution');
             $table->year('year_obtained');
-            $table->enum('verification_status', ['pending', 'verified', 'rejected'])->default('pending');
             $table->timestamps();
         });
     }

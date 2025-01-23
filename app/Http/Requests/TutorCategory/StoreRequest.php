@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Qualification;
+namespace App\Http\Requests\TutorCategory;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -14,6 +14,14 @@ class StoreRequest extends FormRequest
         return $this->user() && $this->user()->isTutor();
     }
 
+    protected function failedAuthorization()
+    {
+        throw new \Illuminate\Auth\Access\AuthorizationException(
+            'Only tutors can manage their teaching categories.'
+        );
+    }
+
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -22,18 +30,16 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'string', 'max:255'],
-            'description' => ['required', 'string', 'max:1000'],
-            'institution' => ['required', 'string', 'max:255'],
-            'year_obtained' => ['required', 'integer', 'min:1950', 'max:' . date('Y')]
+            'category_ids' => ['required', 'array'],
+            'category_ids.*' => ['exists:categories,id']
         ];
     }
 
     public function messages(): array
     {
         return [
-            'year_obtained.min' => 'Year obtained must be after 1950',
-            'year_obtained.max' => 'Year obtained cannot be in the future'
+            'category_ids.required' => 'Please select at least one teaching category',
+            'category_ids.*.exists' => 'One or more selected categories do not exist'
         ];
     }
 }
