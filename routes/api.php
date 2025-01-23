@@ -71,7 +71,7 @@ Route::middleware('auth:sanctum')->group(function () {
     */
    Route::get('/tutor-profile', [TutorProfileController::class, 'show']);
    Route::patch('/tutor-profile', [TutorProfileController::class, 'update']);
-
+   Route::patch('/tutors/{userId}/verify', [TutorProfileController::class, 'verify']);
    /**
     * Protected Gig Management Routes
     * Handle creation, updating, and deletion of gigs
@@ -99,17 +99,13 @@ Route::middleware('auth:sanctum')->group(function () {
     * Tutor Routes
     * Only accessible to authenticated tutors
     */
-   Route::middleware('tutor')->group(function () {
-       Route::apiResource('qualifications', QualificationController::class);
-       Route::get('/tutor/applications', [ApplicationController::class, 'tutorApplications']);
-   });
+    Route::apiResource('qualifications', QualificationController::class);
+    Route::get('/tutor/applications', [ApplicationController::class, 'tutorApplications']);
 
    /**
     * Learner Routes
     * Only accessible to authenticated learners
     */
-   Route::middleware('learner')->group(function () {
-       Route::get('/learner/gigs', [GigController::class, 'learnerGigs']);
-       Route::get('/gigs/{gig}/applications', [ApplicationController::class, 'gigApplications']);
-   });
+    Route::get('/learner/gigs', [GigController::class, 'learnerGigs']);
+    Route::get('/gigs/{gig}/applications', [ApplicationController::class, 'gigApplications']);
 });

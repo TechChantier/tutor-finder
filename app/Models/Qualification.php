@@ -16,7 +16,6 @@ class Qualification extends Model
         'description',
         'institution',
         'year_obtained',
-        'verification_status'
     ];
 
     public function tutor(): BelongsTo
