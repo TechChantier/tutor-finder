@@ -1,30 +1,237 @@
-name: 'Tutor Profile Management'
+name: Gigs
 description: |-
 
-  APIs for managing tutor profiles
+  APIs for managing learning gigs
 endpoints:
   -
     httpMethods:
       - GET
-    uri: api/tutor-profile
+    uri: api/gigs
     metadata:
-      groupName: 'Tutor Profile Management'
+      groupName: Gigs
       groupDescription: |-
 
-        APIs for managing tutor profiles
+        APIs for managing learning gigs
       subgroup: ''
       subgroupDescription: ''
-      title: 'Get Profile'
-      description: "Get authenticated tutor's profile details."
-      authenticated: true
+      title: 'List All Gigs'
+      description: 'Get a list of all available learning gigs.'
+      authenticated: false
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
+    queryParameters:
+      include:
+        name: include
+        description: |-
+          Specify which relationships to include in the response.
+                      Multiple relationships can be comma-separated.
+                      Available relationships: learner, category, applications
+
+                      Examples of including single relationship:
+                      - /api/gigs?include=learner (includes the learner who created the gig)
+                      - /api/gigs?include=category (includes the category of the gig)
+                      - /api/gigs?include=applications (includes all applications for the gig)
+
+                      Examples of including multiple relationships:
+                      - /api/gigs?include=learner,category (includes both learner and category)
+                      - /api/gigs?include=learner,applications (includes learner and all applications)
+                      - /api/gigs?include=category,applications (includes category and applications)
+                      - /api/gigs?include=learner,category,applications (includes all relationships)
+        required: false
+        example: quidem
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      search:
+        name: search
+        description: 'Search in gig title and description'
+        required: false
+        example: id
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      price:
+        name: price
+        description: 'Filter by price range (format: 1000-5000)'
+        required: false
+        example: ullam
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      category_id:
+        name: category_id
+        description: 'Filter gigs by category'
+        required: false
+        example: 4
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      status:
+        name: status
+        description: 'Filter by gig status (open/in_progress/completed/cancelled)'
+        required: false
+        example: facere
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanQueryParameters:
+      include: quidem
+      search: id
+      price: ullam
+      category_id: 4
+      status: facere
+    bodyParameters:
+      search:
+        name: search
+        description: 'Must be at least 3 characters.'
+        required: false
+        example: swhuty
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      price:
+        name: price
+        description: 'Must match the regex /^\d+-\d+$/.'
+        required: false
+        example: 869426-344
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      category_id:
+        name: category_id
+        description: 'The <code>id</code> of an existing record in the categories table.'
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      status:
+        name: status
+        description: ''
+        required: false
+        example: in_progress
+        type: string
+        enumValues:
+          - open
+          - in_progress
+          - completed
+          - cancelled
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      search: swhuty
+      price: 869426-344
+      status: in_progress
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "data": [
+             {
+               "id": 1,
+               "title": "Need Math Tutor",
+               "description": "Looking for calculus tutor",
+               "budget": 5000,
+               "location": "Online",
+               "status": "open",
+               "learner": {
+                 "id": 1,
+                 "name": "John Student"
+               },
+               "category": {
+                 "id": 1,
+                 "name": "Mathematics"
+               }
+             }
+           ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/gigs/{gig_id}'
+    metadata:
+      groupName: Gigs
+      groupDescription: |-
+
+        APIs for managing learning gigs
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Gig Details'
+      description: 'Get detailed information about a specific gig.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      gig_id:
+        name: gig_id
+        description: 'The ID of the gig.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      gig:
+        name: gig
+        description: 'The ID of the gig'
+        required: true
+        example: 5
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      gig_id: 1
+      gig: 5
+    queryParameters:
+      include:
+        name: include
+        description: 'Relationships to include (learner,category,applications)'
+        required: false
+        example: maiores
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanQueryParameters:
+      include: maiores
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
@@ -34,10 +241,16 @@ endpoints:
         content: |-
           {
            "data": {
-             "bio": "Experienced math tutor",
-             "years_of_experience": 5,
-             "verification_status": "pending",
-             "availability_status": "available"
+             "id": 1,
+             "title": "Need Math Tutor",
+             "description": "Looking for calculus tutor",
+             "budget": 5000,
+             "location": "Online",
+             "status": "open",
+             "learner": {
+               "id": 1,
+               "name": "John Student"
+             }
            }
           }
         headers: []
@@ -51,17 +264,17 @@ endpoints:
     custom: []
   -
     httpMethods:
-      - PATCH
-    uri: api/tutor-profile
+      - POST
+    uri: api/gigs
     metadata:
-      groupName: 'Tutor Profile Management'
+      groupName: Gigs
       groupDescription: |-
 
-        APIs for managing tutor profiles
+        APIs for managing learning gigs
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update Profile'
-      description: 'Update tutor profile details.'
+      title: 'Create Gig'
+      description: 'Create a new gig (Learner only).'
       authenticated: true
       custom: []
     headers:
@@ -72,51 +285,89 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      bio:
-        name: bio
-        description: 'Detailed bio min:50 characters'
+      category_id:
+        name: category_id
+        description: 'Valid category ID'
         required: true
-        example: at
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      years_of_experience:
-        name: years_of_experience
-        description: 'Years of teaching experience'
-        required: true
-        example: 5
+        example: 7
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
-      availability_status:
-        name: availability_status
-        description: "Tutor's availability (available/busy)"
-        required: false
-        example: voluptatum
+      title:
+        name: title
+        description: 'Gig title min:10 characters'
+        required: true
+        example: consequatur
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
+      description:
+        name: description
+        description: 'Detailed description min:50 characters'
+        required: true
+        example: 'Molestiae rerum quo laborum est.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      budget:
+        name: budget
+        description: 'Minimum amount 1000'
+        required: true
+        example: officia
+        type: numeric
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      location:
+        name: location
+        description: 'Preferred learning location'
+        required: true
+        example: harum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      status:
+        name: status
+        description: ''
+        required: false
+        example: completed
+        type: string
+        enumValues:
+          - open
+          - completed
+          - cancelled
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
     cleanBodyParameters:
-      bio: at
-      years_of_experience: 5
-      availability_status: voluptatum
+      category_id: 7
+      title: consequatur
+      description: 'Molestiae rerum quo laborum est.'
+      budget: officia
+      location: harum
+      status: completed
     fileParameters: []
     responses:
       -
-        status: 200
+        status: 201
         content: |-
           {
            "data": {
-             "bio": "Updated tutor bio",
-             "years_of_experience": 6,
-             "verification_status": "pending",
-             "availability_status": "available"
+             "id": 1,
+             "title": "Need Math Tutor",
+             "description": "Looking for calculus tutor...",
+             "budget": 5000,
+             "location": "Online",
+             "status": "open"
            }
           }
         headers: []
@@ -131,49 +382,115 @@ endpoints:
   -
     httpMethods:
       - PATCH
-    uri: 'api/tutors/{userId}/verify'
+    uri: 'api/gigs/{gig_id}'
     metadata:
-      groupName: 'Tutor Profile Management'
+      groupName: Gigs
       groupDescription: |-
 
-        APIs for managing tutor profiles
+        APIs for managing learning gigs
       subgroup: ''
       subgroupDescription: ''
-      title: 'Verify Tutor'
-      description: "Update tutor's verification status."
+      title: 'Update Gig'
+      description: 'Update an existing gig (Gig owner only).'
       authenticated: true
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      userId:
-        name: userId
-        description: 'The ID of the tutor'
+      gig_id:
+        name: gig_id
+        description: 'The ID of the gig.'
         required: true
-        example: 13
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      gig:
+        name: gig
+        description: 'The ID of the gig'
+        required: true
+        example: 20
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      userId: 13
+      gig_id: 1
+      gig: 20
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      verification_status:
-        name: verification_status
-        description: 'Status (verified/rejected)'
+      category_id:
+        name: category_id
+        description: 'Valid category ID'
         required: true
-        example: aut
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      title:
+        name: title
+        description: 'Gig title min:10 characters'
+        required: true
+        example: ad
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      description:
+        name: description
+        description: 'Detailed description min:50 characters'
+        required: true
+        example: 'Eos nobis exercitationem consectetur dolor quo.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      budget:
+        name: budget
+        description: 'Minimum amount 1000'
+        required: true
+        example: dolorem
+        type: numeric
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      location:
+        name: location
+        description: 'Preferred learning location'
+        required: true
+        example: nisi
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      status:
+        name: status
+        description: 'Status of the gig (open/completed/cancelled)'
+        required: false
+        example: excepturi
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      verification_status: aut
+      category_id: 16
+      title: ad
+      description: 'Eos nobis exercitationem consectetur dolor quo.'
+      budget: dolorem
+      location: nisi
+      status: excepturi
     fileParameters: []
     responses:
       -
@@ -182,12 +499,73 @@ endpoints:
           {
            "data": {
              "id": 1,
-             "name": "John Doe",
-             "tutor_profile": {
-               "verification_status": "verified"
-             }
+             "title": "Updated Math Tutor",
+             "description": "Updated description...",
+             "budget": 6000,
+             "location": "Online",
+             "status": "open"
            }
           }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/gigs/{gig_id}'
+    metadata:
+      groupName: Gigs
+      groupDescription: |-
+
+        APIs for managing learning gigs
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete Gig'
+      description: 'Delete a gig (Gig owner only).'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      gig_id:
+        name: gig_id
+        description: 'The ID of the gig.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      gig:
+        name: gig
+        description: 'The ID of the gig'
+        required: true
+        example: 8
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      gig_id: 1
+      gig: 8
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 204
+        content: '{}'
         headers: []
         description: ''
         custom: []

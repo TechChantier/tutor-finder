@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "31acf127-3598-4562-bf5a-db0f945d8681",
+        "_postman_id": "ba4956c1-1138-491f-b892-bc2c5e2c03c1",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -69,7 +69,7 @@
                                 {
                                     "id": "application",
                                     "key": "application",
-                                    "value": "15",
+                                    "value": "6",
                                     "description": "The ID of the application"
                                 }
                             ]
@@ -87,7 +87,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"status\":\"at\"}"
+                            "raw": "{\"status\":\"laboriosam\"}"
                         },
                         "description": "Accept or reject an application (Learner only)."
                     },
@@ -124,7 +124,7 @@
                                 {
                                     "id": "gig",
                                     "key": "gig",
-                                    "value": "5",
+                                    "value": "7",
                                     "description": "The ID of the gig"
                                 }
                             ]
@@ -142,7 +142,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"proposal_message\":\"quod\"}"
+                            "raw": "{\"proposal_message\":\"ducimus\"}"
                         },
                         "description": "Submit an application for a specific gig."
                     },
@@ -211,7 +211,7 @@
                                 {
                                     "id": "gig",
                                     "key": "gig",
-                                    "value": "12",
+                                    "value": "9",
                                     "description": "The ID of the gig"
                                 }
                             ]
@@ -264,7 +264,7 @@
                         "header": [
                             {
                                 "key": "Content-Type",
-                                "value": "application\/json"
+                                "value": "multipart\/form-data"
                             },
                             {
                                 "key": "Accept",
@@ -272,8 +272,62 @@
                             }
                         ],
                         "body": {
-                            "mode": "raw",
-                            "raw": "{\"name\":\"voluptas\",\"email\":\"leannon.mohammed@example.com\",\"password\":\"?kJ5adj75Uf(7J%EC?e0\",\"phone_number\":\"sunt\",\"whatsapp_number\":\"laborum\",\"user_type\":\"aut\",\"location\":\"incidunt\",\"password_confirmation\":\"quod\"}"
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "laborum",
+                                    "type": "text",
+                                    "description": "User's full name"
+                                },
+                                {
+                                    "key": "email",
+                                    "value": "coty.kuvalis@example.org",
+                                    "type": "text",
+                                    "description": "User's email address must be unique"
+                                },
+                                {
+                                    "key": "password",
+                                    "value": ";KYZ}6:jcC_RAss$&",
+                                    "type": "text",
+                                    "description": "Minimum of 8 characters"
+                                },
+                                {
+                                    "key": "phone_number",
+                                    "value": "ipsum",
+                                    "type": "text",
+                                    "description": "Max 12 characters"
+                                },
+                                {
+                                    "key": "whatsapp_number",
+                                    "value": "maiores",
+                                    "type": "text",
+                                    "description": "Max 12 characters"
+                                },
+                                {
+                                    "key": "user_type",
+                                    "value": "accusamus",
+                                    "type": "text",
+                                    "description": "Either 'tutor' or 'learner'"
+                                },
+                                {
+                                    "key": "location",
+                                    "value": "ipsam",
+                                    "type": "text",
+                                    "description": "User's location"
+                                },
+                                {
+                                    "key": "password_confirmation",
+                                    "value": "tempora",
+                                    "type": "text",
+                                    "description": "Must match password"
+                                },
+                                {
+                                    "key": "profile_image",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
                         },
                         "description": "Create a new user account.",
                         "auth": {
@@ -317,7 +371,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"brutherford@example.com\",\"password\":\"j0`2%~+OYZ\"}"
+                            "raw": "{\"email\":\"kstrosin@example.org\",\"password\":\"{;17j3X**z(A\\\"\\\\]\"}"
                         },
                         "description": "Authenticate a user and get access token.",
                         "auth": {
@@ -430,7 +484,7 @@
                                 {
                                     "id": "category",
                                     "key": "category",
-                                    "value": "2",
+                                    "value": "15",
                                     "description": "The ID of the category"
                                 }
                             ]
@@ -585,7 +639,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"zjnpvfkvclvvqqksmyyhb\",\"description\":\"Assumenda eum rerum non.\",\"institution\":\"sh\",\"year_obtained\":5}"
+                            "raw": "{\"title\":\"uewegmhdzelprgppf\",\"description\":\"Corporis illo ut et excepturi nobis ea non similique.\",\"institution\":\"xyxwnswfvhuucgdnlbloxzpq\",\"year_obtained\":21}"
                         },
                         "description": "",
                         "auth": {
@@ -624,7 +678,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"pfwruymylrggknfzjbutvnpn\",\"description\":\"Molestiae dolore omnis magni molestias atque quis.\",\"institution\":\"r\",\"year_obtained\":25}"
+                            "raw": "{\"title\":\"gybooeopyq\",\"description\":\"Dolorem qui quaerat aut aut quis rerum impedit.\",\"institution\":\"mocgecbdmqwbvyob\",\"year_obtained\":18}"
                         },
                         "description": "",
                         "auth": {
@@ -684,12 +738,36 @@
                             "query": [
                                 {
                                     "key": "include",
-                                    "value": "et",
-                                    "description": "Relationships to include (learner,category,applications)",
+                                    "value": "quidem",
+                                    "description": "Specify which relationships to include in the response.\n            Multiple relationships can be comma-separated.\n            Available relationships: learner, category, applications\n\n            Examples of including single relationship:\n            - \/api\/gigs?include=learner (includes the learner who created the gig)\n            - \/api\/gigs?include=category (includes the category of the gig)\n            - \/api\/gigs?include=applications (includes all applications for the gig)\n\n            Examples of including multiple relationships:\n            - \/api\/gigs?include=learner,category (includes both learner and category)\n            - \/api\/gigs?include=learner,applications (includes learner and all applications)\n            - \/api\/gigs?include=category,applications (includes category and applications)\n            - \/api\/gigs?include=learner,category,applications (includes all relationships)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "search",
+                                    "value": "id",
+                                    "description": "Search in gig title and description",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "price",
+                                    "value": "ullam",
+                                    "description": "Filter by price range (format: 1000-5000)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "category_id",
+                                    "value": "4",
+                                    "description": "Filter gigs by category",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "status",
+                                    "value": "facere",
+                                    "description": "Filter by gig status (open\/in_progress\/completed\/cancelled)",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/gigs?include=et"
+                            "raw": "{{baseUrl}}\/api\/gigs?include=quidem&search=id&price=ullam&category_id=4&status=facere"
                         },
                         "method": "GET",
                         "header": [
@@ -702,7 +780,10 @@
                                 "value": "application\/json"
                             }
                         ],
-                        "body": null,
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"search\":\"swhuty\",\"price\":\"869426-344\",\"status\":\"in_progress\"}"
+                        },
                         "description": "Get a list of all available learning gigs.",
                         "auth": {
                             "type": "noauth"
@@ -726,12 +807,12 @@
                             "query": [
                                 {
                                     "key": "include",
-                                    "value": "pariatur",
+                                    "value": "maiores",
                                     "description": "Relationships to include (learner,category,applications)",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/gigs\/:gig_id?include=pariatur",
+                            "raw": "{{baseUrl}}\/api\/gigs\/:gig_id?include=maiores",
                             "variable": [
                                 {
                                     "id": "gig_id",
@@ -742,7 +823,7 @@
                                 {
                                     "id": "gig",
                                     "key": "gig",
-                                    "value": "15",
+                                    "value": "5",
                                     "description": "The ID of the gig"
                                 }
                             ]
@@ -795,7 +876,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"category_id\":2,\"title\":\"quis\",\"description\":\"Facere nemo expedita numquam iste.\",\"budget\":\"in\",\"location\":\"et\",\"status\":\"cancelled\"}"
+                            "raw": "{\"category_id\":7,\"title\":\"consequatur\",\"description\":\"Molestiae rerum quo laborum est.\",\"budget\":\"officia\",\"location\":\"harum\",\"status\":\"completed\"}"
                         },
                         "description": "Create a new gig (Learner only)."
                     },
@@ -826,7 +907,7 @@
                                 {
                                     "id": "gig",
                                     "key": "gig",
-                                    "value": "17",
+                                    "value": "20",
                                     "description": "The ID of the gig"
                                 }
                             ]
@@ -844,7 +925,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"category_id\":10,\"title\":\"minima\",\"description\":\"Quia quo dolorem voluptates laborum soluta eligendi.\",\"budget\":\"quidem\",\"location\":\"dicta\",\"status\":\"iusto\"}"
+                            "raw": "{\"category_id\":16,\"title\":\"ad\",\"description\":\"Eos nobis exercitationem consectetur dolor quo.\",\"budget\":\"dolorem\",\"location\":\"nisi\",\"status\":\"excepturi\"}"
                         },
                         "description": "Update an existing gig (Gig owner only)."
                     },
@@ -875,7 +956,7 @@
                                 {
                                     "id": "gig",
                                     "key": "gig",
-                                    "value": "18",
+                                    "value": "8",
                                     "description": "The ID of the gig"
                                 }
                             ]
@@ -963,7 +1044,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"category_ids\":[\"debitis\"]}"
+                            "raw": "{\"category_ids\":[\"aut\"]}"
                         },
                         "description": "Add categories that the tutor can teach."
                     },
@@ -994,7 +1075,7 @@
                                 {
                                     "id": "category",
                                     "key": "category",
-                                    "value": "2",
+                                    "value": "12",
                                     "description": "The ID of the category"
                                 }
                             ]
@@ -1088,7 +1169,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"bio\":\"at\",\"years_of_experience\":5,\"availability_status\":\"voluptatum\"}"
+                            "raw": "{\"bio\":\"totam\",\"years_of_experience\":19,\"availability_status\":\"maxime\"}"
                         },
                         "description": "Update tutor profile details."
                     },
@@ -1113,7 +1194,7 @@
                                 {
                                     "id": "userId",
                                     "key": "userId",
-                                    "value": "13",
+                                    "value": "17",
                                     "description": "The ID of the tutor"
                                 }
                             ]
@@ -1131,7 +1212,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"verification_status\":\"aut\"}"
+                            "raw": "{\"verification_status\":\"reiciendis\"}"
                         },
                         "description": "Update tutor's verification status."
                     },
@@ -1140,6 +1221,125 @@
                             "header": [],
                             "code": 200,
                             "body": "{\n \"data\": {\n   \"id\": 1,\n   \"name\": \"John Doe\",\n   \"tutor_profile\": {\n     \"verification_status\": \"verified\"\n   }\n }\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Tutors",
+            "description": "\nAPIs for discovering and viewing tutor profiles",
+            "item": [
+                {
+                    "name": "List All Tutors",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/tutors",
+                            "query": [
+                                {
+                                    "key": "search",
+                                    "value": "mathematics",
+                                    "description": "Search tutors by name or bio.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "category_id",
+                                    "value": "1",
+                                    "description": "Filter tutors by teaching category.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "available",
+                                    "value": "available",
+                                    "description": "Filter by availability status (available\/busy).",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "include",
+                                    "value": "include%3DtutorProfile%2Ccategories",
+                                    "description": "Specify which relationships to include in the response.\n            Multiple relationships can be comma-separated.\n            Available: tutorProfile, categories, qualifications, applications",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/tutors?search=mathematics&category_id=1&available=available&include=include%3DtutorProfile%2Ccategories"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"search\":\"embqcjktzlgcfwdqaxtqszbooxrunkqwmgbyruvazjinyxdplve\",\"available\":\"available\",\"include\":\"porro\"}"
+                        },
+                        "description": "Get a list of all available tutors with optional filters.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"data\": [\n   {\n     \"id\": 1,\n     \"name\": \"John Doe\",\n     \"email\": \"john@example.com\",\n     \"phone_number\": \"+254700000000\",\n     \"whatsapp_number\": \"+254700000000\",\n     \"user_type\": \"tutor\",\n     \"location\": \"Nairobi\",\n     \"profile_image\": \"path\/to\/image.jpg\"\n   }\n ]\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get Tutor Details",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/tutors\/:id",
+                            "query": [
+                                {
+                                    "key": "include",
+                                    "value": "include%3DtutorProfile%2Ccategories",
+                                    "description": "Specify which relationships to include in the response.\n            Multiple relationships can be comma-separated.\n            Available: tutorProfile, categories, qualifications, applications",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/tutors\/:id?include=include%3DtutorProfile%2Ccategories",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the tutor."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Get detailed public profile information of a specific tutor.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"data\": {\n   \"id\": 1,\n   \"name\": \"John Doe\",\n   \"email\": \"john@example.com\",\n   \"phone_number\": \"+254700000000\",\n   \"whatsapp_number\": \"+254700000000\",\n   \"user_type\": \"tutor\",\n   \"location\": \"Nairobi\",\n   \"profile_image\": \"path\/to\/image.jpg\"\n }\n}",
                             "name": ""
                         }
                     ]
