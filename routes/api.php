@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\ApplicationController;
 use App\Http\Controllers\Api\Auth\AuthController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\GigController;
+use App\Http\Controllers\Api\TutorsController;
 use App\Http\Controllers\Api\QualificationController;
 use App\Http\Controllers\Api\TutorCategoryController;
 use App\Http\Controllers\Api\TutorProfileController;
@@ -43,8 +44,14 @@ Route::controller(AuthController::class)
 * available teaching/learning categories
 */
 Route::get('/categories', [CategoryController::class, 'index']);
-// Route::get('/categories/{category}', [CategoryController::class, 'show']);
 Route::get('/categories/{category}/tutors', [CategoryController::class, 'tutors']);
+
+/**
+* Public Tutor Routes
+* Allow viewing and searching available tutors
+*/
+Route::get('/tutors', [TutorsController::class, 'index']);
+Route::get('/tutors/{id}', [TutorsController::class, 'show']);
 
 /**
 * Public Gig Routes
