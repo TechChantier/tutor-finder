@@ -1,0 +1,371 @@
+name: 'Application Management'
+description: |-
+
+  APIs for managing gig applications
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/applications
+    metadata:
+      groupName: 'Application Management'
+      groupDescription: |-
+
+        APIs for managing gig applications
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List Applications'
+      description: 'Get all applications made by the authenticated tutor.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "data": [
+             {
+               "id": 1,
+               "proposal_message": "I am interested in teaching this subject...",
+               "status": "pending",
+               "gig": {
+                 "id": 1,
+                 "title": "Need Math Tutor",
+                 "description": "Looking for calculus tutor"
+               },
+               "created_at": "2025-01-23 12:00:00",
+               "updated_at": "2025-01-23 12:00:00"
+             }
+           ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/applications/{id}'
+    metadata:
+      groupName: 'Application Management'
+      groupDescription: |-
+
+        APIs for managing gig applications
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update Application Status'
+      description: 'Accept or reject an application (Learner only).'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the application.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      application:
+        name: application
+        description: 'The ID of the application'
+        required: true
+        example: 15
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+      application: 15
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      status:
+        name: status
+        description: 'Status of application (accepted/rejected)'
+        required: true
+        example: at
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      status: at
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "data": {
+             "id": 1,
+             "status": "accepted",
+             "proposal_message": "I am interested in teaching this subject...",
+             "created_at": "2025-01-23 12:00:00",
+             "updated_at": "2025-01-23 12:00:00"
+           }
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: |-
+          {
+           "message": "Unauthorized"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/gigs/{gig_id}/apply'
+    metadata:
+      groupName: 'Application Management'
+      groupDescription: |-
+
+        APIs for managing gig applications
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Apply to Gig'
+      description: 'Submit an application for a specific gig.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      gig_id:
+        name: gig_id
+        description: 'The ID of the gig.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      gig:
+        name: gig
+        description: 'The ID of the gig'
+        required: true
+        example: 5
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      gig_id: 1
+      gig: 5
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      proposal_message:
+        name: proposal_message
+        description: 'The application proposal text min:50 characters'
+        required: true
+        example: quod
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      proposal_message: quod
+    fileParameters: []
+    responses:
+      -
+        status: 201
+        content: |-
+          {
+           "data": {
+             "id": 1,
+             "proposal_message": "I am interested in teaching this subject...",
+             "status": "pending",
+             "created_at": "2025-01-23 12:00:00",
+             "updated_at": "2025-01-23 12:00:00"
+           }
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 400
+        content: |-
+          {
+           "message": "This gig is not open for applications"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/tutor/applications
+    metadata:
+      groupName: 'Application Management'
+      groupDescription: |-
+
+        APIs for managing gig applications
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Tutor Applications'
+      description: 'Get all applications made by the authenticated tutor.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "data": [
+             {
+               "id": 1,
+               "proposal_message": "Application details...",
+               "status": "pending",
+               "gig": {
+                 "id": 1,
+                 "title": "Math Tutor Needed"
+               }
+             }
+           ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/gigs/{gig_id}/applications'
+    metadata:
+      groupName: 'Application Management'
+      groupDescription: |-
+
+        APIs for managing gig applications
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Gig Applications'
+      description: 'Get all applications for a specific gig (Learner only).'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      gig_id:
+        name: gig_id
+        description: 'The ID of the gig.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      gig:
+        name: gig
+        description: 'The ID of the gig'
+        required: true
+        example: 12
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      gig_id: 1
+      gig: 12
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "data": [
+             {
+               "id": 1,
+               "proposal_message": "Application details...",
+               "status": "pending",
+               "tutor": {
+                 "id": 1,
+                 "name": "John Doe"
+               }
+             }
+           ]
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: |-
+          {
+           "message": "Unauthorized"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
