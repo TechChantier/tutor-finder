@@ -79,7 +79,7 @@ endpoints:
         name: search
         description: 'Must be at least 3 characters.'
         required: false
-        example: embqcjktzlgcfwdqaxtqszbooxrunkqwmgbyruvazjinyxdplve
+        example: tqectqqliatvpjehehrhlsvyfeqhkgnfpclisrzpiwnodmq
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -111,16 +111,16 @@ endpoints:
         name: include
         description: ''
         required: false
-        example: porro
+        example: dolores
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      search: embqcjktzlgcfwdqaxtqszbooxrunkqwmgbyruvazjinyxdplve
+      search: tqectqqliatvpjehehrhlsvyfeqhkgnfpclisrzpiwnodmq
       available: available
-      include: porro
+      include: dolores
     fileParameters: []
     responses:
       -

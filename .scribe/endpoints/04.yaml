@@ -42,7 +42,7 @@ endpoints:
                       - /api/gigs?include=category,applications (includes category and applications)
                       - /api/gigs?include=learner,category,applications (includes all relationships)
         required: false
-        example: quidem
+        example: laborum
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -52,7 +52,7 @@ endpoints:
         name: search
         description: 'Search in gig title and description'
         required: false
-        example: id
+        example: ratione
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -62,7 +62,7 @@ endpoints:
         name: price
         description: 'Filter by price range (format: 1000-5000)'
         required: false
-        example: ullam
+        example: voluptatem
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -72,7 +72,7 @@ endpoints:
         name: category_id
         description: 'Filter gigs by category'
         required: false
-        example: 4
+        example: 18
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -82,24 +82,24 @@ endpoints:
         name: status
         description: 'Filter by gig status (open/in_progress/completed/cancelled)'
         required: false
-        example: facere
+        example: voluptate
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanQueryParameters:
-      include: quidem
-      search: id
-      price: ullam
-      category_id: 4
-      status: facere
+      include: laborum
+      search: ratione
+      price: voluptatem
+      category_id: 18
+      status: voluptate
     bodyParameters:
       search:
         name: search
         description: 'Must be at least 3 characters.'
         required: false
-        example: swhuty
+        example: qcptqjqcbmxdjtbba
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -109,7 +109,7 @@ endpoints:
         name: price
         description: 'Must match the regex /^\d+-\d+$/.'
         required: false
-        example: 869426-344
+        example: 212-28
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -129,7 +129,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: in_progress
+        example: completed
         type: string
         enumValues:
           - open
@@ -140,9 +140,9 @@ endpoints:
         nullable: false
         custom: []
     cleanBodyParameters:
-      search: swhuty
-      price: 869426-344
-      status: in_progress
+      search: qcptqjqcbmxdjtbba
+      price: 212-28
+      status: completed
     fileParameters: []
     responses:
       -
@@ -210,7 +210,7 @@ endpoints:
         name: gig
         description: 'The ID of the gig'
         required: true
-        example: 5
+        example: 11
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -218,20 +218,20 @@ endpoints:
         custom: []
     cleanUrlParameters:
       gig_id: 1
-      gig: 5
+      gig: 11
     queryParameters:
       include:
         name: include
         description: 'Relationships to include (learner,category,applications)'
         required: false
-        example: maiores
+        example: minima
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanQueryParameters:
-      include: maiores
+      include: minima
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
@@ -289,7 +289,7 @@ endpoints:
         name: category_id
         description: 'Valid category ID'
         required: true
-        example: 7
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -299,7 +299,7 @@ endpoints:
         name: title
         description: 'Gig title min:10 characters'
         required: true
-        example: consequatur
+        example: quis
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -309,7 +309,7 @@ endpoints:
         name: description
         description: 'Detailed description min:50 characters'
         required: true
-        example: 'Molestiae rerum quo laborum est.'
+        example: 'Quibusdam est quos sint at inventore enim.'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -319,7 +319,7 @@ endpoints:
         name: budget
         description: 'Minimum amount 1000'
         required: true
-        example: officia
+        example: distinctio
         type: numeric
         enumValues: []
         exampleWasSpecified: false
@@ -329,7 +329,7 @@ endpoints:
         name: location
         description: 'Preferred learning location'
         required: true
-        example: harum
+        example: repudiandae
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -349,11 +349,11 @@ endpoints:
         nullable: false
         custom: []
     cleanBodyParameters:
-      category_id: 7
-      title: consequatur
-      description: 'Molestiae rerum quo laborum est.'
-      budget: officia
-      location: harum
+      category_id: 1
+      title: quis
+      description: 'Quibusdam est quos sint at inventore enim.'
+      budget: distinctio
+      location: repudiandae
       status: completed
     fileParameters: []
     responses:
@@ -412,7 +412,7 @@ endpoints:
         name: gig
         description: 'The ID of the gig'
         required: true
-        example: 20
+        example: 4
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -420,7 +420,7 @@ endpoints:
         custom: []
     cleanUrlParameters:
       gig_id: 1
-      gig: 20
+      gig: 4
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -428,7 +428,7 @@ endpoints:
         name: category_id
         description: 'Valid category ID'
         required: true
-        example: 16
+        example: 19
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -438,7 +438,7 @@ endpoints:
         name: title
         description: 'Gig title min:10 characters'
         required: true
-        example: ad
+        example: aut
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -448,7 +448,7 @@ endpoints:
         name: description
         description: 'Detailed description min:50 characters'
         required: true
-        example: 'Eos nobis exercitationem consectetur dolor quo.'
+        example: 'Eum et officiis autem.'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -458,7 +458,7 @@ endpoints:
         name: budget
         description: 'Minimum amount 1000'
         required: true
-        example: dolorem
+        example: sint
         type: numeric
         enumValues: []
         exampleWasSpecified: false
@@ -468,7 +468,7 @@ endpoints:
         name: location
         description: 'Preferred learning location'
         required: true
-        example: nisi
+        example: exercitationem
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -478,19 +478,19 @@ endpoints:
         name: status
         description: 'Status of the gig (open/completed/cancelled)'
         required: false
-        example: excepturi
+        example: illum
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      category_id: 16
-      title: ad
-      description: 'Eos nobis exercitationem consectetur dolor quo.'
-      budget: dolorem
-      location: nisi
-      status: excepturi
+      category_id: 19
+      title: aut
+      description: 'Eum et officiis autem.'
+      budget: sint
+      location: exercitationem
+      status: illum
     fileParameters: []
     responses:
       -
@@ -548,7 +548,7 @@ endpoints:
         name: gig
         description: 'The ID of the gig'
         required: true
-        example: 8
+        example: 15
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -556,7 +556,7 @@ endpoints:
         custom: []
     cleanUrlParameters:
       gig_id: 1
-      gig: 8
+      gig: 15
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

@@ -76,7 +76,7 @@ endpoints:
         name: bio
         description: 'Detailed bio min:50 characters'
         required: true
-        example: totam
+        example: id
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -86,7 +86,7 @@ endpoints:
         name: years_of_experience
         description: 'Years of teaching experience'
         required: true
-        example: 19
+        example: 14
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -96,16 +96,16 @@ endpoints:
         name: availability_status
         description: "Tutor's availability (available/busy)"
         required: false
-        example: maxime
+        example: est
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      bio: totam
-      years_of_experience: 19
-      availability_status: maxime
+      bio: id
+      years_of_experience: 14
+      availability_status: est
     fileParameters: []
     responses:
       -
@@ -151,14 +151,14 @@ endpoints:
         name: userId
         description: 'The ID of the tutor'
         required: true
-        example: 17
+        example: 8
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      userId: 17
+      userId: 8
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -166,14 +166,14 @@ endpoints:
         name: verification_status
         description: 'Status (verified/rejected)'
         required: true
-        example: reiciendis
+        example: illum
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      verification_status: reiciendis
+      verification_status: illum
     fileParameters: []
     responses:
       -

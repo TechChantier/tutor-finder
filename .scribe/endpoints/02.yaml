@@ -88,7 +88,7 @@ endpoints:
         name: category
         description: 'The ID of the category'
         required: true
-        example: 15
+        example: 8
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -96,7 +96,7 @@ endpoints:
         custom: []
     cleanUrlParameters:
       category_id: 1
-      category: 15
+      category: 8
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
