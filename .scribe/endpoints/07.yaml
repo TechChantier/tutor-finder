@@ -1,21 +1,21 @@
-name: 'Tutor Profile Management'
+name: 'Tutor Categories'
 description: |-
 
-  APIs for managing tutor profiles
+  APIs for managing tutor's teaching categories
 endpoints:
   -
     httpMethods:
       - GET
-    uri: api/tutor-profile
+    uri: api/tutor/categories
     metadata:
-      groupName: 'Tutor Profile Management'
+      groupName: 'Tutor Categories'
       groupDescription: |-
 
-        APIs for managing tutor profiles
+        APIs for managing tutor's teaching categories
       subgroup: ''
       subgroupDescription: ''
-      title: 'Get Profile'
-      description: "Get authenticated tutor's profile details."
+      title: 'List Teaching Categories'
+      description: 'Get all categories the authenticated tutor teaches.'
       authenticated: true
       custom: []
     headers:
@@ -33,12 +33,13 @@ endpoints:
         status: 200
         content: |-
           {
-           "data": {
-             "bio": "Experienced math tutor",
-             "years_of_experience": 5,
-             "verification_status": "pending",
-             "availability_status": "available"
-           }
+           "data": [
+             {
+               "id": 1,
+               "name": "Mathematics",
+               "description": "Math tutoring"
+             }
+           ]
           }
         headers: []
         description: ''
@@ -51,17 +52,17 @@ endpoints:
     custom: []
   -
     httpMethods:
-      - PATCH
-    uri: api/tutor-profile
+      - POST
+    uri: api/tutor/categories
     metadata:
-      groupName: 'Tutor Profile Management'
+      groupName: 'Tutor Categories'
       groupDescription: |-
 
-        APIs for managing tutor profiles
+        APIs for managing tutor's teaching categories
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update Profile'
-      description: 'Update tutor profile details.'
+      title: 'Add Teaching Categories'
+      description: 'Add categories that the tutor can teach.'
       authenticated: true
       custom: []
     headers:
@@ -72,52 +73,43 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      bio:
-        name: bio
-        description: 'Detailed bio min:50 characters'
+      category_ids:
+        name: category_ids
+        description: 'List of category IDs'
         required: true
-        example: totam
-        type: string
+        example:
+          - aut
+        type: 'string[]'
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
-      years_of_experience:
-        name: years_of_experience
-        description: 'Years of teaching experience'
+      'category_ids.*':
+        name: 'category_ids.*'
+        description: 'Must exist in categories table'
         required: true
-        example: 19
+        example: 11
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
-      availability_status:
-        name: availability_status
-        description: "Tutor's availability (available/busy)"
-        required: false
-        example: maxime
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
     cleanBodyParameters:
-      bio: totam
-      years_of_experience: 19
-      availability_status: maxime
+      category_ids:
+        - aut
     fileParameters: []
     responses:
       -
         status: 200
         content: |-
           {
-           "data": {
-             "bio": "Updated tutor bio",
-             "years_of_experience": 6,
-             "verification_status": "pending",
-             "availability_status": "available"
-           }
+           "message": "Categories added successfully",
+           "data": [
+             {
+               "id": 1,
+               "name": "Mathematics"
+             }
+           ]
           }
         headers: []
         description: ''
@@ -130,63 +122,66 @@ endpoints:
     custom: []
   -
     httpMethods:
-      - PATCH
-    uri: 'api/tutors/{userId}/verify'
+      - DELETE
+    uri: 'api/tutor/categories/{category_id}'
     metadata:
-      groupName: 'Tutor Profile Management'
+      groupName: 'Tutor Categories'
       groupDescription: |-
 
-        APIs for managing tutor profiles
+        APIs for managing tutor's teaching categories
       subgroup: ''
       subgroupDescription: ''
-      title: 'Verify Tutor'
-      description: "Update tutor's verification status."
+      title: 'Remove Teaching Category'
+      description: "Remove a category from tutor's teaching list."
       authenticated: true
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      userId:
-        name: userId
-        description: 'The ID of the tutor'
+      category_id:
+        name: category_id
+        description: 'The ID of the category.'
         required: true
-        example: 17
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      category:
+        name: category
+        description: 'The ID of the category'
+        required: true
+        example: 12
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      userId: 17
+      category_id: 1
+      category: 12
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters:
-      verification_status:
-        name: verification_status
-        description: 'Status (verified/rejected)'
-        required: true
-        example: reiciendis
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanBodyParameters:
-      verification_status: reiciendis
+    bodyParameters: []
+    cleanBodyParameters: []
     fileParameters: []
     responses:
       -
         status: 200
         content: |-
           {
-           "data": {
-             "id": 1,
-             "name": "John Doe",
-             "tutor_profile": {
-               "verification_status": "verified"
-             }
-           }
+           "message": "Category removed successfully"
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+           "message": "Category not found in your teaching list"
           }
         headers: []
         description: ''

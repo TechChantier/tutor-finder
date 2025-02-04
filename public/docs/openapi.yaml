@@ -141,7 +141,7 @@ paths:
                 status:
                   type: string
                   description: 'Status of application (accepted/rejected)'
-                  example: at
+                  example: laboriosam
                   nullable: false
               required:
                 - status
@@ -158,7 +158,7 @@ paths:
         in: path
         name: application
         description: 'The ID of the application'
-        example: 15
+        example: 6
         required: true
         schema:
           type: integer
@@ -225,7 +225,7 @@ paths:
                 proposal_message:
                   type: string
                   description: 'The application proposal text min:50 characters'
-                  example: quod
+                  example: ducimus
                   nullable: false
               required:
                 - proposal_message
@@ -242,7 +242,7 @@ paths:
         in: path
         name: gig
         description: 'The ID of the gig'
-        example: 5
+        example: 7
         required: true
         schema:
           type: integer
@@ -383,7 +383,7 @@ paths:
         in: path
         name: gig
         description: 'The ID of the gig'
-        example: 12
+        example: 9
         required: true
         schema:
           type: integer
@@ -467,49 +467,54 @@ paths:
       requestBody:
         required: true
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
               properties:
                 name:
                   type: string
                   description: "User's full name"
-                  example: voluptas
+                  example: laborum
                   nullable: false
                 email:
                   type: string
                   description: "User's email address must be unique"
-                  example: leannon.mohammed@example.com
+                  example: coty.kuvalis@example.org
                   nullable: false
                 password:
                   type: string
                   description: 'Minimum of 8 characters'
-                  example: '?kJ5adj75Uf(7J%EC?e0'
+                  example: ';KYZ}6:jcC_RAss$&'
                   nullable: false
                 phone_number:
                   type: string
                   description: 'Max 12 characters'
-                  example: sunt
+                  example: ipsum
                   nullable: false
                 whatsapp_number:
                   type: string
                   description: 'Max 12 characters'
-                  example: laborum
+                  example: maiores
                   nullable: false
                 user_type:
                   type: string
                   description: "Either 'tutor' or 'learner'"
-                  example: aut
+                  example: accusamus
                   nullable: false
                 location:
                   type: string
                   description: "User's location"
-                  example: incidunt
+                  example: ipsam
                   nullable: false
+                profile_image:
+                  type: string
+                  format: binary
+                  description: 'Must be an image. Must not be greater than 2048 kilobytes.'
+                  nullable: true
                 password_confirmation:
                   type: string
                   description: 'Must match password'
-                  example: quod
+                  example: tempora
                   nullable: false
               required:
                 - name
@@ -580,12 +585,12 @@ paths:
                 email:
                   type: string
                   description: "User's email address"
-                  example: brutherford@example.com
+                  example: kstrosin@example.org
                   nullable: false
                 password:
                   type: string
                   description: "User's password min:6"
-                  example: j0`2%~+OYZ
+                  example: '{;17j3X**z(A"\]'
                   nullable: false
               required:
                 - email
@@ -755,7 +760,7 @@ paths:
         in: path
         name: category
         description: 'The ID of the category'
-        example: 2
+        example: 15
         required: true
         schema:
           type: integer
@@ -821,22 +826,22 @@ paths:
                 title:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: zjnpvfkvclvvqqksmyyhb
+                  example: uewegmhdzelprgppf
                   nullable: false
                 description:
                   type: string
                   description: 'Must not be greater than 1000 characters.'
-                  example: 'Assumenda eum rerum non.'
+                  example: 'Corporis illo ut et excepturi nobis ea non similique.'
                   nullable: false
                 institution:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: sh
+                  example: xyxwnswfvhuucgdnlbloxzpq
                   nullable: false
                 year_obtained:
                   type: integer
                   description: 'Must be at least 1950. Must not be greater than 2025.'
-                  example: 5
+                  example: 21
                   nullable: false
               required:
                 - title
@@ -863,22 +868,22 @@ paths:
                 title:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: pfwruymylrggknfzjbutvnpn
+                  example: gybooeopyq
                   nullable: false
                 description:
                   type: string
                   description: 'Must not be greater than 1000 characters.'
-                  example: 'Molestiae dolore omnis magni molestias atque quis.'
+                  example: 'Dolorem qui quaerat aut aut quis rerum impedit.'
                   nullable: false
                 institution:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: r
+                  example: mocgecbdmqwbvyob
                   nullable: false
                 year_obtained:
                   type: integer
                   description: 'Must be at least 1950. Must not be greater than 2025.'
-                  example: 25
+                  example: 18
                   nullable: false
       security: []
     delete:
@@ -908,13 +913,57 @@ paths:
         -
           in: query
           name: include
-          description: 'Relationships to include (learner,category,applications)'
-          example: et
+          description: "Specify which relationships to include in the response.\n            Multiple relationships can be comma-separated.\n            Available relationships: learner, category, applications\n\n            Examples of including single relationship:\n            - /api/gigs?include=learner (includes the learner who created the gig)\n            - /api/gigs?include=category (includes the category of the gig)\n            - /api/gigs?include=applications (includes all applications for the gig)\n\n            Examples of including multiple relationships:\n            - /api/gigs?include=learner,category (includes both learner and category)\n            - /api/gigs?include=learner,applications (includes learner and all applications)\n            - /api/gigs?include=category,applications (includes category and applications)\n            - /api/gigs?include=learner,category,applications (includes all relationships)"
+          example: quidem
           required: false
           schema:
             type: string
-            description: 'Relationships to include (learner,category,applications)'
-            example: et
+            description: "Specify which relationships to include in the response.\n            Multiple relationships can be comma-separated.\n            Available relationships: learner, category, applications\n\n            Examples of including single relationship:\n            - /api/gigs?include=learner (includes the learner who created the gig)\n            - /api/gigs?include=category (includes the category of the gig)\n            - /api/gigs?include=applications (includes all applications for the gig)\n\n            Examples of including multiple relationships:\n            - /api/gigs?include=learner,category (includes both learner and category)\n            - /api/gigs?include=learner,applications (includes learner and all applications)\n            - /api/gigs?include=category,applications (includes category and applications)\n            - /api/gigs?include=learner,category,applications (includes all relationships)"
+            example: quidem
+            nullable: false
+        -
+          in: query
+          name: search
+          description: 'Search in gig title and description'
+          example: id
+          required: false
+          schema:
+            type: string
+            description: 'Search in gig title and description'
+            example: id
+            nullable: false
+        -
+          in: query
+          name: price
+          description: 'Filter by price range (format: 1000-5000)'
+          example: ullam
+          required: false
+          schema:
+            type: string
+            description: 'Filter by price range (format: 1000-5000)'
+            example: ullam
+            nullable: false
+        -
+          in: query
+          name: category_id
+          description: 'Filter gigs by category'
+          example: 4
+          required: false
+          schema:
+            type: integer
+            description: 'Filter gigs by category'
+            example: 4
+            nullable: false
+        -
+          in: query
+          name: status
+          description: 'Filter by gig status (open/in_progress/completed/cancelled)'
+          example: facere
+          required: false
+          schema:
+            type: string
+            description: 'Filter by gig status (open/in_progress/completed/cancelled)'
+            example: facere
             nullable: false
       responses:
         200:
@@ -996,6 +1045,38 @@ paths:
                               example: Mathematics
       tags:
         - Gigs
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                search:
+                  type: string
+                  description: 'Must be at least 3 characters.'
+                  example: swhuty
+                  nullable: false
+                price:
+                  type: string
+                  description: 'Must match the regex /^\d+-\d+$/.'
+                  example: 869426-344
+                  nullable: false
+                category_id:
+                  type: string
+                  description: 'The <code>id</code> of an existing record in the categories table.'
+                  example: null
+                  nullable: false
+                status:
+                  type: string
+                  description: ''
+                  example: in_progress
+                  nullable: false
+                  enum:
+                    - open
+                    - in_progress
+                    - completed
+                    - cancelled
       security: []
     post:
       summary: 'Create Gig'
@@ -1051,32 +1132,32 @@ paths:
                 category_id:
                   type: integer
                   description: 'Valid category ID'
-                  example: 2
+                  example: 7
                   nullable: false
                 title:
                   type: string
                   description: 'Gig title min:10 characters'
-                  example: quis
+                  example: consequatur
                   nullable: false
                 description:
                   type: string
                   description: 'Detailed description min:50 characters'
-                  example: 'Facere nemo expedita numquam iste.'
+                  example: 'Molestiae rerum quo laborum est.'
                   nullable: false
                 budget:
                   type: numeric
                   description: 'Minimum amount 1000'
-                  example: in
+                  example: officia
                   nullable: false
                 location:
                   type: string
                   description: 'Preferred learning location'
-                  example: et
+                  example: harum
                   nullable: false
                 status:
                   type: string
                   description: ''
-                  example: cancelled
+                  example: completed
                   nullable: false
                   enum:
                     - open
@@ -1098,12 +1179,12 @@ paths:
           in: query
           name: include
           description: 'Relationships to include (learner,category,applications)'
-          example: pariatur
+          example: maiores
           required: false
           schema:
             type: string
             description: 'Relationships to include (learner,category,applications)'
-            example: pariatur
+            example: maiores
             nullable: false
       responses:
         200:
@@ -1211,32 +1292,32 @@ paths:
                 category_id:
                   type: integer
                   description: 'Valid category ID'
-                  example: 10
+                  example: 16
                   nullable: false
                 title:
                   type: string
                   description: 'Gig title min:10 characters'
-                  example: minima
+                  example: ad
                   nullable: false
                 description:
                   type: string
                   description: 'Detailed description min:50 characters'
-                  example: 'Quia quo dolorem voluptates laborum soluta eligendi.'
+                  example: 'Eos nobis exercitationem consectetur dolor quo.'
                   nullable: false
                 budget:
                   type: numeric
                   description: 'Minimum amount 1000'
-                  example: quidem
+                  example: dolorem
                   nullable: false
                 location:
                   type: string
                   description: 'Preferred learning location'
-                  example: dicta
+                  example: nisi
                   nullable: false
                 status:
                   type: string
                   description: 'Status of the gig (open/completed/cancelled)'
-                  example: iusto
+                  example: excepturi
                   nullable: false
               required:
                 - category_id
@@ -1267,7 +1348,7 @@ paths:
         in: path
         name: gig
         description: 'The ID of the gig'
-        example: 15
+        example: 5
         required: true
         schema:
           type: integer
@@ -1362,7 +1443,7 @@ paths:
                   type: array
                   description: 'List of category IDs'
                   example:
-                    - debitis
+                    - aut
                   items:
                     type: string
               required:
@@ -1413,7 +1494,7 @@ paths:
         in: path
         name: category
         description: 'The ID of the category'
-        example: 2
+        example: 12
         required: true
         schema:
           type: integer
@@ -1500,17 +1581,17 @@ paths:
                 bio:
                   type: string
                   description: 'Detailed bio min:50 characters'
-                  example: at
+                  example: totam
                   nullable: false
                 years_of_experience:
                   type: integer
                   description: 'Years of teaching experience'
-                  example: 5
+                  example: 19
                   nullable: false
                 availability_status:
                   type: string
                   description: "Tutor's availability (available/busy)"
-                  example: voluptatum
+                  example: maxime
                   nullable: false
               required:
                 - bio
@@ -1562,7 +1643,7 @@ paths:
                 verification_status:
                   type: string
                   description: 'Status (verified/rejected)'
-                  example: aut
+                  example: reiciendis
                   nullable: false
               required:
                 - verification_status
@@ -1571,7 +1652,222 @@ paths:
         in: path
         name: userId
         description: 'The ID of the tutor'
-        example: 13
+        example: 17
+        required: true
+        schema:
+          type: integer
+  /api/tutors:
+    get:
+      summary: 'List All Tutors'
+      operationId: listAllTutors
+      description: 'Get a list of all available tutors with optional filters.'
+      parameters:
+        -
+          in: query
+          name: search
+          description: 'Search tutors by name or bio.'
+          example: mathematics
+          required: false
+          schema:
+            type: string
+            description: 'Search tutors by name or bio.'
+            example: mathematics
+            nullable: false
+        -
+          in: query
+          name: category_id
+          description: 'Filter tutors by teaching category.'
+          example: 1
+          required: false
+          schema:
+            type: integer
+            description: 'Filter tutors by teaching category.'
+            example: 1
+            nullable: false
+        -
+          in: query
+          name: available
+          description: 'Filter by availability status (available/busy).'
+          example: available
+          required: false
+          schema:
+            type: string
+            description: 'Filter by availability status (available/busy).'
+            example: available
+            nullable: false
+        -
+          in: query
+          name: include
+          description: "Specify which relationships to include in the response.\n            Multiple relationships can be comma-separated.\n            Available: tutorProfile, categories, qualifications, applications"
+          example: 'include=tutorProfile,categories'
+          required: false
+          schema:
+            type: string
+            description: "Specify which relationships to include in the response.\n            Multiple relationships can be comma-separated.\n            Available: tutorProfile, categories, qualifications, applications"
+            example: 'include=tutorProfile,categories'
+            nullable: false
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      name: 'John Doe'
+                      email: john@example.com
+                      phone_number: '+254700000000'
+                      whatsapp_number: '+254700000000'
+                      user_type: tutor
+                      location: Nairobi
+                      profile_image: path/to/image.jpg
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        name: 'John Doe'
+                        email: john@example.com
+                        phone_number: '+254700000000'
+                        whatsapp_number: '+254700000000'
+                        user_type: tutor
+                        location: Nairobi
+                        profile_image: path/to/image.jpg
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        name:
+                          type: string
+                          example: 'John Doe'
+                        email:
+                          type: string
+                          example: john@example.com
+                        phone_number:
+                          type: string
+                          example: '+254700000000'
+                        whatsapp_number:
+                          type: string
+                          example: '+254700000000'
+                        user_type:
+                          type: string
+                          example: tutor
+                        location:
+                          type: string
+                          example: Nairobi
+                        profile_image:
+                          type: string
+                          example: path/to/image.jpg
+      tags:
+        - Tutors
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                search:
+                  type: string
+                  description: 'Must be at least 3 characters.'
+                  example: embqcjktzlgcfwdqaxtqszbooxrunkqwmgbyruvazjinyxdplve
+                  nullable: false
+                category_id:
+                  type: string
+                  description: 'The <code>id</code> of an existing record in the categories table.'
+                  example: null
+                  nullable: false
+                available:
+                  type: string
+                  description: ''
+                  example: available
+                  nullable: false
+                  enum:
+                    - available
+                    - busy
+                include:
+                  type: string
+                  description: ''
+                  example: porro
+                  nullable: false
+      security: []
+  '/api/tutors/{id}':
+    get:
+      summary: 'Get Tutor Details'
+      operationId: getTutorDetails
+      description: 'Get detailed public profile information of a specific tutor.'
+      parameters:
+        -
+          in: query
+          name: include
+          description: "Specify which relationships to include in the response.\n            Multiple relationships can be comma-separated.\n            Available: tutorProfile, categories, qualifications, applications"
+          example: 'include=tutorProfile,categories'
+          required: false
+          schema:
+            type: string
+            description: "Specify which relationships to include in the response.\n            Multiple relationships can be comma-separated.\n            Available: tutorProfile, categories, qualifications, applications"
+            example: 'include=tutorProfile,categories'
+            nullable: false
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    name: 'John Doe'
+                    email: john@example.com
+                    phone_number: '+254700000000'
+                    whatsapp_number: '+254700000000'
+                    user_type: tutor
+                    location: Nairobi
+                    profile_image: path/to/image.jpg
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: 'John Doe'
+                      email:
+                        type: string
+                        example: john@example.com
+                      phone_number:
+                        type: string
+                        example: '+254700000000'
+                      whatsapp_number:
+                        type: string
+                        example: '+254700000000'
+                      user_type:
+                        type: string
+                        example: tutor
+                      location:
+                        type: string
+                        example: Nairobi
+                      profile_image:
+                        type: string
+                        example: path/to/image.jpg
+      tags:
+        - Tutors
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the tutor.'
+        example: 1
         required: true
         schema:
           type: integer
@@ -1597,3 +1893,6 @@ tags:
   -
     name: 'Tutor Profile Management'
     description: "\nAPIs for managing tutor profiles"
+  -
+    name: Tutors
+    description: "\nAPIs for discovering and viewing tutor profiles"
