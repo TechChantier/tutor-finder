@@ -1,0 +1,1599 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/applications:
+    get:
+      summary: 'List Applications'
+      operationId: listApplications
+      description: 'Get all applications made by the authenticated tutor.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      proposal_message: 'I am interested in teaching this subject...'
+                      status: pending
+                      gig:
+                        id: 1
+                        title: 'Need Math Tutor'
+                        description: 'Looking for calculus tutor'
+                      created_at: '2025-01-23 12:00:00'
+                      updated_at: '2025-01-23 12:00:00'
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        proposal_message: 'I am interested in teaching this subject...'
+                        status: pending
+                        gig:
+                          id: 1
+                          title: 'Need Math Tutor'
+                          description: 'Looking for calculus tutor'
+                        created_at: '2025-01-23 12:00:00'
+                        updated_at: '2025-01-23 12:00:00'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        proposal_message:
+                          type: string
+                          example: 'I am interested in teaching this subject...'
+                        status:
+                          type: string
+                          example: pending
+                        gig:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 1
+                            title:
+                              type: string
+                              example: 'Need Math Tutor'
+                            description:
+                              type: string
+                              example: 'Looking for calculus tutor'
+                        created_at:
+                          type: string
+                          example: '2025-01-23 12:00:00'
+                        updated_at:
+                          type: string
+                          example: '2025-01-23 12:00:00'
+      tags:
+        - 'Application Management'
+  '/api/applications/{id}':
+    put:
+      summary: 'Update Application Status'
+      operationId: updateApplicationStatus
+      description: 'Accept or reject an application (Learner only).'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    status: accepted
+                    proposal_message: 'I am interested in teaching this subject...'
+                    created_at: '2025-01-23 12:00:00'
+                    updated_at: '2025-01-23 12:00:00'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      status:
+                        type: string
+                        example: accepted
+                      proposal_message:
+                        type: string
+                        example: 'I am interested in teaching this subject...'
+                      created_at:
+                        type: string
+                        example: '2025-01-23 12:00:00'
+                      updated_at:
+                        type: string
+                        example: '2025-01-23 12:00:00'
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthorized
+                properties:
+                  message:
+                    type: string
+                    example: Unauthorized
+      tags:
+        - 'Application Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  description: 'Status of application (accepted/rejected)'
+                  example: at
+                  nullable: false
+              required:
+                - status
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the application.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+      -
+        in: path
+        name: application
+        description: 'The ID of the application'
+        example: 15
+        required: true
+        schema:
+          type: integer
+  '/api/gigs/{gig_id}/apply':
+    post:
+      summary: 'Apply to Gig'
+      operationId: applyToGig
+      description: 'Submit an application for a specific gig.'
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    proposal_message: 'I am interested in teaching this subject...'
+                    status: pending
+                    created_at: '2025-01-23 12:00:00'
+                    updated_at: '2025-01-23 12:00:00'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      proposal_message:
+                        type: string
+                        example: 'I am interested in teaching this subject...'
+                      status:
+                        type: string
+                        example: pending
+                      created_at:
+                        type: string
+                        example: '2025-01-23 12:00:00'
+                      updated_at:
+                        type: string
+                        example: '2025-01-23 12:00:00'
+        400:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'This gig is not open for applications'
+                properties:
+                  message:
+                    type: string
+                    example: 'This gig is not open for applications'
+      tags:
+        - 'Application Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                proposal_message:
+                  type: string
+                  description: 'The application proposal text min:50 characters'
+                  example: quod
+                  nullable: false
+              required:
+                - proposal_message
+    parameters:
+      -
+        in: path
+        name: gig_id
+        description: 'The ID of the gig.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+      -
+        in: path
+        name: gig
+        description: 'The ID of the gig'
+        example: 5
+        required: true
+        schema:
+          type: integer
+  /api/tutor/applications:
+    get:
+      summary: 'Tutor Applications'
+      operationId: tutorApplications
+      description: 'Get all applications made by the authenticated tutor.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      proposal_message: 'Application details...'
+                      status: pending
+                      gig:
+                        id: 1
+                        title: 'Math Tutor Needed'
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        proposal_message: 'Application details...'
+                        status: pending
+                        gig:
+                          id: 1
+                          title: 'Math Tutor Needed'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        proposal_message:
+                          type: string
+                          example: 'Application details...'
+                        status:
+                          type: string
+                          example: pending
+                        gig:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 1
+                            title:
+                              type: string
+                              example: 'Math Tutor Needed'
+      tags:
+        - 'Application Management'
+  '/api/gigs/{gig_id}/applications':
+    get:
+      summary: 'Gig Applications'
+      operationId: gigApplications
+      description: 'Get all applications for a specific gig (Learner only).'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      proposal_message: 'Application details...'
+                      status: pending
+                      tutor:
+                        id: 1
+                        name: 'John Doe'
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        proposal_message: 'Application details...'
+                        status: pending
+                        tutor:
+                          id: 1
+                          name: 'John Doe'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        proposal_message:
+                          type: string
+                          example: 'Application details...'
+                        status:
+                          type: string
+                          example: pending
+                        tutor:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 1
+                            name:
+                              type: string
+                              example: 'John Doe'
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthorized
+                properties:
+                  message:
+                    type: string
+                    example: Unauthorized
+      tags:
+        - 'Application Management'
+    parameters:
+      -
+        in: path
+        name: gig_id
+        description: 'The ID of the gig.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+      -
+        in: path
+        name: gig
+        description: 'The ID of the gig'
+        example: 12
+        required: true
+        schema:
+          type: integer
+  /api/signup:
+    post:
+      summary: 'Register User'
+      operationId: registerUser
+      description: 'Create a new user account.'
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'User registered successfully'
+                  user:
+                    id: 1
+                    name: 'John Doe'
+                    email: john@example.com
+                    phone_number: '1234567890'
+                    whatsapp_number: '1234567890'
+                    user_type: tutor
+                    location: 'New York'
+                    tutor_profile:
+                      verification_status: pending
+                      availability_status: available
+                properties:
+                  message:
+                    type: string
+                    example: 'User registered successfully'
+                  user:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: 'John Doe'
+                      email:
+                        type: string
+                        example: john@example.com
+                      phone_number:
+                        type: string
+                        example: '1234567890'
+                      whatsapp_number:
+                        type: string
+                        example: '1234567890'
+                      user_type:
+                        type: string
+                        example: tutor
+                      location:
+                        type: string
+                        example: 'New York'
+                      tutor_profile:
+                        type: object
+                        properties:
+                          verification_status:
+                            type: string
+                            example: pending
+                          availability_status:
+                            type: string
+                            example: available
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The email has already been taken'
+                properties:
+                  message:
+                    type: string
+                    example: 'The email has already been taken'
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "User's full name"
+                  example: voluptas
+                  nullable: false
+                email:
+                  type: string
+                  description: "User's email address must be unique"
+                  example: leannon.mohammed@example.com
+                  nullable: false
+                password:
+                  type: string
+                  description: 'Minimum of 8 characters'
+                  example: '?kJ5adj75Uf(7J%EC?e0'
+                  nullable: false
+                phone_number:
+                  type: string
+                  description: 'Max 12 characters'
+                  example: sunt
+                  nullable: false
+                whatsapp_number:
+                  type: string
+                  description: 'Max 12 characters'
+                  example: laborum
+                  nullable: false
+                user_type:
+                  type: string
+                  description: "Either 'tutor' or 'learner'"
+                  example: aut
+                  nullable: false
+                location:
+                  type: string
+                  description: "User's location"
+                  example: incidunt
+                  nullable: false
+                password_confirmation:
+                  type: string
+                  description: 'Must match password'
+                  example: quod
+                  nullable: false
+              required:
+                - name
+                - email
+                - password
+                - phone_number
+                - whatsapp_number
+                - user_type
+                - location
+                - password_confirmation
+      security: []
+  /api/login:
+    post:
+      summary: 'User Login'
+      operationId: userLogin
+      description: 'Authenticate a user and get access token.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  token: 1|example-token-string
+                  'authenticated user':
+                    id: 1
+                    name: 'John Doe'
+                    email: john@example.com
+                properties:
+                  token:
+                    type: string
+                    example: 1|example-token-string
+                  'authenticated user':
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: 'John Doe'
+                      email:
+                        type: string
+                        example: john@example.com
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The provided credentials are incorrect'
+                properties:
+                  message:
+                    type: string
+                    example: 'The provided credentials are incorrect'
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: "User's email address"
+                  example: brutherford@example.com
+                  nullable: false
+                password:
+                  type: string
+                  description: "User's password min:6"
+                  example: j0`2%~+OYZ
+                  nullable: false
+              required:
+                - email
+                - password
+      security: []
+  /api/logout:
+    post:
+      summary: 'Logout User'
+      operationId: logoutUser
+      description: "Invalidate user's access token."
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'You are Logged out Successfully'
+                properties:
+                  message:
+                    type: string
+                    example: 'You are Logged out Successfully'
+      tags:
+        - Authentication
+  /api/categories:
+    get:
+      summary: 'List Categories'
+      operationId: listCategories
+      description: 'Get all available teaching categories.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      name: Mathematics
+                      description: 'Math tutoring including calculus, algebra etc.'
+                    -
+                      id: 2
+                      name: Languages
+                      description: 'Language tutoring including English, French etc.'
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        name: Mathematics
+                        description: 'Math tutoring including calculus, algebra etc.'
+                      -
+                        id: 2
+                        name: Languages
+                        description: 'Language tutoring including English, French etc.'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        name:
+                          type: string
+                          example: Mathematics
+                        description:
+                          type: string
+                          example: 'Math tutoring including calculus, algebra etc.'
+      tags:
+        - Categories
+      security: []
+  '/api/categories/{category_id}/tutors':
+    get:
+      summary: 'List Category Tutors'
+      operationId: listCategoryTutors
+      description: 'Get all tutors teaching in a specific category.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      name: 'John Doe'
+                      tutor_profile:
+                        bio: 'Experienced math tutor'
+                        years_of_experience: 5
+                        verification_status: verified
+                      qualifications:
+                        -
+                          title: 'BSc Mathematics'
+                          institution: MIT
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        name: 'John Doe'
+                        tutor_profile:
+                          bio: 'Experienced math tutor'
+                          years_of_experience: 5
+                          verification_status: verified
+                        qualifications:
+                          -
+                            title: 'BSc Mathematics'
+                            institution: MIT
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        name:
+                          type: string
+                          example: 'John Doe'
+                        tutor_profile:
+                          type: object
+                          properties:
+                            bio:
+                              type: string
+                              example: 'Experienced math tutor'
+                            years_of_experience:
+                              type: integer
+                              example: 5
+                            verification_status:
+                              type: string
+                              example: verified
+                        qualifications:
+                          type: array
+                          example:
+                            -
+                              title: 'BSc Mathematics'
+                              institution: MIT
+                          items:
+                            type: object
+                            properties:
+                              title:
+                                type: string
+                                example: 'BSc Mathematics'
+                              institution:
+                                type: string
+                                example: MIT
+      tags:
+        - Categories
+      security: []
+    parameters:
+      -
+        in: path
+        name: category_id
+        description: 'The ID of the category.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+      -
+        in: path
+        name: category
+        description: 'The ID of the category'
+        example: 2
+        required: true
+        schema:
+          type: integer
+  /api/user:
+    get:
+      summary: 'Display the authenticated user'
+      operationId: displayTheAuthenticatedUser
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  /api/qualifications:
+    get:
+      summary: "List authenticated tutor's qualifications"
+      operationId: listAuthenticatedTutorsQualifications
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: 'Store new qualification for authenticated tutor'
+      operationId: storeNewQualificationForAuthenticatedTutor
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: zjnpvfkvclvvqqksmyyhb
+                  nullable: false
+                description:
+                  type: string
+                  description: 'Must not be greater than 1000 characters.'
+                  example: 'Assumenda eum rerum non.'
+                  nullable: false
+                institution:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: sh
+                  nullable: false
+                year_obtained:
+                  type: integer
+                  description: 'Must be at least 1950. Must not be greater than 2025.'
+                  example: 5
+                  nullable: false
+              required:
+                - title
+                - description
+                - institution
+                - year_obtained
+      security: []
+  '/api/qualifications/{id}':
+    put:
+      summary: "Update tutor's qualification"
+      operationId: updateTutorsQualification
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: pfwruymylrggknfzjbutvnpn
+                  nullable: false
+                description:
+                  type: string
+                  description: 'Must not be greater than 1000 characters.'
+                  example: 'Molestiae dolore omnis magni molestias atque quis.'
+                  nullable: false
+                institution:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: r
+                  nullable: false
+                year_obtained:
+                  type: integer
+                  description: 'Must be at least 1950. Must not be greater than 2025.'
+                  example: 25
+                  nullable: false
+      security: []
+    delete:
+      summary: "Delete tutor's qualification"
+      operationId: deleteTutorsQualification
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the qualification.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/gigs:
+    get:
+      summary: 'List All Gigs'
+      operationId: listAllGigs
+      description: 'Get a list of all available learning gigs.'
+      parameters:
+        -
+          in: query
+          name: include
+          description: 'Relationships to include (learner,category,applications)'
+          example: et
+          required: false
+          schema:
+            type: string
+            description: 'Relationships to include (learner,category,applications)'
+            example: et
+            nullable: false
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      title: 'Need Math Tutor'
+                      description: 'Looking for calculus tutor'
+                      budget: 5000
+                      location: Online
+                      status: open
+                      learner:
+                        id: 1
+                        name: 'John Student'
+                      category:
+                        id: 1
+                        name: Mathematics
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        title: 'Need Math Tutor'
+                        description: 'Looking for calculus tutor'
+                        budget: 5000
+                        location: Online
+                        status: open
+                        learner:
+                          id: 1
+                          name: 'John Student'
+                        category:
+                          id: 1
+                          name: Mathematics
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        title:
+                          type: string
+                          example: 'Need Math Tutor'
+                        description:
+                          type: string
+                          example: 'Looking for calculus tutor'
+                        budget:
+                          type: integer
+                          example: 5000
+                        location:
+                          type: string
+                          example: Online
+                        status:
+                          type: string
+                          example: open
+                        learner:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 1
+                            name:
+                              type: string
+                              example: 'John Student'
+                        category:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 1
+                            name:
+                              type: string
+                              example: Mathematics
+      tags:
+        - Gigs
+      security: []
+    post:
+      summary: 'Create Gig'
+      operationId: createGig
+      description: 'Create a new gig (Learner only).'
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    title: 'Need Math Tutor'
+                    description: 'Looking for calculus tutor...'
+                    budget: 5000
+                    location: Online
+                    status: open
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      title:
+                        type: string
+                        example: 'Need Math Tutor'
+                      description:
+                        type: string
+                        example: 'Looking for calculus tutor...'
+                      budget:
+                        type: integer
+                        example: 5000
+                      location:
+                        type: string
+                        example: Online
+                      status:
+                        type: string
+                        example: open
+      tags:
+        - Gigs
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                category_id:
+                  type: integer
+                  description: 'Valid category ID'
+                  example: 2
+                  nullable: false
+                title:
+                  type: string
+                  description: 'Gig title min:10 characters'
+                  example: quis
+                  nullable: false
+                description:
+                  type: string
+                  description: 'Detailed description min:50 characters'
+                  example: 'Facere nemo expedita numquam iste.'
+                  nullable: false
+                budget:
+                  type: numeric
+                  description: 'Minimum amount 1000'
+                  example: in
+                  nullable: false
+                location:
+                  type: string
+                  description: 'Preferred learning location'
+                  example: et
+                  nullable: false
+                status:
+                  type: string
+                  description: ''
+                  example: cancelled
+                  nullable: false
+                  enum:
+                    - open
+                    - completed
+                    - cancelled
+              required:
+                - category_id
+                - title
+                - description
+                - budget
+                - location
+  '/api/gigs/{gig_id}':
+    get:
+      summary: 'Get Gig Details'
+      operationId: getGigDetails
+      description: 'Get detailed information about a specific gig.'
+      parameters:
+        -
+          in: query
+          name: include
+          description: 'Relationships to include (learner,category,applications)'
+          example: pariatur
+          required: false
+          schema:
+            type: string
+            description: 'Relationships to include (learner,category,applications)'
+            example: pariatur
+            nullable: false
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    title: 'Need Math Tutor'
+                    description: 'Looking for calculus tutor'
+                    budget: 5000
+                    location: Online
+                    status: open
+                    learner:
+                      id: 1
+                      name: 'John Student'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      title:
+                        type: string
+                        example: 'Need Math Tutor'
+                      description:
+                        type: string
+                        example: 'Looking for calculus tutor'
+                      budget:
+                        type: integer
+                        example: 5000
+                      location:
+                        type: string
+                        example: Online
+                      status:
+                        type: string
+                        example: open
+                      learner:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          name:
+                            type: string
+                            example: 'John Student'
+      tags:
+        - Gigs
+      security: []
+    patch:
+      summary: 'Update Gig'
+      operationId: updateGig
+      description: 'Update an existing gig (Gig owner only).'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    title: 'Updated Math Tutor'
+                    description: 'Updated description...'
+                    budget: 6000
+                    location: Online
+                    status: open
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      title:
+                        type: string
+                        example: 'Updated Math Tutor'
+                      description:
+                        type: string
+                        example: 'Updated description...'
+                      budget:
+                        type: integer
+                        example: 6000
+                      location:
+                        type: string
+                        example: Online
+                      status:
+                        type: string
+                        example: open
+      tags:
+        - Gigs
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                category_id:
+                  type: integer
+                  description: 'Valid category ID'
+                  example: 10
+                  nullable: false
+                title:
+                  type: string
+                  description: 'Gig title min:10 characters'
+                  example: minima
+                  nullable: false
+                description:
+                  type: string
+                  description: 'Detailed description min:50 characters'
+                  example: 'Quia quo dolorem voluptates laborum soluta eligendi.'
+                  nullable: false
+                budget:
+                  type: numeric
+                  description: 'Minimum amount 1000'
+                  example: quidem
+                  nullable: false
+                location:
+                  type: string
+                  description: 'Preferred learning location'
+                  example: dicta
+                  nullable: false
+                status:
+                  type: string
+                  description: 'Status of the gig (open/completed/cancelled)'
+                  example: iusto
+                  nullable: false
+              required:
+                - category_id
+                - title
+                - description
+                - budget
+                - location
+    delete:
+      summary: 'Delete Gig'
+      operationId: deleteGig
+      description: 'Delete a gig (Gig owner only).'
+      parameters: []
+      responses:
+        204:
+          description: ''
+      tags:
+        - Gigs
+    parameters:
+      -
+        in: path
+        name: gig_id
+        description: 'The ID of the gig.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+      -
+        in: path
+        name: gig
+        description: 'The ID of the gig'
+        example: 15
+        required: true
+        schema:
+          type: integer
+  /api/tutor/categories:
+    get:
+      summary: 'List Teaching Categories'
+      operationId: listTeachingCategories
+      description: 'Get all categories the authenticated tutor teaches.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      name: Mathematics
+                      description: 'Math tutoring'
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        name: Mathematics
+                        description: 'Math tutoring'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        name:
+                          type: string
+                          example: Mathematics
+                        description:
+                          type: string
+                          example: 'Math tutoring'
+      tags:
+        - 'Tutor Categories'
+    post:
+      summary: 'Add Teaching Categories'
+      operationId: addTeachingCategories
+      description: 'Add categories that the tutor can teach.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Categories added successfully'
+                  data:
+                    -
+                      id: 1
+                      name: Mathematics
+                properties:
+                  message:
+                    type: string
+                    example: 'Categories added successfully'
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        name: Mathematics
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        name:
+                          type: string
+                          example: Mathematics
+      tags:
+        - 'Tutor Categories'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                category_ids:
+                  type: array
+                  description: 'List of category IDs'
+                  example:
+                    - debitis
+                  items:
+                    type: string
+              required:
+                - category_ids
+  '/api/tutor/categories/{category_id}':
+    delete:
+      summary: 'Remove Teaching Category'
+      operationId: removeTeachingCategory
+      description: "Remove a category from tutor's teaching list."
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Category removed successfully'
+                properties:
+                  message:
+                    type: string
+                    example: 'Category removed successfully'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Category not found in your teaching list'
+                properties:
+                  message:
+                    type: string
+                    example: 'Category not found in your teaching list'
+      tags:
+        - 'Tutor Categories'
+    parameters:
+      -
+        in: path
+        name: category_id
+        description: 'The ID of the category.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+      -
+        in: path
+        name: category
+        description: 'The ID of the category'
+        example: 2
+        required: true
+        schema:
+          type: integer
+  /api/tutor-profile:
+    get:
+      summary: 'Get Profile'
+      operationId: getProfile
+      description: "Get authenticated tutor's profile details."
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    bio: 'Experienced math tutor'
+                    years_of_experience: 5
+                    verification_status: pending
+                    availability_status: available
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      bio:
+                        type: string
+                        example: 'Experienced math tutor'
+                      years_of_experience:
+                        type: integer
+                        example: 5
+                      verification_status:
+                        type: string
+                        example: pending
+                      availability_status:
+                        type: string
+                        example: available
+      tags:
+        - 'Tutor Profile Management'
+    patch:
+      summary: 'Update Profile'
+      operationId: updateProfile
+      description: 'Update tutor profile details.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    bio: 'Updated tutor bio'
+                    years_of_experience: 6
+                    verification_status: pending
+                    availability_status: available
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      bio:
+                        type: string
+                        example: 'Updated tutor bio'
+                      years_of_experience:
+                        type: integer
+                        example: 6
+                      verification_status:
+                        type: string
+                        example: pending
+                      availability_status:
+                        type: string
+                        example: available
+      tags:
+        - 'Tutor Profile Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bio:
+                  type: string
+                  description: 'Detailed bio min:50 characters'
+                  example: at
+                  nullable: false
+                years_of_experience:
+                  type: integer
+                  description: 'Years of teaching experience'
+                  example: 5
+                  nullable: false
+                availability_status:
+                  type: string
+                  description: "Tutor's availability (available/busy)"
+                  example: voluptatum
+                  nullable: false
+              required:
+                - bio
+                - years_of_experience
+  '/api/tutors/{userId}/verify':
+    patch:
+      summary: 'Verify Tutor'
+      operationId: verifyTutor
+      description: "Update tutor's verification status."
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    name: 'John Doe'
+                    tutor_profile:
+                      verification_status: verified
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: 'John Doe'
+                      tutor_profile:
+                        type: object
+                        properties:
+                          verification_status:
+                            type: string
+                            example: verified
+      tags:
+        - 'Tutor Profile Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                verification_status:
+                  type: string
+                  description: 'Status (verified/rejected)'
+                  example: aut
+                  nullable: false
+              required:
+                - verification_status
+    parameters:
+      -
+        in: path
+        name: userId
+        description: 'The ID of the tutor'
+        example: 13
+        required: true
+        schema:
+          type: integer
+tags:
+  -
+    name: 'Application Management'
+    description: "\nAPIs for managing gig applications"
+  -
+    name: Authentication
+    description: "\nAPIs for managing athentication"
+  -
+    name: Categories
+    description: "\nAPIs for managing teaching/learning categories"
+  -
+    name: Endpoints
+    description: ''
+  -
+    name: Gigs
+    description: "\nAPIs for managing learning gigs"
+  -
+    name: 'Tutor Categories'
+    description: "\nAPIs for managing tutor's teaching categories"
+  -
+    name: 'Tutor Profile Management'
+    description: "\nAPIs for managing tutor profiles"

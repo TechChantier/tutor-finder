@@ -1,0 +1,194 @@
+name: 'Tutor Categories'
+description: |-
+
+  APIs for managing tutor's teaching categories
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/tutor/categories
+    metadata:
+      groupName: 'Tutor Categories'
+      groupDescription: |-
+
+        APIs for managing tutor's teaching categories
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List Teaching Categories'
+      description: 'Get all categories the authenticated tutor teaches.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "data": [
+             {
+               "id": 1,
+               "name": "Mathematics",
+               "description": "Math tutoring"
+             }
+           ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/tutor/categories
+    metadata:
+      groupName: 'Tutor Categories'
+      groupDescription: |-
+
+        APIs for managing tutor's teaching categories
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Add Teaching Categories'
+      description: 'Add categories that the tutor can teach.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      category_ids:
+        name: category_ids
+        description: 'List of category IDs'
+        required: true
+        example:
+          - debitis
+        type: 'string[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      'category_ids.*':
+        name: 'category_ids.*'
+        description: 'Must exist in categories table'
+        required: true
+        example: 12
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      category_ids:
+        - debitis
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "message": "Categories added successfully",
+           "data": [
+             {
+               "id": 1,
+               "name": "Mathematics"
+             }
+           ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/tutor/categories/{category_id}'
+    metadata:
+      groupName: 'Tutor Categories'
+      groupDescription: |-
+
+        APIs for managing tutor's teaching categories
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Remove Teaching Category'
+      description: "Remove a category from tutor's teaching list."
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      category_id:
+        name: category_id
+        description: 'The ID of the category.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      category:
+        name: category
+        description: 'The ID of the category'
+        required: true
+        example: 2
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      category_id: 1
+      category: 2
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "message": "Category removed successfully"
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+           "message": "Category not found in your teaching list"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

@@ -1,0 +1,136 @@
+name: Categories
+description: |-
+
+  APIs for managing teaching/learning categories
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/categories
+    metadata:
+      groupName: Categories
+      groupDescription: |-
+
+        APIs for managing teaching/learning categories
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List Categories'
+      description: 'Get all available teaching categories.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "data": [
+             {
+               "id": 1,
+               "name": "Mathematics",
+               "description": "Math tutoring including calculus, algebra etc."
+             },
+             {
+               "id": 2,
+               "name": "Languages",
+               "description": "Language tutoring including English, French etc."
+             }
+           ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/categories/{category_id}/tutors'
+    metadata:
+      groupName: Categories
+      groupDescription: |-
+
+        APIs for managing teaching/learning categories
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List Category Tutors'
+      description: 'Get all tutors teaching in a specific category.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      category_id:
+        name: category_id
+        description: 'The ID of the category.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      category:
+        name: category
+        description: 'The ID of the category'
+        required: true
+        example: 2
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      category_id: 1
+      category: 2
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "data": [
+             {
+               "id": 1,
+               "name": "John Doe",
+               "tutor_profile": {
+                 "bio": "Experienced math tutor",
+                 "years_of_experience": 5,
+                 "verification_status": "verified"
+               },
+               "qualifications": [
+                 {
+                   "title": "BSc Mathematics",
+                   "institution": "MIT"
+                 }
+               ]
+             }
+           ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

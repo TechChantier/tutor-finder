@@ -1,0 +1,1153 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost"
+        }
+    ],
+    "info": {
+        "name": "Laravel",
+        "_postman_id": "31acf127-3598-4562-bf5a-db0f945d8681",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Application Management",
+            "description": "\nAPIs for managing gig applications",
+            "item": [
+                {
+                    "name": "List Applications",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/applications",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/applications"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Get all applications made by the authenticated tutor."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"data\": [\n   {\n     \"id\": 1,\n     \"proposal_message\": \"I am interested in teaching this subject...\",\n     \"status\": \"pending\",\n     \"gig\": {\n       \"id\": 1,\n       \"title\": \"Need Math Tutor\",\n       \"description\": \"Looking for calculus tutor\"\n     },\n     \"created_at\": \"2025-01-23 12:00:00\",\n     \"updated_at\": \"2025-01-23 12:00:00\"\n   }\n ]\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update Application Status",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/applications\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/applications\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the application."
+                                },
+                                {
+                                    "id": "application",
+                                    "key": "application",
+                                    "value": "15",
+                                    "description": "The ID of the application"
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"status\":\"at\"}"
+                        },
+                        "description": "Accept or reject an application (Learner only)."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"data\": {\n   \"id\": 1,\n   \"status\": \"accepted\",\n   \"proposal_message\": \"I am interested in teaching this subject...\",\n   \"created_at\": \"2025-01-23 12:00:00\",\n   \"updated_at\": \"2025-01-23 12:00:00\"\n }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"message\": \"Unauthorized\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Apply to Gig",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/gigs\/:gig_id\/apply",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/gigs\/:gig_id\/apply",
+                            "variable": [
+                                {
+                                    "id": "gig_id",
+                                    "key": "gig_id",
+                                    "value": "1",
+                                    "description": "The ID of the gig."
+                                },
+                                {
+                                    "id": "gig",
+                                    "key": "gig",
+                                    "value": "5",
+                                    "description": "The ID of the gig"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"proposal_message\":\"quod\"}"
+                        },
+                        "description": "Submit an application for a specific gig."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n \"data\": {\n   \"id\": 1,\n   \"proposal_message\": \"I am interested in teaching this subject...\",\n   \"status\": \"pending\",\n   \"created_at\": \"2025-01-23 12:00:00\",\n   \"updated_at\": \"2025-01-23 12:00:00\"\n }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n \"message\": \"This gig is not open for applications\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Tutor Applications",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/tutor\/applications",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/tutor\/applications"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Get all applications made by the authenticated tutor."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"data\": [\n   {\n     \"id\": 1,\n     \"proposal_message\": \"Application details...\",\n     \"status\": \"pending\",\n     \"gig\": {\n       \"id\": 1,\n       \"title\": \"Math Tutor Needed\"\n     }\n   }\n ]\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Gig Applications",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/gigs\/:gig_id\/applications",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/gigs\/:gig_id\/applications",
+                            "variable": [
+                                {
+                                    "id": "gig_id",
+                                    "key": "gig_id",
+                                    "value": "1",
+                                    "description": "The ID of the gig."
+                                },
+                                {
+                                    "id": "gig",
+                                    "key": "gig",
+                                    "value": "12",
+                                    "description": "The ID of the gig"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Get all applications for a specific gig (Learner only)."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"data\": [\n   {\n     \"id\": 1,\n     \"proposal_message\": \"Application details...\",\n     \"status\": \"pending\",\n     \"tutor\": {\n       \"id\": 1,\n       \"name\": \"John Doe\"\n     }\n   }\n ]\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"message\": \"Unauthorized\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Authentication",
+            "description": "\nAPIs for managing athentication",
+            "item": [
+                {
+                    "name": "Register User",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/signup",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/signup"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"voluptas\",\"email\":\"leannon.mohammed@example.com\",\"password\":\"?kJ5adj75Uf(7J%EC?e0\",\"phone_number\":\"sunt\",\"whatsapp_number\":\"laborum\",\"user_type\":\"aut\",\"location\":\"incidunt\",\"password_confirmation\":\"quod\"}"
+                        },
+                        "description": "Create a new user account.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n \"message\": \"User registered successfully\",\n \"user\": {\n   \"id\": 1,\n   \"name\": \"John Doe\",\n   \"email\": \"john@example.com\",\n   \"phone_number\": \"1234567890\",\n   \"whatsapp_number\": \"1234567890\",\n   \"user_type\": \"tutor\",\n   \"location\": \"New York\",\n   \"tutor_profile\": {\n     \"verification_status\": \"pending\",\n     \"availability_status\": \"available\"\n   }\n }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n \"message\": \"The email has already been taken\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "User Login",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"brutherford@example.com\",\"password\":\"j0`2%~+OYZ\"}"
+                        },
+                        "description": "Authenticate a user and get access token.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"token\": \"1|example-token-string\",\n \"authenticated user\": {\n   \"id\": 1,\n   \"name\": \"John Doe\",\n   \"email\": \"john@example.com\"\n }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n \"message\": \"The provided credentials are incorrect\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Logout User",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/logout",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/logout"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Invalidate user's access token."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"message\": \"You are Logged out Successfully\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Categories",
+            "description": "\nAPIs for managing teaching\/learning categories",
+            "item": [
+                {
+                    "name": "List Categories",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/categories",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/categories"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Get all available teaching categories.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"data\": [\n   {\n     \"id\": 1,\n     \"name\": \"Mathematics\",\n     \"description\": \"Math tutoring including calculus, algebra etc.\"\n   },\n   {\n     \"id\": 2,\n     \"name\": \"Languages\",\n     \"description\": \"Language tutoring including English, French etc.\"\n   }\n ]\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "List Category Tutors",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/categories\/:category_id\/tutors",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/categories\/:category_id\/tutors",
+                            "variable": [
+                                {
+                                    "id": "category_id",
+                                    "key": "category_id",
+                                    "value": "1",
+                                    "description": "The ID of the category."
+                                },
+                                {
+                                    "id": "category",
+                                    "key": "category",
+                                    "value": "2",
+                                    "description": "The ID of the category"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Get all tutors teaching in a specific category.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"data\": [\n   {\n     \"id\": 1,\n     \"name\": \"John Doe\",\n     \"tutor_profile\": {\n       \"bio\": \"Experienced math tutor\",\n       \"years_of_experience\": 5,\n       \"verification_status\": \"verified\"\n     },\n     \"qualifications\": [\n       {\n         \"title\": \"BSc Mathematics\",\n         \"institution\": \"MIT\"\n       }\n     ]\n   }\n ]\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "Display the authenticated user",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/user"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "List authenticated tutor's qualifications",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/qualifications",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/qualifications"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Store new qualification for authenticated tutor",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/qualifications",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/qualifications"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"zjnpvfkvclvvqqksmyyhb\",\"description\":\"Assumenda eum rerum non.\",\"institution\":\"sh\",\"year_obtained\":5}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update tutor's qualification",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/qualifications\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/qualifications\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the qualification."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"pfwruymylrggknfzjbutvnpn\",\"description\":\"Molestiae dolore omnis magni molestias atque quis.\",\"institution\":\"r\",\"year_obtained\":25}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete tutor's qualification",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/qualifications\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/qualifications\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the qualification."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Gigs",
+            "description": "\nAPIs for managing learning gigs",
+            "item": [
+                {
+                    "name": "List All Gigs",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/gigs",
+                            "query": [
+                                {
+                                    "key": "include",
+                                    "value": "et",
+                                    "description": "Relationships to include (learner,category,applications)",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/gigs?include=et"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Get a list of all available learning gigs.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"data\": [\n   {\n     \"id\": 1,\n     \"title\": \"Need Math Tutor\",\n     \"description\": \"Looking for calculus tutor\",\n     \"budget\": 5000,\n     \"location\": \"Online\",\n     \"status\": \"open\",\n     \"learner\": {\n       \"id\": 1,\n       \"name\": \"John Student\"\n     },\n     \"category\": {\n       \"id\": 1,\n       \"name\": \"Mathematics\"\n     }\n   }\n ]\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get Gig Details",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/gigs\/:gig_id",
+                            "query": [
+                                {
+                                    "key": "include",
+                                    "value": "pariatur",
+                                    "description": "Relationships to include (learner,category,applications)",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/gigs\/:gig_id?include=pariatur",
+                            "variable": [
+                                {
+                                    "id": "gig_id",
+                                    "key": "gig_id",
+                                    "value": "1",
+                                    "description": "The ID of the gig."
+                                },
+                                {
+                                    "id": "gig",
+                                    "key": "gig",
+                                    "value": "15",
+                                    "description": "The ID of the gig"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Get detailed information about a specific gig.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"data\": {\n   \"id\": 1,\n   \"title\": \"Need Math Tutor\",\n   \"description\": \"Looking for calculus tutor\",\n   \"budget\": 5000,\n   \"location\": \"Online\",\n   \"status\": \"open\",\n   \"learner\": {\n     \"id\": 1,\n     \"name\": \"John Student\"\n   }\n }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Create Gig",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/gigs",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/gigs"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"category_id\":2,\"title\":\"quis\",\"description\":\"Facere nemo expedita numquam iste.\",\"budget\":\"in\",\"location\":\"et\",\"status\":\"cancelled\"}"
+                        },
+                        "description": "Create a new gig (Learner only)."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n \"data\": {\n   \"id\": 1,\n   \"title\": \"Need Math Tutor\",\n   \"description\": \"Looking for calculus tutor...\",\n   \"budget\": 5000,\n   \"location\": \"Online\",\n   \"status\": \"open\"\n }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update Gig",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/gigs\/:gig_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/gigs\/:gig_id",
+                            "variable": [
+                                {
+                                    "id": "gig_id",
+                                    "key": "gig_id",
+                                    "value": "1",
+                                    "description": "The ID of the gig."
+                                },
+                                {
+                                    "id": "gig",
+                                    "key": "gig",
+                                    "value": "17",
+                                    "description": "The ID of the gig"
+                                }
+                            ]
+                        },
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"category_id\":10,\"title\":\"minima\",\"description\":\"Quia quo dolorem voluptates laborum soluta eligendi.\",\"budget\":\"quidem\",\"location\":\"dicta\",\"status\":\"iusto\"}"
+                        },
+                        "description": "Update an existing gig (Gig owner only)."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"data\": {\n   \"id\": 1,\n   \"title\": \"Updated Math Tutor\",\n   \"description\": \"Updated description...\",\n   \"budget\": 6000,\n   \"location\": \"Online\",\n   \"status\": \"open\"\n }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete Gig",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/gigs\/:gig_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/gigs\/:gig_id",
+                            "variable": [
+                                {
+                                    "id": "gig_id",
+                                    "key": "gig_id",
+                                    "value": "1",
+                                    "description": "The ID of the gig."
+                                },
+                                {
+                                    "id": "gig",
+                                    "key": "gig",
+                                    "value": "18",
+                                    "description": "The ID of the gig"
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Delete a gig (Gig owner only)."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "{}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Tutor Categories",
+            "description": "\nAPIs for managing tutor's teaching categories",
+            "item": [
+                {
+                    "name": "List Teaching Categories",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/tutor\/categories",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/tutor\/categories"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Get all categories the authenticated tutor teaches."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"data\": [\n   {\n     \"id\": 1,\n     \"name\": \"Mathematics\",\n     \"description\": \"Math tutoring\"\n   }\n ]\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Add Teaching Categories",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/tutor\/categories",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/tutor\/categories"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"category_ids\":[\"debitis\"]}"
+                        },
+                        "description": "Add categories that the tutor can teach."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"message\": \"Categories added successfully\",\n \"data\": [\n   {\n     \"id\": 1,\n     \"name\": \"Mathematics\"\n   }\n ]\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Remove Teaching Category",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/tutor\/categories\/:category_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/tutor\/categories\/:category_id",
+                            "variable": [
+                                {
+                                    "id": "category_id",
+                                    "key": "category_id",
+                                    "value": "1",
+                                    "description": "The ID of the category."
+                                },
+                                {
+                                    "id": "category",
+                                    "key": "category",
+                                    "value": "2",
+                                    "description": "The ID of the category"
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Remove a category from tutor's teaching list."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"message\": \"Category removed successfully\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n \"message\": \"Category not found in your teaching list\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Tutor Profile Management",
+            "description": "\nAPIs for managing tutor profiles",
+            "item": [
+                {
+                    "name": "Get Profile",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/tutor-profile",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/tutor-profile"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Get authenticated tutor's profile details."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"data\": {\n   \"bio\": \"Experienced math tutor\",\n   \"years_of_experience\": 5,\n   \"verification_status\": \"pending\",\n   \"availability_status\": \"available\"\n }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update Profile",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/tutor-profile",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/tutor-profile"
+                        },
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"bio\":\"at\",\"years_of_experience\":5,\"availability_status\":\"voluptatum\"}"
+                        },
+                        "description": "Update tutor profile details."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"data\": {\n   \"bio\": \"Updated tutor bio\",\n   \"years_of_experience\": 6,\n   \"verification_status\": \"pending\",\n   \"availability_status\": \"available\"\n }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Verify Tutor",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/tutors\/:userId\/verify",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/tutors\/:userId\/verify",
+                            "variable": [
+                                {
+                                    "id": "userId",
+                                    "key": "userId",
+                                    "value": "13",
+                                    "description": "The ID of the tutor"
+                                }
+                            ]
+                        },
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"verification_status\":\"aut\"}"
+                        },
+                        "description": "Update tutor's verification status."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"data\": {\n   \"id\": 1,\n   \"name\": \"John Doe\",\n   \"tutor_profile\": {\n     \"verification_status\": \"verified\"\n   }\n }\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}
