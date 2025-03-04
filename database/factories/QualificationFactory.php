@@ -23,7 +23,7 @@ class QualificationFactory extends Factory
             'description' => fake()->paragraph(),
             'institution' => fake()->company(),
             'year_obtained' => fake()->year(),
-            'verification_status' => fake()->randomElement(['pending', 'verified', 'rejected']),
+            // 'verification_status' => fake()->randomElement(['pending', 'verified', 'rejected']),
         ];
     }
 }
