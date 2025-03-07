@@ -29,7 +29,7 @@ class RegisterRequest extends FormRequest
             'whatsapp_number' => ['required', 'string', 'max:12'],
             'user_type' => ['required', 'string', 'in:tutor,learner'],
             'location' => ['required', 'string', 'max:255'],
-            'profile_image' => ['nullable', 'file', 'mimes:jpeg,png,jpg', 'max:2048']
+            'profile_image' => ['nullable', 'image', 'mimes:jpeg,png,jpg', 'max:2048']
         ];
     }
 
