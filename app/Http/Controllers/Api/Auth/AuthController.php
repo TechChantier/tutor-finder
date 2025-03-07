@@ -54,10 +54,22 @@ class AuthController extends Controller
      *  "message": "The email has already been taken"
      * }
      */
-    public function signup(RegisterRequest $request): JsonResponse 
+    public function signup(RegisterRequest $request): JsonResponse
     {
         $validatedFields = $request->validated();
-
+        
+        // Initialize profile image path as null
+        $profileImagePath = null;
+        
+        // Handle profile image upload if provided
+        if ($request->hasFile('profile_image')) {
+            $image = $request->file('profile_image');
+            // Store the image in the 'profile_images' directory within your storage
+            $relativePath = $image->store('profile_images', 'public');
+            // Generate the full URL path
+            $profileImagePath = url('storage/' . $relativePath);
+        }
+        
         // Create user with all validated fields
         $user = User::create([
             'name' => $validatedFields['name'],
@@ -67,10 +79,9 @@ class AuthController extends Controller
             'whatsapp_number' => $validatedFields['whatsapp_number'],
             'user_type' => $validatedFields['user_type'],
             'location' => $validatedFields['location'],
-            'profile_image' => $validatedFields['profile_image'],
+            'profile_image' => $profileImagePath,
         ]);
-
-
+        
         if ($validatedFields['user_type'] === 'tutor') {
             $user->tutorProfile()->create([
                 'bio' => '',
@@ -79,7 +90,7 @@ class AuthController extends Controller
                 'availability_status' => 'available',
             ]);
         }
-
+        
         return response()->json([
             'message' => 'User registered successfully',
             'user' => new UserResource($user),
