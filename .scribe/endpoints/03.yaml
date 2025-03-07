@@ -77,7 +77,7 @@ endpoints:
         name: search
         description: 'Must be at least 3 characters.'
         required: false
-        example: qbeohaxdhzkjokghzriztqfemdjrfivseitfxddiilhnosimiourpzxolfy
+        example: qgynlomaitvotcjolmgjbmfiklbswdlavbuuaeyrpfqplbqjqzqqrlmrjbnpxrodzxsompyuggnnfeotymwx
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -97,7 +97,7 @@ endpoints:
         name: available
         description: ''
         required: false
-        example: available
+        example: busy
         type: string
         enumValues:
           - available
@@ -109,16 +109,16 @@ endpoints:
         name: include
         description: ''
         required: false
-        example: aut
+        example: dignissimos
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      search: qbeohaxdhzkjokghzriztqfemdjrfivseitfxddiilhnosimiourpzxolfy
-      available: available
-      include: aut
+      search: qgynlomaitvotcjolmgjbmfiklbswdlavbuuaeyrpfqplbqjqzqqrlmrjbnpxrodzxsompyuggnnfeotymwx
+      available: busy
+      include: dignissimos
     fileParameters: []
     responses:
       -

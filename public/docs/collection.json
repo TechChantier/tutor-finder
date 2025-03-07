@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "5494157e-6951-4c2e-bec5-f3f5817f6ce7",
+        "_postman_id": "4e09bb3d-1c49-4ee2-a260-76b8c8480d30",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -87,7 +87,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"status\":\"consequuntur\"}"
+                            "raw": "{\"status\":\"eum\"}"
                         },
                         "description": "Accept or reject an application (Learner only)."
                     },
@@ -124,7 +124,7 @@
                                 {
                                     "id": "gig",
                                     "key": "gig",
-                                    "value": "3",
+                                    "value": "4",
                                     "description": "The ID of the gig"
                                 }
                             ]
@@ -142,7 +142,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"proposal_message\":\"sed\"}"
+                            "raw": "{\"proposal_message\":\"architecto\"}"
                         },
                         "description": "Submit an application for a specific gig."
                     },
@@ -211,7 +211,7 @@
                                 {
                                     "id": "gig",
                                     "key": "gig",
-                                    "value": "10",
+                                    "value": "13",
                                     "description": "The ID of the gig"
                                 }
                             ]
@@ -276,49 +276,49 @@
                             "formdata": [
                                 {
                                     "key": "name",
-                                    "value": "facilis",
+                                    "value": "quia",
                                     "type": "text",
                                     "description": "User's full name"
                                 },
                                 {
                                     "key": "email",
-                                    "value": "theresa.legros@example.com",
+                                    "value": "nola.torp@example.net",
                                     "type": "text",
                                     "description": "User's email address must be unique"
                                 },
                                 {
                                     "key": "password",
-                                    "value": "#je30LXJ_",
+                                    "value": "I<H\\%MUg]0_.Ee",
                                     "type": "text",
                                     "description": "Minimum of 8 characters"
                                 },
                                 {
                                     "key": "phone_number",
-                                    "value": "non",
+                                    "value": "quam",
                                     "type": "text",
                                     "description": "Max 12 characters"
                                 },
                                 {
                                     "key": "whatsapp_number",
-                                    "value": "est",
+                                    "value": "facere",
                                     "type": "text",
                                     "description": "Max 12 characters"
                                 },
                                 {
                                     "key": "user_type",
-                                    "value": "explicabo",
+                                    "value": "eaque",
                                     "type": "text",
                                     "description": "Either 'tutor' or 'learner'"
                                 },
                                 {
                                     "key": "location",
-                                    "value": "omnis",
+                                    "value": "ipsum",
                                     "type": "text",
                                     "description": "User's location"
                                 },
                                 {
                                     "key": "password_confirmation",
-                                    "value": "est",
+                                    "value": "nemo",
                                     "type": "text",
                                     "description": "Must match password"
                                 },
@@ -371,7 +371,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"cordie19@example.org\",\"password\":\"tzgUo|LPu!\\\"+2\"}"
+                            "raw": "{\"email\":\"vschamberger@example.org\",\"password\":\"(TvELvTz7\"}"
                         },
                         "description": "Authenticate a user and get access token.",
                         "auth": {
@@ -639,7 +639,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"dxohpansecxpcqdlagiogpgdp\",\"description\":\"In esse omnis porro possimus qui fugit cumque.\",\"institution\":\"jhnwtpkialqw\",\"year_obtained\":2}"
+                            "raw": "{\"title\":\"jnnxeqgbbpziizyx\",\"description\":\"Error in odit sit aut fugiat quis.\",\"institution\":\"imczoihfmmyn\",\"year_obtained\":25}"
                         },
                         "description": "",
                         "auth": {
@@ -678,7 +678,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"bbfrsvfffierwmkj\",\"description\":\"Laborum placeat qui iusto ex similique ipsam.\",\"institution\":\"yhvtgmxxjhptdxmjagtygzdj\",\"year_obtained\":1}"
+                            "raw": "{\"title\":\"jmabsnprqplqbgkjflrkxvpm\",\"description\":\"Quia fugiat ea autem maxime perferendis nihil non.\",\"institution\":\"glakcw\",\"year_obtained\":20}"
                         },
                         "description": "",
                         "auth": {
@@ -738,36 +738,42 @@
                             "query": [
                                 {
                                     "key": "include",
-                                    "value": "et",
-                                    "description": "Specify which relationships to include in the response.\n            Multiple relationships can be comma-separated.\n            Available relationships: learner, category, applications\n\n            Examples of including single relationship:\n            - \/api\/gigs?include=learner (includes the learner who created the gig)\n            - \/api\/gigs?include=category (includes the category of the gig)\n            - \/api\/gigs?include=applications (includes all applications for the gig)\n\n            Examples of including multiple relationships:\n            - \/api\/gigs?include=learner,category (includes both learner and category)\n            - \/api\/gigs?include=learner,applications (includes learner and all applications)\n            - \/api\/gigs?include=category,applications (includes category and applications)\n            - \/api\/gigs?include=learner,category,applications (includes all relationships)",
+                                    "value": "aut",
+                                    "description": "Specify which relationships to include in the response.\n            Multiple relationships can be comma-separated.\n            Available relationships: learner, category, applications",
                                     "disabled": false
                                 },
                                 {
                                     "key": "search",
-                                    "value": "cupiditate",
+                                    "value": "odio",
                                     "description": "Search in gig title and description",
                                     "disabled": false
                                 },
                                 {
                                     "key": "price",
-                                    "value": "recusandae",
+                                    "value": "a",
                                     "description": "Filter by price range (format: 1000-5000)",
                                     "disabled": false
                                 },
                                 {
                                     "key": "category_id",
-                                    "value": "3",
+                                    "value": "15",
                                     "description": "Filter gigs by category",
                                     "disabled": false
                                 },
                                 {
                                     "key": "status",
-                                    "value": "occaecati",
+                                    "value": "amet",
                                     "description": "Filter by gig status (open\/in_progress\/completed\/cancelled)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "learner_id",
+                                    "value": "5",
+                                    "description": "Filter gigs by the learner who created them",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/gigs?include=et&search=cupiditate&price=recusandae&category_id=3&status=occaecati"
+                            "raw": "{{baseUrl}}\/api\/gigs?include=aut&search=odio&price=a&category_id=15&status=amet&learner_id=5"
                         },
                         "method": "GET",
                         "header": [
@@ -782,7 +788,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"search\":\"cupmvqzqamu\",\"price\":\"7-9\",\"status\":\"cancelled\"}"
+                            "raw": "{\"search\":\"dkietsyfbnuzhhnjcxe\",\"price\":\"1484-263329768\",\"status\":\"open\"}"
                         },
                         "description": "Get a list of all available learning gigs.",
                         "auth": {
@@ -807,12 +813,12 @@
                             "query": [
                                 {
                                     "key": "include",
-                                    "value": "aut",
+                                    "value": "aliquid",
                                     "description": "Relationships to include (learner,category,applications)",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/gigs\/:gig_id?include=aut",
+                            "raw": "{{baseUrl}}\/api\/gigs\/:gig_id?include=aliquid",
                             "variable": [
                                 {
                                     "id": "gig_id",
@@ -823,7 +829,7 @@
                                 {
                                     "id": "gig",
                                     "key": "gig",
-                                    "value": "12",
+                                    "value": "6",
                                     "description": "The ID of the gig"
                                 }
                             ]
@@ -876,7 +882,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"category_id\":4,\"title\":\"quod\",\"description\":\"Ab dolores deserunt sequi expedita quis.\",\"budget\":\"aut\",\"location\":\"et\",\"status\":\"completed\"}"
+                            "raw": "{\"category_id\":5,\"title\":\"cupiditate\",\"description\":\"Quis asperiores nostrum amet eligendi ullam modi sunt.\",\"budget\":\"odit\",\"location\":\"quasi\",\"status\":\"open\"}"
                         },
                         "description": "Create a new gig (Learner only)."
                     },
@@ -907,7 +913,7 @@
                                 {
                                     "id": "gig",
                                     "key": "gig",
-                                    "value": "15",
+                                    "value": "1",
                                     "description": "The ID of the gig"
                                 }
                             ]
@@ -925,7 +931,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"category_id\":9,\"title\":\"blanditiis\",\"description\":\"Perspiciatis porro nulla earum dolor necessitatibus laboriosam repellat consectetur.\",\"budget\":\"ut\",\"location\":\"saepe\",\"status\":\"eos\"}"
+                            "raw": "{\"category_id\":6,\"title\":\"minus\",\"description\":\"Neque esse optio architecto ullam et et.\",\"budget\":\"voluptatem\",\"location\":\"iste\",\"status\":\"et\"}"
                         },
                         "description": "Update an existing gig (Gig owner only)."
                     },
@@ -956,7 +962,7 @@
                                 {
                                     "id": "gig",
                                     "key": "gig",
-                                    "value": "7",
+                                    "value": "19",
                                     "description": "The ID of the gig"
                                 }
                             ]
@@ -1044,7 +1050,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"category_ids\":[\"eos\"]}"
+                            "raw": "{\"category_ids\":[\"qui\"]}"
                         },
                         "description": "Add categories that the tutor can teach."
                     },
@@ -1075,7 +1081,7 @@
                                 {
                                     "id": "category",
                                     "key": "category",
-                                    "value": "9",
+                                    "value": "20",
                                     "description": "The ID of the category"
                                 }
                             ]
@@ -1169,7 +1175,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"bio\":\"hic\",\"years_of_experience\":11,\"availability_status\":\"sit\"}"
+                            "raw": "{\"bio\":\"quia\",\"years_of_experience\":13,\"availability_status\":\"nemo\"}"
                         },
                         "description": "Update tutor profile details."
                     },
@@ -1194,7 +1200,7 @@
                                 {
                                     "id": "userId",
                                     "key": "userId",
-                                    "value": "8",
+                                    "value": "5",
                                     "description": "The ID of the tutor"
                                 }
                             ]
@@ -1212,7 +1218,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"verification_status\":\"qui\"}"
+                            "raw": "{\"verification_status\":\"sint\"}"
                         },
                         "description": "Update tutor's verification status."
                     },
@@ -1278,7 +1284,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"search\":\"qbeohaxdhzkjokghzriztqfemdjrfivseitfxddiilhnosimiourpzxolfy\",\"available\":\"available\",\"include\":\"aut\"}"
+                            "raw": "{\"search\":\"qgynlomaitvotcjolmgjbmfiklbswdlavbuuaeyrpfqplbqjqzqqrlmrjbnpxrodzxsompyuggnnfeotymwx\",\"available\":\"busy\",\"include\":\"dignissimos\"}"
                         },
                         "description": "Get a list of all available tutors with optional filters.",
                         "auth": {

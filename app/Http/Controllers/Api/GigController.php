@@ -8,6 +8,7 @@ use App\Http\Requests\Gig\UpdateRequest;
 use App\Http\Resources\GigResource;
 use App\Http\Traits\CanLoadRelationships;
 use App\Models\Gig;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
@@ -28,90 +29,95 @@ class GigController extends Controller
        $this->authorizeResource(Gig::class, 'gig');
    }
 
-   /**
-    * List All Gigs
-    * 
-    * Get a list of all available learning gigs.
-    * 
-    * @queryParam include string Specify which relationships to include in the response. 
-    *             Multiple relationships can be comma-separated.
-    *             Available relationships: learner, category, applications
-    *             
-    *             Examples of including single relationship:
-    *             - /api/gigs?include=learner (includes the learner who created the gig)
-    *             - /api/gigs?include=category (includes the category of the gig)
-    *             - /api/gigs?include=applications (includes all applications for the gig)
-    *             
-    *             Examples of including multiple relationships:
-    *             - /api/gigs?include=learner,category (includes both learner and category)
-    *             - /api/gigs?include=learner,applications (includes learner and all applications)
-    *             - /api/gigs?include=category,applications (includes category and applications)
-    *             - /api/gigs?include=learner,category,applications (includes all relationships)
-    * @queryParam search string Search in gig title and description
-    * @queryParam price string Filter by price range (format: 1000-5000)
-    * @queryParam category_id integer Filter gigs by category
-    * @queryParam status string Filter by gig status (open/in_progress/completed/cancelled)
-    * 
-    * @response {
-    *  "data": [
-    *    {
-    *      "id": 1,
-    *      "title": "Need Math Tutor",
-    *      "description": "Looking for calculus tutor",
-    *      "budget": 5000,
-    *      "location": "Online",
-    *      "status": "open",
-    *      "learner": {
-    *        "id": 1,
-    *        "name": "John Student"
-    *      },
-    *      "category": {
-    *        "id": 1,
-    *        "name": "Mathematics"
-    *      }
-    *    }
-    *  ]
-    * }
-    */
-   public function index(Request $request)
-   {
-       $query = $this->loadRelationships(Gig::query());
+    /**
+     * List All Gigs
+     * 
+     * Get a list of all available learning gigs.
+     * 
+     * @queryParam include string Specify which relationships to include in the response. 
+     *             Multiple relationships can be comma-separated.
+     *             Available relationships: learner, category, applications
+     * @queryParam search string Search in gig title and description
+     * @queryParam price string Filter by price range (format: 1000-5000)
+     * @queryParam category_id integer Filter gigs by category
+     * @queryParam status string Filter by gig status (open/in_progress/completed/cancelled)
+     * @queryParam learner_id integer Filter gigs by the learner who created them
+     * 
+     * @response {
+     *  "data": [
+     *    {
+     *      "id": 1,
+     *      "title": "Need Math Tutor",
+     *      "description": "Looking for calculus tutor",
+     *      "budget": 5000,
+     *      "location": "Online",
+     *      "status": "open",
+     *      "learner": {
+     *        "id": 1,
+     *        "name": "John Student"
+     *      },
+     *      "category": {
+     *        "id": 1,
+     *        "name": "Mathematics"
+     *      }
+     *    }
+     *  ]
+     * }
+     */
+    public function index(Request $request)
+    {
+        $query = $this->loadRelationships(Gig::query());
 
-       // Validate filter parameters
-       $filters = $request->validate([
-           'search' => ['sometimes','string','min:3'],
-           'price' => ['sometimes','string','regex:/^\d+-\d+$/'],
-           'category_id' => ['sometimes','exists:categories,id'],
-           'status' => ['sometimes','in:open,in_progress,completed,cancelled'],
-       ]);
+        // Validate filter parameters
+        $filters = $request->validate([
+            'search' => ['sometimes','string','min:3'],
+            'price' => ['sometimes','string','regex:/^\d+-\d+$/'],
+            'category_id' => ['sometimes','exists:categories,id'],
+            'status' => ['sometimes','in:open,in_progress,completed,cancelled'],
+            'learner_id' => ['sometimes','exists:users,id'],
+        ]);
 
-       // Apply search filter
-       if (!empty($filters['search'])) {
-           $query->where(function($q) use ($filters) {
-               $q->where('title', 'like', '%' . $filters['search'] . '%')
-                 ->orWhere('description', 'like', '%' . $filters['search'] . '%');
-           });
-       }
+        // Apply search filter
+        if (!empty($filters['search'])) {
+            $query->where(function($q) use ($filters) {
+                $q->where('title', 'like', '%' . $filters['search'] . '%')
+                ->orWhere('description', 'like', '%' . $filters['search'] . '%');
+            });
+        }
 
-       // Apply price range filter
-       if (!empty($filters['price'])) {
-           [$minPrice, $maxPrice] = explode('-', $filters['price']);
-           $query->whereBetween('budget', [(int)$minPrice, (int)$maxPrice]);
-       }
+        // Apply price range filter
+        if (!empty($filters['price'])) {
+            [$minPrice, $maxPrice] = explode('-', $filters['price']);
+            $query->whereBetween('budget', [(int)$minPrice, (int)$maxPrice]);
+        }
 
-       // Apply category filter
-       if (!empty($filters['category_id'])) {
-           $query->where('category_id', $filters['category_id']);
-       }
+        // Apply category filter
+        if (!empty($filters['category_id'])) {
+            $query->where('category_id', $filters['category_id']);
+        }
 
-       // Apply status filter
-       if (!empty($filters['status'])) {
-           $query->where('status', $filters['status']);
-       }
+        // Apply status filter
+        if (!empty($filters['status'])) {
+            $query->where('status', $filters['status']);
+        }
+        
+        // Apply learner filter
+        if (!empty($filters['learner_id'])) {
+            $user = User::findOrFail($filters['learner_id']);
+            
+            // Optional: Check if user is a learner
+            if (!$user->isLearner()) {
+                return response()->json([
+                    'message' => 'The specified user is not a learner'
+                ], 400);
+            }
+            
+            $query->where('learner_id', $filters['learner_id']);
+        }
 
-       $gigs = $query->latest()->get();
-       return GigResource::collection($gigs);
-   }
+        $gigs = $query->latest()->get();
+        return GigResource::collection($gigs);
+    }
 
    /**
     * Create Gig
@@ -228,4 +234,5 @@ class GigController extends Controller
        $gig->delete();
        return response(status: 204);
    }
+   
 }
