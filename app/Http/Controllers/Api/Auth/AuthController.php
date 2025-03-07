@@ -67,7 +67,7 @@ class AuthController extends Controller
             'whatsapp_number' => $validatedFields['whatsapp_number'],
             'user_type' => $validatedFields['user_type'],
             'location' => $validatedFields['location'],
-            'profile_image' => '',
+            'profile_image' => $validatedFields['profile_image'],
         ]);
 
 
