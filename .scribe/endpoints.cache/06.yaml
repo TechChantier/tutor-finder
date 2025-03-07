@@ -93,7 +93,7 @@ endpoints:
         name: application
         description: 'The ID of the application'
         required: true
-        example: 8
+        example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -101,7 +101,7 @@ endpoints:
         custom: []
     cleanUrlParameters:
       id: 1
-      application: 8
+      application: 16
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -109,14 +109,14 @@ endpoints:
         name: status
         description: 'Status of application (accepted/rejected)'
         required: true
-        example: cum
+        example: consequuntur
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      status: cum
+      status: consequuntur
     fileParameters: []
     responses:
       -
@@ -182,7 +182,7 @@ endpoints:
         name: gig
         description: 'The ID of the gig'
         required: true
-        example: 11
+        example: 3
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -190,7 +190,7 @@ endpoints:
         custom: []
     cleanUrlParameters:
       gig_id: 1
-      gig: 11
+      gig: 3
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -198,14 +198,14 @@ endpoints:
         name: proposal_message
         description: 'The application proposal text min:50 characters'
         required: true
-        example: amet
+        example: sed
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      proposal_message: amet
+      proposal_message: sed
     fileParameters: []
     responses:
       -
@@ -322,7 +322,7 @@ endpoints:
         name: gig
         description: 'The ID of the gig'
         required: true
-        example: 14
+        example: 10
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -330,7 +330,7 @@ endpoints:
         custom: []
     cleanUrlParameters:
       gig_id: 1
-      gig: 14
+      gig: 10
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
