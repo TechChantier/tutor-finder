@@ -63,4 +63,22 @@ class GigPolicy
     {
         return false;
     }
+
+    /**
+     * Determine whether the user can publish the gig.
+     */
+    public function publish(User $user, Gig $gig): bool
+    {
+        // Only the gig owner can publish their gig
+        return $user->id === $gig->learner_id;
+    }
+
+    /**
+     * Determine whether the user can unpublish the gig.
+     */
+    public function unpublish(User $user, Gig $gig): bool
+    {
+        // Only the gig owner can unpublish their gig
+        return $user->id === $gig->learner_id;
+    }
 }

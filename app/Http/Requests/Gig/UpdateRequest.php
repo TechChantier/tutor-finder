@@ -27,9 +27,10 @@ class UpdateRequest extends FormRequest
             'category_id' => ['sometimes', 'exists:categories,id'],
             'title' => ['sometimes', 'string', 'min:10', 'max:255'],
             'description' => ['sometimes', 'string', 'min:50', 'max:1000'],
+            'budget_period' => ['sometimes', 'string', 'in:hourly,daily,weekly,monthly'],
             'budget' => ['sometimes', 'numeric', 'min:1000'],
             'location' => ['sometimes', 'string', 'max:255'],
-            'status' => ['sometimes', Rule::in(['open', 'completed', 'cancelled'])],
+            'status' => ['sometimes', 'string', 'in:pending,open,in_progress,completed,cancelled']
         ];
     }
 

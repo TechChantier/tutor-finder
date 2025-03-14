@@ -35,9 +35,10 @@ class StoreRequest extends FormRequest
             'category_id' => ['required', 'exists:categories,id'],
             'title' => ['required', 'string', 'min:10', 'max:255'],
             'description' => ['required', 'string', 'min:50', 'max:1000'],
+            'budget_period' => ['required', 'string', 'in:hourly,daily,weekly,monthly'],
             'budget' => ['required', 'numeric', 'min:1000'],
             'location' => ['required', 'string', 'max:255'],
-            'status' => ['sometimes', 'string', 'in:open,completed,cancelled'],
+            'status' => ['sometimes', 'string', 'in:pending,open,in_progress,completed,cancelled']
         ];
     }
 

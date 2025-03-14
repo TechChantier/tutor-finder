@@ -115,4 +115,6 @@ Route::middleware('auth:sanctum')->group(function () {
     */
     Route::get('/learner/gigs', [GigController::class, 'learnerGigs']);
     Route::get('/gigs/{gig}/applications', [ApplicationController::class, 'gigApplications']);
+    Route::patch('/gigs/{gig}/publish', [GigController::class, 'publish'])->name('gigs.publish');
+    Route::patch('/gigs/{gig}/unpublish', [GigController::class, 'unpublish'])->name('gigs.unpublish');
 });
