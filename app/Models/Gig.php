@@ -18,7 +18,8 @@ class Gig extends Model
         'description',
         'budget',
         'location',
-        'status'
+        'status',
+        'budget_period'
     ];
     
     public const STATUS_PENDING = 'pending';

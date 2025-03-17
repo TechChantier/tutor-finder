@@ -93,7 +93,7 @@ endpoints:
         name: application
         description: 'The ID of the application'
         required: true
-        example: 16
+        example: 12
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -101,7 +101,7 @@ endpoints:
         custom: []
     cleanUrlParameters:
       id: 1
-      application: 16
+      application: 12
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -109,14 +109,14 @@ endpoints:
         name: status
         description: 'Status of application (accepted/rejected)'
         required: true
-        example: eum
+        example: laudantium
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      status: eum
+      status: laudantium
     fileParameters: []
     responses:
       -
@@ -182,7 +182,7 @@ endpoints:
         name: gig
         description: 'The ID of the gig'
         required: true
-        example: 4
+        example: 15
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -190,7 +190,7 @@ endpoints:
         custom: []
     cleanUrlParameters:
       gig_id: 1
-      gig: 4
+      gig: 15
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -198,14 +198,14 @@ endpoints:
         name: proposal_message
         description: 'The application proposal text min:50 characters'
         required: true
-        example: architecto
+        example: assumenda
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      proposal_message: architecto
+      proposal_message: assumenda
     fileParameters: []
     responses:
       -

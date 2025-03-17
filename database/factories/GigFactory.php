@@ -44,12 +44,15 @@ class GigFactory extends Factory
                 5000, 10000, 15000, 20000, 25000, 
                 30000, 35000, 40000, 45000, 50000
             ]),
+            'budget_period' => fake()->randomElement([
+                'hourly', 'daily', 'weekly', 'monthly'
+            ]),
             'location' => fake()->randomElement([
                 'Douala', 'Yaoundé', 'Bamenda', 'Bafoussam',
                 'Garoua', 'Maroua', 'Buea', 'Limbe',
                 'Kribi', 'Kumba', 'Online'
             ]),
-            'status' => fake()->randomElement(['open', 'completed', 'cancelled']),
+            'status' => 'pending', // Default to pending
         ];
     }
 
@@ -80,6 +83,16 @@ class GigFactory extends Factory
     {
         return $this->state(fn (array $attributes) => [
             'status' => 'cancelled',
+        ]);
+    }
+
+    /**
+     * Indicate that the gig is pending.
+     */
+    public function pending(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'status' => 'pending',
         ]);
     }
 }

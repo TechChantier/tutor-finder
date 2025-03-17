@@ -260,26 +260,32 @@ class GigController extends Controller
        return response(status: 204);
    }
    
-   /**
-    * Publish Gig
-    * 
-    * Change a gig's status from pending to open, making it publicly available (Gig owner only).
-    * 
-    * @authenticated
-    * @urlParam gig integer required The ID of the gig
-    * 
-    * @response {
-    *  "data": {
-    *    "id": 1,
-    *    "title": "Need Math Tutor",
-    *    "description": "Looking for calculus tutor...",
-    *    "budget": 5000,
-    *    "budget_period": "monthly",
-    *    "location": "Online",
-    *    "status": "open"
-    *  }
-    * }
-    */
+  /**
+ * Publish Gig
+ * 
+ * Change a gig's status from pending to open, making it publicly available (Gig owner only).
+ * 
+ * @authenticated
+ * @urlParam gig integer required The ID of the gig
+ * 
+ * @response {
+ *  "data": {
+ *    "id": 1,
+ *    "title": "Need Math Tutor",
+ *    "description": "Looking for calculus tutor...",
+ *    "budget": 5000,
+ *    "budget_period": "monthly",
+ *    "location": "Online",
+ *    "status": "open"
+ *  }
+ * }
+ * @response status=400 {
+ *  "message": "Only pending gigs can be published"
+ * }
+ * @response status=403 {
+ *  "message": "You are not authorized to publish this gig"
+ * }
+ */
    public function publish(Gig $gig)
    {
        $this->authorize('publish', $gig);
@@ -297,26 +303,26 @@ class GigController extends Controller
       return new GigResource($this->loadRelationships($gig));
   }
   
-  /**
-   * Unpublish Gig
-   * 
-   * Change a gig's status from open to pending, making it private (Gig owner only).
-   * 
-   * @authenticated
-   * @urlParam gig integer required The ID of the gig
-   * 
-   * @response {
-   *  "data": {
-   *    "id": 1,
-   *    "title": "Need Math Tutor",
-   *    "description": "Looking for calculus tutor...",
-   *    "budget": 5000,
-   *    "budget_period": "monthly",
-   *    "location": "Online",
-   *    "status": "pending"
-   *  }
-   * }
-   */
+ /**
+ * Unpublish Gig
+ * 
+ * Change a gig's status from open to pending, making it private (Gig owner only).
+ * 
+ * @authenticated
+ * @urlParam gig integer required The ID of the gig
+ * 
+ * @response {
+ *  "data": {
+ *    "id": 1,
+ *    "title": "Need Math Tutor",
+ *    "description": "Looking for calculus tutor...",
+ *    "budget": 5000,
+ *    "budget_period": "monthly",
+ *    "location": "Online",
+ *    "status": "pending"
+ *  }
+ * }
+ */
   public function unpublish(Gig $gig)
   {
       $this->authorize('unpublish', $gig);

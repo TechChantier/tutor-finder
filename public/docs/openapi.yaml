@@ -141,7 +141,7 @@ paths:
                 status:
                   type: string
                   description: 'Status of application (accepted/rejected)'
-                  example: eum
+                  example: laudantium
                   nullable: false
               required:
                 - status
@@ -158,7 +158,7 @@ paths:
         in: path
         name: application
         description: 'The ID of the application'
-        example: 16
+        example: 12
         required: true
         schema:
           type: integer
@@ -225,7 +225,7 @@ paths:
                 proposal_message:
                   type: string
                   description: 'The application proposal text min:50 characters'
-                  example: architecto
+                  example: assumenda
                   nullable: false
               required:
                 - proposal_message
@@ -242,7 +242,7 @@ paths:
         in: path
         name: gig
         description: 'The ID of the gig'
-        example: 4
+        example: 15
         required: true
         schema:
           type: integer
@@ -474,37 +474,37 @@ paths:
                 name:
                   type: string
                   description: "User's full name"
-                  example: quia
+                  example: consectetur
                   nullable: false
                 email:
                   type: string
                   description: "User's email address must be unique"
-                  example: nola.torp@example.net
+                  example: gabrielle.lakin@example.net
                   nullable: false
                 password:
                   type: string
                   description: 'Minimum of 8 characters'
-                  example: 'I<H\%MUg]0_.Ee'
+                  example: \gD46o09UFQ43(Lx4T
                   nullable: false
                 phone_number:
                   type: string
                   description: 'Max 12 characters'
-                  example: quam
+                  example: minus
                   nullable: false
                 whatsapp_number:
                   type: string
                   description: 'Max 12 characters'
-                  example: facere
+                  example: dolores
                   nullable: false
                 user_type:
                   type: string
                   description: "Either 'tutor' or 'learner'"
-                  example: eaque
+                  example: debitis
                   nullable: false
                 location:
                   type: string
                   description: "User's location"
-                  example: ipsum
+                  example: repellat
                   nullable: false
                 profile_image:
                   type: string
@@ -514,7 +514,7 @@ paths:
                 password_confirmation:
                   type: string
                   description: 'Must match password'
-                  example: nemo
+                  example: quaerat
                   nullable: false
               required:
                 - name
@@ -585,12 +585,12 @@ paths:
                 email:
                   type: string
                   description: "User's email address"
-                  example: vschamberger@example.org
+                  example: vbruen@example.org
                   nullable: false
                 password:
                   type: string
                   description: "User's password min:6"
-                  example: (TvELvTz7
+                  example: s0kC)KOk
                   nullable: false
               required:
                 - email
@@ -760,7 +760,7 @@ paths:
         in: path
         name: category
         description: 'The ID of the category'
-        example: 5
+        example: 16
         required: true
         schema:
           type: integer
@@ -826,22 +826,22 @@ paths:
                 title:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: jnnxeqgbbpziizyx
+                  example: wdmmqvvhsqagklyqiwvoswsk
                   nullable: false
                 description:
                   type: string
                   description: 'Must not be greater than 1000 characters.'
-                  example: 'Error in odit sit aut fugiat quis.'
+                  example: 'Totam nulla doloribus consectetur minima.'
                   nullable: false
                 institution:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: imczoihfmmyn
+                  example: ckuxtchm
                   nullable: false
                 year_obtained:
                   type: integer
                   description: 'Must be at least 1950. Must not be greater than 2025.'
-                  example: 25
+                  example: 22
                   nullable: false
               required:
                 - title
@@ -868,22 +868,22 @@ paths:
                 title:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: jmabsnprqplqbgkjflrkxvpm
+                  example: gmarraqwxfsmtsklmfzk
                   nullable: false
                 description:
                   type: string
                   description: 'Must not be greater than 1000 characters.'
-                  example: 'Quia fugiat ea autem maxime perferendis nihil non.'
+                  example: 'Hic dolor error est ipsam velit quas molestiae.'
                   nullable: false
                 institution:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: glakcw
+                  example: fmpub
                   nullable: false
                 year_obtained:
                   type: integer
                   description: 'Must be at least 1950. Must not be greater than 2025.'
-                  example: 20
+                  example: 3
                   nullable: false
       security: []
     delete:
@@ -908,73 +908,95 @@ paths:
     get:
       summary: 'List All Gigs'
       operationId: listAllGigs
-      description: 'Get a list of all available learning gigs.'
+      description: 'Get a list of all available learning gigs. By default, pending gigs are excluded.'
       parameters:
         -
           in: query
           name: include
           description: "Specify which relationships to include in the response.\n            Multiple relationships can be comma-separated.\n            Available relationships: learner, category, applications"
-          example: aut
+          example: dolor
           required: false
           schema:
             type: string
             description: "Specify which relationships to include in the response.\n            Multiple relationships can be comma-separated.\n            Available relationships: learner, category, applications"
-            example: aut
+            example: dolor
             nullable: false
         -
           in: query
           name: search
           description: 'Search in gig title and description'
-          example: odio
+          example: itaque
           required: false
           schema:
             type: string
             description: 'Search in gig title and description'
-            example: odio
+            example: itaque
             nullable: false
         -
           in: query
           name: price
           description: 'Filter by price range (format: 1000-5000)'
-          example: a
+          example: debitis
           required: false
           schema:
             type: string
             description: 'Filter by price range (format: 1000-5000)'
-            example: a
+            example: debitis
+            nullable: false
+        -
+          in: query
+          name: budget_period
+          description: 'Filter by budget period (hourly/daily/weekly/monthly)'
+          example: qui
+          required: false
+          schema:
+            type: string
+            description: 'Filter by budget period (hourly/daily/weekly/monthly)'
+            example: qui
             nullable: false
         -
           in: query
           name: category_id
           description: 'Filter gigs by category'
-          example: 15
+          example: 16
           required: false
           schema:
             type: integer
             description: 'Filter gigs by category'
-            example: 15
+            example: 16
             nullable: false
         -
           in: query
           name: status
-          description: 'Filter by gig status (open/in_progress/completed/cancelled)'
-          example: amet
+          description: 'Filter by gig status (pending/open/in_progress/completed/cancelled)'
+          example: sint
           required: false
           schema:
             type: string
-            description: 'Filter by gig status (open/in_progress/completed/cancelled)'
-            example: amet
+            description: 'Filter by gig status (pending/open/in_progress/completed/cancelled)'
+            example: sint
             nullable: false
         -
           in: query
           name: learner_id
           description: 'Filter gigs by the learner who created them'
-          example: 5
+          example: 17
           required: false
           schema:
             type: integer
             description: 'Filter gigs by the learner who created them'
-            example: 5
+            example: 17
+            nullable: false
+        -
+          in: query
+          name: include_pending
+          description: 'Include pending gigs (default: false)'
+          example: false
+          required: false
+          schema:
+            type: boolean
+            description: 'Include pending gigs (default: false)'
+            example: false
             nullable: false
       responses:
         200:
@@ -990,6 +1012,7 @@ paths:
                       title: 'Need Math Tutor'
                       description: 'Looking for calculus tutor'
                       budget: 5000
+                      budget_period: monthly
                       location: Online
                       status: open
                       learner:
@@ -1007,6 +1030,7 @@ paths:
                         title: 'Need Math Tutor'
                         description: 'Looking for calculus tutor'
                         budget: 5000
+                        budget_period: monthly
                         location: Online
                         status: open
                         learner:
@@ -1030,6 +1054,9 @@ paths:
                         budget:
                           type: integer
                           example: 5000
+                        budget_period:
+                          type: string
+                          example: monthly
                         location:
                           type: string
                           example: Online
@@ -1066,13 +1093,23 @@ paths:
                 search:
                   type: string
                   description: 'Must be at least 3 characters.'
-                  example: dkietsyfbnuzhhnjcxe
+                  example: nkzjpqjyzelkyqfislnxeersafprfwnjxoenwgrneryrtyquxrj
                   nullable: false
                 price:
                   type: string
                   description: 'Must match the regex /^\d+-\d+$/.'
-                  example: 1484-263329768
+                  example: 8353403-748
                   nullable: false
+                budget_period:
+                  type: string
+                  description: ''
+                  example: hourly
+                  nullable: false
+                  enum:
+                    - hourly
+                    - daily
+                    - weekly
+                    - monthly
                 category_id:
                   type: string
                   description: 'The <code>id</code> of an existing record in the categories table.'
@@ -1081,9 +1118,10 @@ paths:
                 status:
                   type: string
                   description: ''
-                  example: open
+                  example: completed
                   nullable: false
                   enum:
+                    - pending
                     - open
                     - in_progress
                     - completed
@@ -1093,11 +1131,16 @@ paths:
                   description: 'The <code>id</code> of an existing record in the users table.'
                   example: null
                   nullable: false
+                include_pending:
+                  type: boolean
+                  description: ''
+                  example: false
+                  nullable: false
       security: []
     post:
       summary: 'Create Gig'
       operationId: createGig
-      description: 'Create a new gig (Learner only).'
+      description: "Create a new gig in pending status (Learner only). The gig will not be visible to others\nuntil it is published."
       parameters: []
       responses:
         201:
@@ -1112,8 +1155,9 @@ paths:
                     title: 'Need Math Tutor'
                     description: 'Looking for calculus tutor...'
                     budget: 5000
+                    budget_period: monthly
                     location: Online
-                    status: open
+                    status: pending
                 properties:
                   data:
                     type: object
@@ -1130,12 +1174,15 @@ paths:
                       budget:
                         type: integer
                         example: 5000
+                      budget_period:
+                        type: string
+                        example: monthly
                       location:
                         type: string
                         example: Online
                       status:
                         type: string
-                        example: open
+                        example: pending
       tags:
         - Gigs
       requestBody:
@@ -1148,41 +1195,43 @@ paths:
                 category_id:
                   type: integer
                   description: 'Valid category ID'
-                  example: 5
+                  example: 11
                   nullable: false
                 title:
                   type: string
                   description: 'Gig title min:10 characters'
-                  example: cupiditate
+                  example: sequi
                   nullable: false
                 description:
                   type: string
                   description: 'Detailed description min:50 characters'
-                  example: 'Quis asperiores nostrum amet eligendi ullam modi sunt.'
+                  example: 'Dolores illum quis dolor quisquam.'
+                  nullable: false
+                budget_period:
+                  type: string
+                  description: 'Budget time period (hourly/daily/weekly/monthly)'
+                  example: maiores
                   nullable: false
                 budget:
                   type: numeric
                   description: 'Minimum amount 1000'
-                  example: odit
+                  example: hic
                   nullable: false
                 location:
                   type: string
                   description: 'Preferred learning location'
-                  example: quasi
+                  example: non
                   nullable: false
                 status:
                   type: string
-                  description: ''
-                  example: open
+                  description: 'Status of the gig (defaults to pending)'
+                  example: dolorem
                   nullable: false
-                  enum:
-                    - open
-                    - completed
-                    - cancelled
               required:
                 - category_id
                 - title
                 - description
+                - budget_period
                 - budget
                 - location
   '/api/gigs/{gig_id}':
@@ -1195,12 +1244,12 @@ paths:
           in: query
           name: include
           description: 'Relationships to include (learner,category,applications)'
-          example: aliquid
+          example: animi
           required: false
           schema:
             type: string
             description: 'Relationships to include (learner,category,applications)'
-            example: aliquid
+            example: animi
             nullable: false
       responses:
         200:
@@ -1215,8 +1264,9 @@ paths:
                     title: 'Need Math Tutor'
                     description: 'Looking for calculus tutor'
                     budget: 5000
+                    budget_period: monthly
                     location: Online
-                    status: open
+                    status: pending
                     learner:
                       id: 1
                       name: 'John Student'
@@ -1236,12 +1286,15 @@ paths:
                       budget:
                         type: integer
                         example: 5000
+                      budget_period:
+                        type: string
+                        example: monthly
                       location:
                         type: string
                         example: Online
                       status:
                         type: string
-                        example: open
+                        example: pending
                       learner:
                         type: object
                         properties:
@@ -1272,8 +1325,9 @@ paths:
                     title: 'Updated Math Tutor'
                     description: 'Updated description...'
                     budget: 6000
+                    budget_period: weekly
                     location: Online
-                    status: open
+                    status: pending
                 properties:
                   data:
                     type: object
@@ -1290,12 +1344,15 @@ paths:
                       budget:
                         type: integer
                         example: 6000
+                      budget_period:
+                        type: string
+                        example: weekly
                       location:
                         type: string
                         example: Online
                       status:
                         type: string
-                        example: open
+                        example: pending
       tags:
         - Gigs
       requestBody:
@@ -1308,37 +1365,43 @@ paths:
                 category_id:
                   type: integer
                   description: 'Valid category ID'
-                  example: 6
+                  example: 5
                   nullable: false
                 title:
                   type: string
                   description: 'Gig title min:10 characters'
-                  example: minus
+                  example: id
                   nullable: false
                 description:
                   type: string
                   description: 'Detailed description min:50 characters'
-                  example: 'Neque esse optio architecto ullam et et.'
+                  example: 'Amet veniam a aperiam.'
+                  nullable: false
+                budget_period:
+                  type: string
+                  description: 'Budget time period (hourly/daily/weekly/monthly)'
+                  example: vero
                   nullable: false
                 budget:
                   type: numeric
                   description: 'Minimum amount 1000'
-                  example: voluptatem
+                  example: qui
                   nullable: false
                 location:
                   type: string
                   description: 'Preferred learning location'
-                  example: iste
+                  example: placeat
                   nullable: false
                 status:
                   type: string
-                  description: 'Status of the gig (open/completed/cancelled)'
-                  example: et
+                  description: 'Status of the gig (pending/open/completed/cancelled)'
+                  example: rerum
                   nullable: false
               required:
                 - category_id
                 - title
                 - description
+                - budget_period
                 - budget
                 - location
     delete:
@@ -1364,7 +1427,163 @@ paths:
         in: path
         name: gig
         description: 'The ID of the gig'
-        example: 6
+        example: 18
+        required: true
+        schema:
+          type: integer
+  '/api/gigs/{gig_id}/publish':
+    patch:
+      summary: 'Publish Gig'
+      operationId: publishGig
+      description: "Change a gig's status from pending to open, making it publicly available (Gig owner only)."
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    title: 'Need Math Tutor'
+                    description: 'Looking for calculus tutor...'
+                    budget: 5000
+                    budget_period: monthly
+                    location: Online
+                    status: open
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      title:
+                        type: string
+                        example: 'Need Math Tutor'
+                      description:
+                        type: string
+                        example: 'Looking for calculus tutor...'
+                      budget:
+                        type: integer
+                        example: 5000
+                      budget_period:
+                        type: string
+                        example: monthly
+                      location:
+                        type: string
+                        example: Online
+                      status:
+                        type: string
+                        example: open
+        400:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Only pending gigs can be published'
+                properties:
+                  message:
+                    type: string
+                    example: 'Only pending gigs can be published'
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'You are not authorized to publish this gig'
+                properties:
+                  message:
+                    type: string
+                    example: 'You are not authorized to publish this gig'
+      tags:
+        - Gigs
+    parameters:
+      -
+        in: path
+        name: gig_id
+        description: 'The ID of the gig.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+      -
+        in: path
+        name: gig
+        description: 'The ID of the gig'
+        example: 9
+        required: true
+        schema:
+          type: integer
+  '/api/gigs/{gig_id}/unpublish':
+    patch:
+      summary: 'Unpublish Gig'
+      operationId: unpublishGig
+      description: "Change a gig's status from open to pending, making it private (Gig owner only)."
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    title: 'Need Math Tutor'
+                    description: 'Looking for calculus tutor...'
+                    budget: 5000
+                    budget_period: monthly
+                    location: Online
+                    status: pending
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      title:
+                        type: string
+                        example: 'Need Math Tutor'
+                      description:
+                        type: string
+                        example: 'Looking for calculus tutor...'
+                      budget:
+                        type: integer
+                        example: 5000
+                      budget_period:
+                        type: string
+                        example: monthly
+                      location:
+                        type: string
+                        example: Online
+                      status:
+                        type: string
+                        example: pending
+      tags:
+        - Gigs
+    parameters:
+      -
+        in: path
+        name: gig_id
+        description: 'The ID of the gig.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+      -
+        in: path
+        name: gig
+        description: 'The ID of the gig'
+        example: 19
         required: true
         schema:
           type: integer
@@ -1459,7 +1678,7 @@ paths:
                   type: array
                   description: 'List of category IDs'
                   example:
-                    - qui
+                    - non
                   items:
                     type: string
               required:
@@ -1510,7 +1729,7 @@ paths:
         in: path
         name: category
         description: 'The ID of the category'
-        example: 20
+        example: 5
         required: true
         schema:
           type: integer
@@ -1597,17 +1816,17 @@ paths:
                 bio:
                   type: string
                   description: 'Detailed bio min:50 characters'
-                  example: quia
+                  example: quidem
                   nullable: false
                 years_of_experience:
                   type: integer
                   description: 'Years of teaching experience'
-                  example: 13
+                  example: 3
                   nullable: false
                 availability_status:
                   type: string
                   description: "Tutor's availability (available/busy)"
-                  example: nemo
+                  example: error
                   nullable: false
               required:
                 - bio
@@ -1659,7 +1878,7 @@ paths:
                 verification_status:
                   type: string
                   description: 'Status (verified/rejected)'
-                  example: sint
+                  example: expedita
                   nullable: false
               required:
                 - verification_status
@@ -1668,7 +1887,7 @@ paths:
         in: path
         name: userId
         description: 'The ID of the tutor'
-        example: 5
+        example: 17
         required: true
         schema:
           type: integer
@@ -1792,7 +2011,7 @@ paths:
                 search:
                   type: string
                   description: 'Must be at least 3 characters.'
-                  example: qgynlomaitvotcjolmgjbmfiklbswdlavbuuaeyrpfqplbqjqzqqrlmrjbnpxrodzxsompyuggnnfeotymwx
+                  example: bqodmqnlihqsyfjkejbpvrukrnrhrbvftdhymesktfszzekfngjszvymxnqlliafowaxgpxgjagprpahmflgngxakt
                   nullable: false
                 category_id:
                   type: string
@@ -1810,7 +2029,7 @@ paths:
                 include:
                   type: string
                   description: ''
-                  example: dignissimos
+                  example: quasi
                   nullable: false
       security: []
   '/api/tutors/{id}':

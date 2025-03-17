@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "4e09bb3d-1c49-4ee2-a260-76b8c8480d30",
+        "_postman_id": "ddb4583e-c06f-4f55-a3a7-72aa35c49d22",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -69,7 +69,7 @@
                                 {
                                     "id": "application",
                                     "key": "application",
-                                    "value": "16",
+                                    "value": "12",
                                     "description": "The ID of the application"
                                 }
                             ]
@@ -87,7 +87,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"status\":\"eum\"}"
+                            "raw": "{\"status\":\"laudantium\"}"
                         },
                         "description": "Accept or reject an application (Learner only)."
                     },
@@ -124,7 +124,7 @@
                                 {
                                     "id": "gig",
                                     "key": "gig",
-                                    "value": "4",
+                                    "value": "15",
                                     "description": "The ID of the gig"
                                 }
                             ]
@@ -142,7 +142,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"proposal_message\":\"architecto\"}"
+                            "raw": "{\"proposal_message\":\"assumenda\"}"
                         },
                         "description": "Submit an application for a specific gig."
                     },
@@ -276,49 +276,49 @@
                             "formdata": [
                                 {
                                     "key": "name",
-                                    "value": "quia",
+                                    "value": "consectetur",
                                     "type": "text",
                                     "description": "User's full name"
                                 },
                                 {
                                     "key": "email",
-                                    "value": "nola.torp@example.net",
+                                    "value": "gabrielle.lakin@example.net",
                                     "type": "text",
                                     "description": "User's email address must be unique"
                                 },
                                 {
                                     "key": "password",
-                                    "value": "I<H\\%MUg]0_.Ee",
+                                    "value": "\\gD46o09UFQ43(Lx4T",
                                     "type": "text",
                                     "description": "Minimum of 8 characters"
                                 },
                                 {
                                     "key": "phone_number",
-                                    "value": "quam",
+                                    "value": "minus",
                                     "type": "text",
                                     "description": "Max 12 characters"
                                 },
                                 {
                                     "key": "whatsapp_number",
-                                    "value": "facere",
+                                    "value": "dolores",
                                     "type": "text",
                                     "description": "Max 12 characters"
                                 },
                                 {
                                     "key": "user_type",
-                                    "value": "eaque",
+                                    "value": "debitis",
                                     "type": "text",
                                     "description": "Either 'tutor' or 'learner'"
                                 },
                                 {
                                     "key": "location",
-                                    "value": "ipsum",
+                                    "value": "repellat",
                                     "type": "text",
                                     "description": "User's location"
                                 },
                                 {
                                     "key": "password_confirmation",
-                                    "value": "nemo",
+                                    "value": "quaerat",
                                     "type": "text",
                                     "description": "Must match password"
                                 },
@@ -371,7 +371,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"vschamberger@example.org\",\"password\":\"(TvELvTz7\"}"
+                            "raw": "{\"email\":\"vbruen@example.org\",\"password\":\"s0kC)KOk\"}"
                         },
                         "description": "Authenticate a user and get access token.",
                         "auth": {
@@ -484,7 +484,7 @@
                                 {
                                     "id": "category",
                                     "key": "category",
-                                    "value": "5",
+                                    "value": "16",
                                     "description": "The ID of the category"
                                 }
                             ]
@@ -639,7 +639,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"jnnxeqgbbpziizyx\",\"description\":\"Error in odit sit aut fugiat quis.\",\"institution\":\"imczoihfmmyn\",\"year_obtained\":25}"
+                            "raw": "{\"title\":\"wdmmqvvhsqagklyqiwvoswsk\",\"description\":\"Totam nulla doloribus consectetur minima.\",\"institution\":\"ckuxtchm\",\"year_obtained\":22}"
                         },
                         "description": "",
                         "auth": {
@@ -678,7 +678,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"jmabsnprqplqbgkjflrkxvpm\",\"description\":\"Quia fugiat ea autem maxime perferendis nihil non.\",\"institution\":\"glakcw\",\"year_obtained\":20}"
+                            "raw": "{\"title\":\"gmarraqwxfsmtsklmfzk\",\"description\":\"Hic dolor error est ipsam velit quas molestiae.\",\"institution\":\"fmpub\",\"year_obtained\":3}"
                         },
                         "description": "",
                         "auth": {
@@ -738,42 +738,54 @@
                             "query": [
                                 {
                                     "key": "include",
-                                    "value": "aut",
+                                    "value": "dolor",
                                     "description": "Specify which relationships to include in the response.\n            Multiple relationships can be comma-separated.\n            Available relationships: learner, category, applications",
                                     "disabled": false
                                 },
                                 {
                                     "key": "search",
-                                    "value": "odio",
+                                    "value": "itaque",
                                     "description": "Search in gig title and description",
                                     "disabled": false
                                 },
                                 {
                                     "key": "price",
-                                    "value": "a",
+                                    "value": "debitis",
                                     "description": "Filter by price range (format: 1000-5000)",
                                     "disabled": false
                                 },
                                 {
+                                    "key": "budget_period",
+                                    "value": "qui",
+                                    "description": "Filter by budget period (hourly\/daily\/weekly\/monthly)",
+                                    "disabled": false
+                                },
+                                {
                                     "key": "category_id",
-                                    "value": "15",
+                                    "value": "16",
                                     "description": "Filter gigs by category",
                                     "disabled": false
                                 },
                                 {
                                     "key": "status",
-                                    "value": "amet",
-                                    "description": "Filter by gig status (open\/in_progress\/completed\/cancelled)",
+                                    "value": "sint",
+                                    "description": "Filter by gig status (pending\/open\/in_progress\/completed\/cancelled)",
                                     "disabled": false
                                 },
                                 {
                                     "key": "learner_id",
-                                    "value": "5",
+                                    "value": "17",
                                     "description": "Filter gigs by the learner who created them",
                                     "disabled": false
+                                },
+                                {
+                                    "key": "include_pending",
+                                    "value": "",
+                                    "description": "Include pending gigs (default: false)",
+                                    "disabled": true
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/gigs?include=aut&search=odio&price=a&category_id=15&status=amet&learner_id=5"
+                            "raw": "{{baseUrl}}\/api\/gigs?include=dolor&search=itaque&price=debitis&budget_period=qui&category_id=16&status=sint&learner_id=17&include_pending="
                         },
                         "method": "GET",
                         "header": [
@@ -788,9 +800,9 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"search\":\"dkietsyfbnuzhhnjcxe\",\"price\":\"1484-263329768\",\"status\":\"open\"}"
+                            "raw": "{\"search\":\"nkzjpqjyzelkyqfislnxeersafprfwnjxoenwgrneryrtyquxrj\",\"price\":\"8353403-748\",\"budget_period\":\"hourly\",\"status\":\"completed\",\"include_pending\":false}"
                         },
-                        "description": "Get a list of all available learning gigs.",
+                        "description": "Get a list of all available learning gigs. By default, pending gigs are excluded.",
                         "auth": {
                             "type": "noauth"
                         }
@@ -799,7 +811,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\n \"data\": [\n   {\n     \"id\": 1,\n     \"title\": \"Need Math Tutor\",\n     \"description\": \"Looking for calculus tutor\",\n     \"budget\": 5000,\n     \"location\": \"Online\",\n     \"status\": \"open\",\n     \"learner\": {\n       \"id\": 1,\n       \"name\": \"John Student\"\n     },\n     \"category\": {\n       \"id\": 1,\n       \"name\": \"Mathematics\"\n     }\n   }\n ]\n}",
+                            "body": "{\n \"data\": [\n   {\n     \"id\": 1,\n     \"title\": \"Need Math Tutor\",\n     \"description\": \"Looking for calculus tutor\",\n     \"budget\": 5000,\n     \"budget_period\": \"monthly\",\n     \"location\": \"Online\",\n     \"status\": \"open\",\n     \"learner\": {\n       \"id\": 1,\n       \"name\": \"John Student\"\n     },\n     \"category\": {\n       \"id\": 1,\n       \"name\": \"Mathematics\"\n     }\n   }\n ]\n}",
                             "name": ""
                         }
                     ]
@@ -813,12 +825,12 @@
                             "query": [
                                 {
                                     "key": "include",
-                                    "value": "aliquid",
+                                    "value": "animi",
                                     "description": "Relationships to include (learner,category,applications)",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/gigs\/:gig_id?include=aliquid",
+                            "raw": "{{baseUrl}}\/api\/gigs\/:gig_id?include=animi",
                             "variable": [
                                 {
                                     "id": "gig_id",
@@ -829,7 +841,7 @@
                                 {
                                     "id": "gig",
                                     "key": "gig",
-                                    "value": "6",
+                                    "value": "18",
                                     "description": "The ID of the gig"
                                 }
                             ]
@@ -855,7 +867,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\n \"data\": {\n   \"id\": 1,\n   \"title\": \"Need Math Tutor\",\n   \"description\": \"Looking for calculus tutor\",\n   \"budget\": 5000,\n   \"location\": \"Online\",\n   \"status\": \"open\",\n   \"learner\": {\n     \"id\": 1,\n     \"name\": \"John Student\"\n   }\n }\n}",
+                            "body": "{\n \"data\": {\n   \"id\": 1,\n   \"title\": \"Need Math Tutor\",\n   \"description\": \"Looking for calculus tutor\",\n   \"budget\": 5000,\n   \"budget_period\": \"monthly\",\n   \"location\": \"Online\",\n   \"status\": \"pending\",\n   \"learner\": {\n     \"id\": 1,\n     \"name\": \"John Student\"\n   }\n }\n}",
                             "name": ""
                         }
                     ]
@@ -882,15 +894,15 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"category_id\":5,\"title\":\"cupiditate\",\"description\":\"Quis asperiores nostrum amet eligendi ullam modi sunt.\",\"budget\":\"odit\",\"location\":\"quasi\",\"status\":\"open\"}"
+                            "raw": "{\"category_id\":11,\"title\":\"sequi\",\"description\":\"Dolores illum quis dolor quisquam.\",\"budget_period\":\"maiores\",\"budget\":\"hic\",\"location\":\"non\",\"status\":\"dolorem\"}"
                         },
-                        "description": "Create a new gig (Learner only)."
+                        "description": "Create a new gig in pending status (Learner only). The gig will not be visible to others\nuntil it is published."
                     },
                     "response": [
                         {
                             "header": [],
                             "code": 201,
-                            "body": "{\n \"data\": {\n   \"id\": 1,\n   \"title\": \"Need Math Tutor\",\n   \"description\": \"Looking for calculus tutor...\",\n   \"budget\": 5000,\n   \"location\": \"Online\",\n   \"status\": \"open\"\n }\n}",
+                            "body": "{\n \"data\": {\n   \"id\": 1,\n   \"title\": \"Need Math Tutor\",\n   \"description\": \"Looking for calculus tutor...\",\n   \"budget\": 5000,\n   \"budget_period\": \"monthly\",\n   \"location\": \"Online\",\n   \"status\": \"pending\"\n }\n}",
                             "name": ""
                         }
                     ]
@@ -913,7 +925,7 @@
                                 {
                                     "id": "gig",
                                     "key": "gig",
-                                    "value": "1",
+                                    "value": "18",
                                     "description": "The ID of the gig"
                                 }
                             ]
@@ -931,7 +943,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"category_id\":6,\"title\":\"minus\",\"description\":\"Neque esse optio architecto ullam et et.\",\"budget\":\"voluptatem\",\"location\":\"iste\",\"status\":\"et\"}"
+                            "raw": "{\"category_id\":5,\"title\":\"id\",\"description\":\"Amet veniam a aperiam.\",\"budget_period\":\"vero\",\"budget\":\"qui\",\"location\":\"placeat\",\"status\":\"rerum\"}"
                         },
                         "description": "Update an existing gig (Gig owner only)."
                     },
@@ -939,7 +951,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\n \"data\": {\n   \"id\": 1,\n   \"title\": \"Updated Math Tutor\",\n   \"description\": \"Updated description...\",\n   \"budget\": 6000,\n   \"location\": \"Online\",\n   \"status\": \"open\"\n }\n}",
+                            "body": "{\n \"data\": {\n   \"id\": 1,\n   \"title\": \"Updated Math Tutor\",\n   \"description\": \"Updated description...\",\n   \"budget\": 6000,\n   \"budget_period\": \"weekly\",\n   \"location\": \"Online\",\n   \"status\": \"pending\"\n }\n}",
                             "name": ""
                         }
                     ]
@@ -962,7 +974,7 @@
                                 {
                                     "id": "gig",
                                     "key": "gig",
-                                    "value": "19",
+                                    "value": "4",
                                     "description": "The ID of the gig"
                                 }
                             ]
@@ -986,6 +998,110 @@
                             "header": [],
                             "code": 204,
                             "body": "{}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Publish Gig",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/gigs\/:gig_id\/publish",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/gigs\/:gig_id\/publish",
+                            "variable": [
+                                {
+                                    "id": "gig_id",
+                                    "key": "gig_id",
+                                    "value": "1",
+                                    "description": "The ID of the gig."
+                                },
+                                {
+                                    "id": "gig",
+                                    "key": "gig",
+                                    "value": "9",
+                                    "description": "The ID of the gig"
+                                }
+                            ]
+                        },
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Change a gig's status from pending to open, making it publicly available (Gig owner only)."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"data\": {\n   \"id\": 1,\n   \"title\": \"Need Math Tutor\",\n   \"description\": \"Looking for calculus tutor...\",\n   \"budget\": 5000,\n   \"budget_period\": \"monthly\",\n   \"location\": \"Online\",\n   \"status\": \"open\"\n }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n \"message\": \"Only pending gigs can be published\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"message\": \"You are not authorized to publish this gig\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Unpublish Gig",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/gigs\/:gig_id\/unpublish",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/gigs\/:gig_id\/unpublish",
+                            "variable": [
+                                {
+                                    "id": "gig_id",
+                                    "key": "gig_id",
+                                    "value": "1",
+                                    "description": "The ID of the gig."
+                                },
+                                {
+                                    "id": "gig",
+                                    "key": "gig",
+                                    "value": "19",
+                                    "description": "The ID of the gig"
+                                }
+                            ]
+                        },
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Change a gig's status from open to pending, making it private (Gig owner only)."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"data\": {\n   \"id\": 1,\n   \"title\": \"Need Math Tutor\",\n   \"description\": \"Looking for calculus tutor...\",\n   \"budget\": 5000,\n   \"budget_period\": \"monthly\",\n   \"location\": \"Online\",\n   \"status\": \"pending\"\n }\n}",
                             "name": ""
                         }
                     ]
@@ -1050,7 +1166,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"category_ids\":[\"qui\"]}"
+                            "raw": "{\"category_ids\":[\"non\"]}"
                         },
                         "description": "Add categories that the tutor can teach."
                     },
@@ -1081,7 +1197,7 @@
                                 {
                                     "id": "category",
                                     "key": "category",
-                                    "value": "20",
+                                    "value": "5",
                                     "description": "The ID of the category"
                                 }
                             ]
@@ -1175,7 +1291,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"bio\":\"quia\",\"years_of_experience\":13,\"availability_status\":\"nemo\"}"
+                            "raw": "{\"bio\":\"quidem\",\"years_of_experience\":3,\"availability_status\":\"error\"}"
                         },
                         "description": "Update tutor profile details."
                     },
@@ -1200,7 +1316,7 @@
                                 {
                                     "id": "userId",
                                     "key": "userId",
-                                    "value": "5",
+                                    "value": "17",
                                     "description": "The ID of the tutor"
                                 }
                             ]
@@ -1218,7 +1334,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"verification_status\":\"sint\"}"
+                            "raw": "{\"verification_status\":\"expedita\"}"
                         },
                         "description": "Update tutor's verification status."
                     },
@@ -1284,7 +1400,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"search\":\"qgynlomaitvotcjolmgjbmfiklbswdlavbuuaeyrpfqplbqjqzqqrlmrjbnpxrodzxsompyuggnnfeotymwx\",\"available\":\"busy\",\"include\":\"dignissimos\"}"
+                            "raw": "{\"search\":\"bqodmqnlihqsyfjkejbpvrukrnrhrbvftdhymesktfszzekfngjszvymxnqlliafowaxgpxgjagprpahmflgngxakt\",\"available\":\"busy\",\"include\":\"quasi\"}"
                         },
                         "description": "Get a list of all available tutors with optional filters.",
                         "auth": {

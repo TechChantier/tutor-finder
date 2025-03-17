@@ -15,7 +15,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'List All Gigs'
-      description: 'Get a list of all available learning gigs.'
+      description: 'Get a list of all available learning gigs. By default, pending gigs are excluded.'
       authenticated: false
       custom: []
     headers:
@@ -31,7 +31,7 @@ endpoints:
                       Multiple relationships can be comma-separated.
                       Available relationships: learner, category, applications
         required: false
-        example: aut
+        example: dolor
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -41,7 +41,7 @@ endpoints:
         name: search
         description: 'Search in gig title and description'
         required: false
-        example: odio
+        example: itaque
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -51,7 +51,17 @@ endpoints:
         name: price
         description: 'Filter by price range (format: 1000-5000)'
         required: false
-        example: a
+        example: debitis
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      budget_period:
+        name: budget_period
+        description: 'Filter by budget period (hourly/daily/weekly/monthly)'
+        required: false
+        example: qui
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -61,7 +71,7 @@ endpoints:
         name: category_id
         description: 'Filter gigs by category'
         required: false
-        example: 15
+        example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -69,9 +79,9 @@ endpoints:
         custom: []
       status:
         name: status
-        description: 'Filter by gig status (open/in_progress/completed/cancelled)'
+        description: 'Filter by gig status (pending/open/in_progress/completed/cancelled)'
         required: false
-        example: amet
+        example: sint
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -81,25 +91,37 @@ endpoints:
         name: learner_id
         description: 'Filter gigs by the learner who created them'
         required: false
-        example: 5
+        example: 17
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
+      include_pending:
+        name: include_pending
+        description: 'Include pending gigs (default: false)'
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
     cleanQueryParameters:
-      include: aut
-      search: odio
-      price: a
-      category_id: 15
-      status: amet
-      learner_id: 5
+      include: dolor
+      search: itaque
+      price: debitis
+      budget_period: qui
+      category_id: 16
+      status: sint
+      learner_id: 17
+      include_pending: false
     bodyParameters:
       search:
         name: search
         description: 'Must be at least 3 characters.'
         required: false
-        example: dkietsyfbnuzhhnjcxe
+        example: nkzjpqjyzelkyqfislnxeersafprfwnjxoenwgrneryrtyquxrj
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -109,9 +131,23 @@ endpoints:
         name: price
         description: 'Must match the regex /^\d+-\d+$/.'
         required: false
-        example: 1484-263329768
+        example: 8353403-748
         type: string
         enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      budget_period:
+        name: budget_period
+        description: ''
+        required: false
+        example: hourly
+        type: string
+        enumValues:
+          - hourly
+          - daily
+          - weekly
+          - monthly
         exampleWasSpecified: false
         nullable: false
         custom: []
@@ -129,9 +165,10 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: open
+        example: completed
         type: string
         enumValues:
+          - pending
           - open
           - in_progress
           - completed
@@ -149,10 +186,22 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         custom: []
+      include_pending:
+        name: include_pending
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
     cleanBodyParameters:
-      search: dkietsyfbnuzhhnjcxe
-      price: 1484-263329768
-      status: open
+      search: nkzjpqjyzelkyqfislnxeersafprfwnjxoenwgrneryrtyquxrj
+      price: 8353403-748
+      budget_period: hourly
+      status: completed
+      include_pending: false
     fileParameters: []
     responses:
       -
@@ -165,6 +214,7 @@ endpoints:
                "title": "Need Math Tutor",
                "description": "Looking for calculus tutor",
                "budget": 5000,
+               "budget_period": "monthly",
                "location": "Online",
                "status": "open",
                "learner": {
@@ -220,7 +270,7 @@ endpoints:
         name: gig
         description: 'The ID of the gig'
         required: true
-        example: 6
+        example: 18
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -228,20 +278,20 @@ endpoints:
         custom: []
     cleanUrlParameters:
       gig_id: 1
-      gig: 6
+      gig: 18
     queryParameters:
       include:
         name: include
         description: 'Relationships to include (learner,category,applications)'
         required: false
-        example: aliquid
+        example: animi
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanQueryParameters:
-      include: aliquid
+      include: animi
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
@@ -255,8 +305,9 @@ endpoints:
              "title": "Need Math Tutor",
              "description": "Looking for calculus tutor",
              "budget": 5000,
+             "budget_period": "monthly",
              "location": "Online",
-             "status": "open",
+             "status": "pending",
              "learner": {
                "id": 1,
                "name": "John Student"
@@ -284,7 +335,9 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Create Gig'
-      description: 'Create a new gig (Learner only).'
+      description: |-
+        Create a new gig in pending status (Learner only). The gig will not be visible to others
+        until it is published.
       authenticated: true
       custom: []
     headers:
@@ -299,7 +352,7 @@ endpoints:
         name: category_id
         description: 'Valid category ID'
         required: true
-        example: 5
+        example: 11
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -309,7 +362,7 @@ endpoints:
         name: title
         description: 'Gig title min:10 characters'
         required: true
-        example: cupiditate
+        example: sequi
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -319,7 +372,17 @@ endpoints:
         name: description
         description: 'Detailed description min:50 characters'
         required: true
-        example: 'Quis asperiores nostrum amet eligendi ullam modi sunt.'
+        example: 'Dolores illum quis dolor quisquam.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      budget_period:
+        name: budget_period
+        description: 'Budget time period (hourly/daily/weekly/monthly)'
+        required: true
+        example: maiores
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -329,7 +392,7 @@ endpoints:
         name: budget
         description: 'Minimum amount 1000'
         required: true
-        example: odit
+        example: hic
         type: numeric
         enumValues: []
         exampleWasSpecified: false
@@ -339,7 +402,7 @@ endpoints:
         name: location
         description: 'Preferred learning location'
         required: true
-        example: quasi
+        example: non
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -347,24 +410,22 @@ endpoints:
         custom: []
       status:
         name: status
-        description: ''
+        description: 'Status of the gig (defaults to pending)'
         required: false
-        example: open
+        example: dolorem
         type: string
-        enumValues:
-          - open
-          - completed
-          - cancelled
+        enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      category_id: 5
-      title: cupiditate
-      description: 'Quis asperiores nostrum amet eligendi ullam modi sunt.'
-      budget: odit
-      location: quasi
-      status: open
+      category_id: 11
+      title: sequi
+      description: 'Dolores illum quis dolor quisquam.'
+      budget_period: maiores
+      budget: hic
+      location: non
+      status: dolorem
     fileParameters: []
     responses:
       -
@@ -376,8 +437,9 @@ endpoints:
              "title": "Need Math Tutor",
              "description": "Looking for calculus tutor...",
              "budget": 5000,
+             "budget_period": "monthly",
              "location": "Online",
-             "status": "open"
+             "status": "pending"
            }
           }
         headers: []
@@ -422,7 +484,7 @@ endpoints:
         name: gig
         description: 'The ID of the gig'
         required: true
-        example: 1
+        example: 18
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -430,7 +492,7 @@ endpoints:
         custom: []
     cleanUrlParameters:
       gig_id: 1
-      gig: 1
+      gig: 18
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -438,7 +500,7 @@ endpoints:
         name: category_id
         description: 'Valid category ID'
         required: true
-        example: 6
+        example: 5
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -448,7 +510,7 @@ endpoints:
         name: title
         description: 'Gig title min:10 characters'
         required: true
-        example: minus
+        example: id
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -458,7 +520,17 @@ endpoints:
         name: description
         description: 'Detailed description min:50 characters'
         required: true
-        example: 'Neque esse optio architecto ullam et et.'
+        example: 'Amet veniam a aperiam.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      budget_period:
+        name: budget_period
+        description: 'Budget time period (hourly/daily/weekly/monthly)'
+        required: true
+        example: vero
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -468,7 +540,7 @@ endpoints:
         name: budget
         description: 'Minimum amount 1000'
         required: true
-        example: voluptatem
+        example: qui
         type: numeric
         enumValues: []
         exampleWasSpecified: false
@@ -478,7 +550,7 @@ endpoints:
         name: location
         description: 'Preferred learning location'
         required: true
-        example: iste
+        example: placeat
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -486,21 +558,22 @@ endpoints:
         custom: []
       status:
         name: status
-        description: 'Status of the gig (open/completed/cancelled)'
+        description: 'Status of the gig (pending/open/completed/cancelled)'
         required: false
-        example: et
+        example: rerum
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      category_id: 6
-      title: minus
-      description: 'Neque esse optio architecto ullam et et.'
-      budget: voluptatem
-      location: iste
-      status: et
+      category_id: 5
+      title: id
+      description: 'Amet veniam a aperiam.'
+      budget_period: vero
+      budget: qui
+      location: placeat
+      status: rerum
     fileParameters: []
     responses:
       -
@@ -512,8 +585,9 @@ endpoints:
              "title": "Updated Math Tutor",
              "description": "Updated description...",
              "budget": 6000,
+             "budget_period": "weekly",
              "location": "Online",
-             "status": "open"
+             "status": "pending"
            }
           }
         headers: []
@@ -558,6 +632,155 @@ endpoints:
         name: gig
         description: 'The ID of the gig'
         required: true
+        example: 4
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      gig_id: 1
+      gig: 4
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 204
+        content: '{}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PATCH
+    uri: 'api/gigs/{gig_id}/publish'
+    metadata:
+      groupName: Gigs
+      groupDescription: |-
+
+        APIs for managing learning gigs
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Publish Gig'
+      description: "Change a gig's status from pending to open, making it publicly available (Gig owner only)."
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      gig_id:
+        name: gig_id
+        description: 'The ID of the gig.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      gig:
+        name: gig
+        description: 'The ID of the gig'
+        required: true
+        example: 9
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      gig_id: 1
+      gig: 9
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "data": {
+             "id": 1,
+             "title": "Need Math Tutor",
+             "description": "Looking for calculus tutor...",
+             "budget": 5000,
+             "budget_period": "monthly",
+             "location": "Online",
+             "status": "open"
+           }
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 400
+        content: |-
+          {
+           "message": "Only pending gigs can be published"
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: |-
+          {
+           "message": "You are not authorized to publish this gig"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PATCH
+    uri: 'api/gigs/{gig_id}/unpublish'
+    metadata:
+      groupName: Gigs
+      groupDescription: |-
+
+        APIs for managing learning gigs
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Unpublish Gig'
+      description: "Change a gig's status from open to pending, making it private (Gig owner only)."
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      gig_id:
+        name: gig_id
+        description: 'The ID of the gig.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      gig:
+        name: gig
+        description: 'The ID of the gig'
+        required: true
         example: 19
         type: integer
         enumValues: []
@@ -574,8 +797,19 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 204
-        content: '{}'
+        status: 200
+        content: |-
+          {
+           "data": {
+             "id": 1,
+             "title": "Need Math Tutor",
+             "description": "Looking for calculus tutor...",
+             "budget": 5000,
+             "budget_period": "monthly",
+             "location": "Online",
+             "status": "pending"
+           }
+          }
         headers: []
         description: ''
         custom: []
