@@ -54,7 +54,7 @@ class Gig extends Model
         return $this->status === self::STATUS_PENDING;
     }
     
-    // Helper method to check if gig is open
+    
     public function isOpen(): bool
     {
         return $this->status === self::STATUS_OPEN;
