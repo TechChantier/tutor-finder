@@ -78,7 +78,7 @@ endpoints:
         description: 'List of category IDs'
         required: true
         example:
-          - non
+          - aut
         type: 'string[]'
         enumValues: []
         exampleWasSpecified: false
@@ -88,7 +88,7 @@ endpoints:
         name: 'category_ids.*'
         description: 'Must exist in categories table'
         required: true
-        example: 13
+        example: 11
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -96,7 +96,7 @@ endpoints:
         custom: []
     cleanBodyParameters:
       category_ids:
-        - non
+        - aut
     fileParameters: []
     responses:
       -

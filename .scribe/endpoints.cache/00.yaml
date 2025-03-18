@@ -106,7 +106,7 @@ endpoints:
         name: title
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: wdmmqvvhsqagklyqiwvoswsk
+        example: dsmncy
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -116,7 +116,7 @@ endpoints:
         name: description
         description: 'Must not be greater than 1000 characters.'
         required: true
-        example: 'Totam nulla doloribus consectetur minima.'
+        example: 'Eum quod doloremque consequatur commodi eum.'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -126,7 +126,7 @@ endpoints:
         name: institution
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: ckuxtchm
+        example: drkbqrugytankihocots
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -136,17 +136,17 @@ endpoints:
         name: year_obtained
         description: 'Must be at least 1950. Must not be greater than 2025.'
         required: true
-        example: 22
+        example: 5
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      title: wdmmqvvhsqagklyqiwvoswsk
-      description: 'Totam nulla doloribus consectetur minima.'
-      institution: ckuxtchm
-      year_obtained: 22
+      title: dsmncy
+      description: 'Eum quod doloremque consequatur commodi eum.'
+      institution: drkbqrugytankihocots
+      year_obtained: 5
     fileParameters: []
     responses: []
     responseFields: []
@@ -192,7 +192,7 @@ endpoints:
         name: title
         description: 'Must not be greater than 255 characters.'
         required: false
-        example: gmarraqwxfsmtsklmfzk
+        example: kkbgxatf
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -202,7 +202,7 @@ endpoints:
         name: description
         description: 'Must not be greater than 1000 characters.'
         required: false
-        example: 'Hic dolor error est ipsam velit quas molestiae.'
+        example: 'Voluptatem doloribus laboriosam doloremque mollitia.'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -212,7 +212,7 @@ endpoints:
         name: institution
         description: 'Must not be greater than 255 characters.'
         required: false
-        example: fmpub
+        example: bravaj
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -222,17 +222,17 @@ endpoints:
         name: year_obtained
         description: 'Must be at least 1950. Must not be greater than 2025.'
         required: false
-        example: 3
+        example: 18
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      title: gmarraqwxfsmtsklmfzk
-      description: 'Hic dolor error est ipsam velit quas molestiae.'
-      institution: fmpub
-      year_obtained: 3
+      title: kkbgxatf
+      description: 'Voluptatem doloribus laboriosam doloremque mollitia.'
+      institution: bravaj
+      year_obtained: 18
     fileParameters: []
     responses: []
     responseFields: []

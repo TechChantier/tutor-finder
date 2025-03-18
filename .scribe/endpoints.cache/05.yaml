@@ -78,7 +78,7 @@ endpoints:
         name: bio
         description: 'Detailed bio min:50 characters'
         required: true
-        example: quidem
+        example: beatae
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -88,7 +88,7 @@ endpoints:
         name: years_of_experience
         description: 'Years of teaching experience'
         required: true
-        example: 3
+        example: 12
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -98,16 +98,16 @@ endpoints:
         name: availability_status
         description: "Tutor's availability (available/busy)"
         required: false
-        example: error
+        example: corporis
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      bio: quidem
-      years_of_experience: 3
-      availability_status: error
+      bio: beatae
+      years_of_experience: 12
+      availability_status: corporis
     fileParameters: []
     responses:
       -
@@ -153,14 +153,14 @@ endpoints:
         name: userId
         description: 'The ID of the tutor'
         required: true
-        example: 17
+        example: 13
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      userId: 17
+      userId: 13
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -168,14 +168,14 @@ endpoints:
         name: verification_status
         description: 'Status (verified/rejected)'
         required: true
-        example: expedita
+        example: vel
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      verification_status: expedita
+      verification_status: vel
     fileParameters: []
     responses:
       -

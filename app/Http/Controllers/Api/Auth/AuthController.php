@@ -61,14 +61,14 @@ class AuthController extends Controller
         // Initialize profile image path as null
         $profileImagePath = null;
         
-        // Handle profile image upload if provided
-        if ($request->hasFile('profile_image')) {
-            $image = $request->file('profile_image');
-            // Store the image in the 'profile_images' directory within your storage
-            $relativePath = $image->store('profile_images', 'public');
-            // Generate the full URL path
-            $profileImagePath = url('storage/' . $relativePath);
-        }
+     // Handle profile image upload if provided
+    if ($request->hasFile('profile_image')) {
+        $image = $request->file('profile_image');
+        // Store the image in the 'profile_images' directory within your storage
+        $relativePath = $image->store('profile_images', 'public');
+        // Generate the full URL path using asset() instead of url()
+        $profileImagePath = asset('storage/' . $relativePath);
+    }
         
         // Create user with all validated fields
         $user = User::create([

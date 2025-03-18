@@ -32,7 +32,7 @@ endpoints:
         name: name
         description: "User's full name"
         required: true
-        example: consectetur
+        example: perferendis
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -42,7 +42,7 @@ endpoints:
         name: email
         description: "User's email address must be unique"
         required: true
-        example: gabrielle.lakin@example.net
+        example: rippin.edmund@example.org
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -52,7 +52,7 @@ endpoints:
         name: password
         description: 'Minimum of 8 characters'
         required: true
-        example: \gD46o09UFQ43(Lx4T
+        example: 'V~/FE"=14}1a?'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -62,7 +62,7 @@ endpoints:
         name: phone_number
         description: 'Max 12 characters'
         required: true
-        example: minus
+        example: omnis
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -72,7 +72,7 @@ endpoints:
         name: whatsapp_number
         description: 'Max 12 characters'
         required: true
-        example: dolores
+        example: possimus
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -82,7 +82,7 @@ endpoints:
         name: user_type
         description: "Either 'tutor' or 'learner'"
         required: true
-        example: debitis
+        example: voluptas
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -92,7 +92,7 @@ endpoints:
         name: location
         description: "User's location"
         required: true
-        example: repellat
+        example: quisquam
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -112,21 +112,21 @@ endpoints:
         name: password_confirmation
         description: 'Must match password'
         required: true
-        example: quaerat
+        example: laudantium
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      name: consectetur
-      email: gabrielle.lakin@example.net
-      password: \gD46o09UFQ43(Lx4T
-      phone_number: minus
-      whatsapp_number: dolores
-      user_type: debitis
-      location: repellat
-      password_confirmation: quaerat
+      name: perferendis
+      email: rippin.edmund@example.org
+      password: 'V~/FE"=14}1a?'
+      phone_number: omnis
+      whatsapp_number: possimus
+      user_type: voluptas
+      location: quisquam
+      password_confirmation: laudantium
     fileParameters:
       profile_image: null
     responses:
@@ -194,7 +194,7 @@ endpoints:
         name: email
         description: "User's email address"
         required: true
-        example: vbruen@example.org
+        example: emilio.vonrueden@example.com
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -204,15 +204,15 @@ endpoints:
         name: password
         description: "User's password min:6"
         required: true
-        example: s0kC)KOk
+        example: 'fI_,!o5T'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      email: vbruen@example.org
-      password: s0kC)KOk
+      email: emilio.vonrueden@example.com
+      password: 'fI_,!o5T'
     fileParameters: []
     responses:
       -

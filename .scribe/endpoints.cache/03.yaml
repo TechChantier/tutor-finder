@@ -79,7 +79,7 @@ endpoints:
         name: search
         description: 'Must be at least 3 characters.'
         required: false
-        example: bqodmqnlihqsyfjkejbpvrukrnrhrbvftdhymesktfszzekfngjszvymxnqlliafowaxgpxgjagprpahmflgngxakt
+        example: aairyxbhiufamuubwyvnkxzgmptvbydcizpdxlhotvuxwwehtngrmhpnzrwatfmpfarwvmijoiojgdg
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -111,16 +111,16 @@ endpoints:
         name: include
         description: ''
         required: false
-        example: quasi
+        example: deserunt
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      search: bqodmqnlihqsyfjkejbpvrukrnrhrbvftdhymesktfszzekfngjszvymxnqlliafowaxgpxgjagprpahmflgngxakt
+      search: aairyxbhiufamuubwyvnkxzgmptvbydcizpdxlhotvuxwwehtngrmhpnzrwatfmpfarwvmijoiojgdg
       available: busy
-      include: quasi
+      include: deserunt
     fileParameters: []
     responses:
       -
