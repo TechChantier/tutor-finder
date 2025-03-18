@@ -19,7 +19,6 @@ class UserResource extends JsonResource
             'name' => $this->name,
             'email' => $this->email,
             'phone_number' => $this->phone_number,
-            'whatsapp_number' => $this->whatsapp_number,
             'user_type' => $this->user_type,
             'location' => $this->location,
             'profile_image' => $this->profile_image,
@@ -34,6 +33,7 @@ class UserResource extends JsonResource
                 'years_of_experience' => $this->tutorProfile->years_of_experience,
                 'verification_status' => $this->tutorProfile->verification_status,
                 'availability_status' => $this->tutorProfile->availability_status,
+                'profile_video' => $this->tutorProfile->profile_video,
             ];
         }
 

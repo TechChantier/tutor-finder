@@ -32,6 +32,7 @@ class UpdateRequest extends FormRequest
             'bio' => ['required', 'string', 'min:50', 'max:1000'],
             'years_of_experience' => ['sometimes', 'integer', 'min:0'],
             'availability_status' => ['sometimes', 'string', 'in:available,busy'],
+            'profile_video' => ['sometimes', 'file', 'mimes:mp4,mov,avi', 'max:20480']
         ];
     }
 
@@ -40,6 +41,7 @@ class UpdateRequest extends FormRequest
         return [
             'bio.min' => 'Your bio should be at least 50 characters to properly describe your expertise',
             'years_of_experience.min' => 'Years of experience cannot be negative',
+            'profile_video.mimes' => 'Profile video must be in MP4, MOV, or AVI format',
         ];
     }
 }

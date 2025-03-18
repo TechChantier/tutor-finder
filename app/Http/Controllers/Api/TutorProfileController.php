@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\TutorProfileResource;
 use App\Http\Requests\TutorProfile\UpdateRequest;
-use App\Http\Resources\UserResource;
+use App\Http\Resources\TutorResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -103,6 +103,6 @@ class TutorProfileController extends Controller
            'verification_status' => $request->verification_status
        ]);
 
-       return new UserResource($user);
+       return new TutorResource($user);
    }
 }

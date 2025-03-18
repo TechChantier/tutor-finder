@@ -20,75 +20,89 @@ class AuthController extends Controller
 {
 
      /**
-     * Register User
-     * 
-     * Create a new user account.
-     * 
-     * @bodyParam name string required User's full name
-     * @bodyParam email string required User's email address must be unique
-     * @bodyParam password string required Minimum of 8 characters
-     * @bodyParam password_confirmation string required Must match password
-     * @bodyParam phone_number string required Max 12 characters
-     * @bodyParam whatsapp_number string required Max 12 characters
-     * @bodyParam user_type string required Either 'tutor' or 'learner'
-     * @bodyParam location string required User's location
-     * 
-     * @response status=201 {
-     *  "message": "User registered successfully",
-     *  "user": {
-     *    "id": 1,
-     *    "name": "John Doe",
-     *    "email": "john@example.com",
-     *    "phone_number": "1234567890",
-     *    "whatsapp_number": "1234567890",
-     *    "user_type": "tutor",
-     *    "location": "New York",
-     *    "tutor_profile": {
-     *      "verification_status": "pending",
-     *      "availability_status": "available"
-     *    }
-     *  }
-     * }
-     * 
-     * @response status=422 {
-     *  "message": "The email has already been taken"
-     * }
-     */
+ * Register User
+ * 
+ * Create a new user account.
+ * 
+ * @bodyParam name string required User's full name
+ * @bodyParam email string required User's email address must be unique
+ * @bodyParam password string required Minimum of 8 characters
+ * @bodyParam password_confirmation string required Must match password
+ * @bodyParam phone_number string required Min 10 characters, valid phone number format
+ * @bodyParam user_type string required Either 'tutor' or 'learner'
+ * @bodyParam location string required User's location
+ * @bodyParam profile_image file required Profile image (jpeg, png, jpg) max 2MB
+ * @bodyParam profile_video file optional Video file for tutor profiles only (mp4, mov, avi) max 20MB
+ * 
+ * @response status=201 {
+ *  "message": "User registered successfully",
+ *  "user": {
+ *    "id": 1,
+ *    "name": "John Doe",
+ *    "email": "john@example.com",
+ *    "phone_number": "1234567890",
+ *    "user_type": "tutor",
+ *    "location": "New York",
+ *    "profile_image": "https://example.com/storage/profile_images/image.jpg",
+ *    "created_at": "2025-03-18 12:00:00",
+ *    "updated_at": "2025-03-18 12:00:00",
+ *    "tutor_profile": {
+ *      "bio": "",
+ *      "years_of_experience": 0,
+ *      "verification_status": "pending",
+ *      "availability_status": "available",
+ *      "profile_video": "https://example.com/storage/profile_videos/video.mp4"
+ *    }
+ *  }
+ * }
+ * 
+ * @response status=422 {
+ *  "message": "The email has already been taken.",
+ *  "errors": {
+ *    "email": ["The email has already been taken."]
+ *  }
+ * }
+ */
     public function signup(RegisterRequest $request): JsonResponse
     {
         $validatedFields = $request->validated();
         
-        // Initialize profile image path as null
+        // Handle mandatory profile image upload
         $profileImagePath = null;
+        if ($request->hasFile('profile_image')) {
+            $image = $request->file('profile_image');
+            $relativePath = $image->store('profile_images', 'public');
+            $profileImagePath = asset('storage/' . $relativePath);
+        }
         
-     // Handle profile image upload if provided
-    if ($request->hasFile('profile_image')) {
-        $image = $request->file('profile_image');
-        // Store the image in the 'profile_images' directory within your storage
-        $relativePath = $image->store('profile_images', 'public');
-        // Generate the full URL path using asset() instead of url()
-        $profileImagePath = asset('storage/' . $relativePath);
-    }
-        
-        // Create user with all validated fields
+        // Create user with validated fields (no WhatsApp number)
         $user = User::create([
             'name' => $validatedFields['name'],
             'email' => $validatedFields['email'],
             'password' => Hash::make($validatedFields['password']),
             'phone_number' => $validatedFields['phone_number'],
-            'whatsapp_number' => $validatedFields['whatsapp_number'],
             'user_type' => $validatedFields['user_type'],
             'location' => $validatedFields['location'],
             'profile_image' => $profileImagePath,
         ]);
         
+        // Handle tutor-specific profile creation with optional video
         if ($validatedFields['user_type'] === 'tutor') {
-            $user->tutorProfile()->create([
+            $tutorProfileData = [
                 'bio' => '',
                 'years_of_experience' => 0,
                 'verification_status' => 'pending',
                 'availability_status' => 'available',
-            ]);
+            ];
+            
+            // Handle optional profile video for tutors
+            if ($request->hasFile('profile_video')) {
+                $video = $request->file('profile_video');
+                $relativePath = $video->store('profile_videos', 'public');
+                $tutorProfileData['profile_video'] = asset('storage/' . $relativePath);
+            }
+            
+            $user->tutorProfile()->create($tutorProfileData);
         }
         
         return response()->json([

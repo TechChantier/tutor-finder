@@ -20,6 +20,7 @@ class TutorProfileResource extends JsonResource
             'years_of_experience' => $this->years_of_experience,
             'verification_status' => $this->verification_status,
             'availability_status' => $this->availability_status,
+            'profile_video' => $this->profile_video,
             'updated_at' => $this->updated_at->format('Y-m-d H:i:s'),
             'created_at' => $this->created_at->format('Y-m-d H:i:s'),
         ];
