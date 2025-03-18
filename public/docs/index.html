@@ -230,7 +230,7 @@
     <div class="content">
         <h1 id="introduction">Introduction</h1>
 <aside>
-    <strong>Base URL</strong>: <code>https://rrn24.techchantier.site/tutor-finder/public/api</code>
+    <strong>Base URL</strong>: <code>https://rrn24.techchantier.com/tutor-finder/public/api</code>
 </aside>
 <p>This documentation aims to provide all the information you need to work with our API.</p>
 <aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
@@ -257,14 +257,14 @@ You can switch the language used with the tabs at the top right (or from the nav
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://rrn24.techchantier.site/tutor-finder/public/api/api/applications" \
+    --get "https://rrn24.techchantier.com/tutor-finder/public/api/api/applications" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/applications"
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/applications"
 );
 
 const headers = {
@@ -388,18 +388,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/applications/17" \
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/applications/7" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"status\": \"occaecati\"
+    \"status\": \"vel\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/applications/17"
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/applications/7"
 );
 
 const headers = {
@@ -408,7 +408,7 @@ const headers = {
 };
 
 let body = {
-    "status": "occaecati"
+    "status": "vel"
 };
 
 fetch(url, {
@@ -525,10 +525,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="PUTapi-applications--id-"
-               value="17"
+               value="7"
                data-component="url">
     <br>
-<p>The ID of the application. Example: <code>17</code></p>
+<p>The ID of the application. Example: <code>7</code></p>
             </div>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>application</code></b>&nbsp;&nbsp;
@@ -536,10 +536,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="application"                data-endpoint="PUTapi-applications--id-"
-               value="19"
+               value="8"
                data-component="url">
     <br>
-<p>The ID of the application Example: <code>19</code></p>
+<p>The ID of the application Example: <code>8</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -548,10 +548,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="PUTapi-applications--id-"
-               value="occaecati"
+               value="vel"
                data-component="body">
     <br>
-<p>Status of application (accepted/rejected) Example: <code>occaecati</code></p>
+<p>Status of application (accepted/rejected) Example: <code>vel</code></p>
         </div>
         </form>
 
@@ -569,18 +569,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/gigs/46/apply" \
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/gigs/46/apply" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"proposal_message\": \"rem\"
+    \"proposal_message\": \"cupiditate\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/gigs/46/apply"
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/gigs/46/apply"
 );
 
 const headers = {
@@ -589,7 +589,7 @@ const headers = {
 };
 
 let body = {
-    "proposal_message": "rem"
+    "proposal_message": "cupiditate"
 };
 
 fetch(url, {
@@ -713,10 +713,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="gig"                data-endpoint="POSTapi-gigs--gig_id--apply"
-               value="2"
+               value="7"
                data-component="url">
     <br>
-<p>The ID of the gig Example: <code>2</code></p>
+<p>The ID of the gig Example: <code>7</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -725,10 +725,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="proposal_message"                data-endpoint="POSTapi-gigs--gig_id--apply"
-               value="rem"
+               value="cupiditate"
                data-component="body">
     <br>
-<p>The application proposal text min:50 characters Example: <code>rem</code></p>
+<p>The application proposal text min:50 characters Example: <code>cupiditate</code></p>
         </div>
         </form>
 
@@ -746,14 +746,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://rrn24.techchantier.site/tutor-finder/public/api/api/tutor/applications" \
+    --get "https://rrn24.techchantier.com/tutor-finder/public/api/api/tutor/applications" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/tutor/applications"
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/tutor/applications"
 );
 
 const headers = {
@@ -874,14 +874,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://rrn24.techchantier.site/tutor-finder/public/api/api/gigs/46/applications" \
+    --get "https://rrn24.techchantier.com/tutor-finder/public/api/api/gigs/46/applications" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/gigs/46/applications"
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/gigs/46/applications"
 );
 
 const headers = {
@@ -1013,10 +1013,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="gig"                data-endpoint="GETapi-gigs--gig_id--applications"
-               value="17"
+               value="9"
                data-component="url">
     <br>
-<p>The ID of the gig Example: <code>17</code></p>
+<p>The ID of the gig Example: <code>9</code></p>
             </div>
                     </form>
 
@@ -1037,23 +1037,23 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/signup" \
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/signup" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "name=perferendis"\
-    --form "email=rippin.edmund@example.org"\
-    --form "password=V~/FE"=14}1a?"\
-    --form "phone_number=omnis"\
-    --form "whatsapp_number=possimus"\
-    --form "user_type=voluptas"\
-    --form "location=quisquam"\
+    --form "name=aliquid"\
+    --form "email=voconner@example.com"\
+    --form "password=S;7nT*:C"\
+    --form "phone_number=velit"\
+    --form "user_type=dolores"\
+    --form "location=enim"\
     --form "password_confirmation=laudantium"\
-    --form "profile_image=@C:\Users\MD CHRISTIEN\AppData\Local\Temp\php101F.tmp" </code></pre></div>
+    --form "profile_image=@C:\Users\MD CHRISTIEN\AppData\Local\Temp\phpBFDA.tmp" \
+    --form "profile_video=@C:\Users\MD CHRISTIEN\AppData\Local\Temp\phpBFDB.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/signup"
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/signup"
 );
 
 const headers = {
@@ -1062,15 +1062,15 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('name', 'perferendis');
-body.append('email', 'rippin.edmund@example.org');
-body.append('password', 'V~/FE"=14}1a?');
-body.append('phone_number', 'omnis');
-body.append('whatsapp_number', 'possimus');
-body.append('user_type', 'voluptas');
-body.append('location', 'quisquam');
+body.append('name', 'aliquid');
+body.append('email', 'voconner@example.com');
+body.append('password', 'S;7nT*:C');
+body.append('phone_number', 'velit');
+body.append('user_type', 'dolores');
+body.append('location', 'enim');
 body.append('password_confirmation', 'laudantium');
 body.append('profile_image', document.querySelector('input[name="profile_image"]').files[0]);
+body.append('profile_video', document.querySelector('input[name="profile_video"]').files[0]);
 
 fetch(url, {
     method: "POST",
@@ -1093,12 +1093,17 @@ fetch(url, {
         &quot;name&quot;: &quot;John Doe&quot;,
         &quot;email&quot;: &quot;john@example.com&quot;,
         &quot;phone_number&quot;: &quot;1234567890&quot;,
-        &quot;whatsapp_number&quot;: &quot;1234567890&quot;,
         &quot;user_type&quot;: &quot;tutor&quot;,
         &quot;location&quot;: &quot;New York&quot;,
+        &quot;profile_image&quot;: &quot;https://example.com/storage/profile_images/image.jpg&quot;,
+        &quot;created_at&quot;: &quot;2025-03-18 12:00:00&quot;,
+        &quot;updated_at&quot;: &quot;2025-03-18 12:00:00&quot;,
         &quot;tutor_profile&quot;: {
+            &quot;bio&quot;: &quot;&quot;,
+            &quot;years_of_experience&quot;: 0,
             &quot;verification_status&quot;: &quot;pending&quot;,
-            &quot;availability_status&quot;: &quot;available&quot;
+            &quot;availability_status&quot;: &quot;available&quot;,
+            &quot;profile_video&quot;: &quot;https://example.com/storage/profile_videos/video.mp4&quot;
         }
     }
 }</code>
@@ -1109,7 +1114,12 @@ fetch(url, {
                 <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;The email has already been taken&quot;
+    &quot;message&quot;: &quot;The email has already been taken.&quot;,
+    &quot;errors&quot;: {
+        &quot;email&quot;: [
+            &quot;The email has already been taken.&quot;
+        ]
+    }
 }</code>
  </pre>
     </span>
@@ -1189,10 +1199,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-signup"
-               value="perferendis"
+               value="aliquid"
                data-component="body">
     <br>
-<p>User's full name Example: <code>perferendis</code></p>
+<p>User's full name Example: <code>aliquid</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -1200,10 +1210,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-signup"
-               value="rippin.edmund@example.org"
+               value="voconner@example.com"
                data-component="body">
     <br>
-<p>User's email address must be unique Example: <code>rippin.edmund@example.org</code></p>
+<p>User's email address must be unique Example: <code>voconner@example.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -1211,10 +1221,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-signup"
-               value="V~/FE"=14}1a?"
+               value="S;7nT*:C"
                data-component="body">
     <br>
-<p>Minimum of 8 characters Example: <code>V~/FE"=14}1a?</code></p>
+<p>Minimum of 8 characters Example: <code>S;7nT*:C</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>phone_number</code></b>&nbsp;&nbsp;
@@ -1222,21 +1232,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="phone_number"                data-endpoint="POSTapi-signup"
-               value="omnis"
+               value="velit"
                data-component="body">
     <br>
-<p>Max 12 characters Example: <code>omnis</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>whatsapp_number</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="whatsapp_number"                data-endpoint="POSTapi-signup"
-               value="possimus"
-               data-component="body">
-    <br>
-<p>Max 12 characters Example: <code>possimus</code></p>
+<p>Min 10 characters, valid phone number format Example: <code>velit</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>user_type</code></b>&nbsp;&nbsp;
@@ -1244,10 +1243,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="user_type"                data-endpoint="POSTapi-signup"
-               value="voluptas"
+               value="dolores"
                data-component="body">
     <br>
-<p>Either 'tutor' or 'learner' Example: <code>voluptas</code></p>
+<p>Either 'tutor' or 'learner' Example: <code>dolores</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>location</code></b>&nbsp;&nbsp;
@@ -1255,21 +1254,21 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="location"                data-endpoint="POSTapi-signup"
-               value="quisquam"
+               value="enim"
                data-component="body">
     <br>
-<p>User's location Example: <code>quisquam</code></p>
+<p>User's location Example: <code>enim</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>profile_image</code></b>&nbsp;&nbsp;
 <small>file</small>&nbsp;
-<i>optional</i> &nbsp;
+ &nbsp;
                 <input type="file" style="display: none"
                               name="profile_image"                data-endpoint="POSTapi-signup"
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\MD CHRISTIEN\AppData\Local\Temp\php101F.tmp</code></p>
+<p>Profile image (jpeg, png, jpg) max 2MB Example: <code>C:\Users\MD CHRISTIEN\AppData\Local\Temp\phpBFDA.tmp</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password_confirmation</code></b>&nbsp;&nbsp;
@@ -1281,6 +1280,17 @@ You can check the Dev Tools console for debugging information.</code></pre>
                data-component="body">
     <br>
 <p>Must match password Example: <code>laudantium</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>profile_video</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="file" style="display: none"
+                              name="profile_video"                data-endpoint="POSTapi-signup"
+               value=""
+               data-component="body">
+    <br>
+<p>optional Video file for tutor profiles only (mp4, mov, avi) max 20MB Example: <code>C:\Users\MD CHRISTIEN\AppData\Local\Temp\phpBFDB.tmp</code></p>
         </div>
         </form>
 
@@ -1297,19 +1307,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/login" \
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/login" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"emilio.vonrueden@example.com\",
-    \"password\": \"fI_,!o5T\"
+    \"email\": \"zulauf.frederic@example.net\",
+    \"password\": \"\\\\V;bv*CArwk!te]m\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/login"
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/login"
 );
 
 const headers = {
@@ -1318,8 +1328,8 @@ const headers = {
 };
 
 let body = {
-    "email": "emilio.vonrueden@example.com",
-    "password": "fI_,!o5T"
+    "email": "zulauf.frederic@example.net",
+    "password": "\\V;bv*CArwk!te]m"
 };
 
 fetch(url, {
@@ -1431,10 +1441,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-login"
-               value="emilio.vonrueden@example.com"
+               value="zulauf.frederic@example.net"
                data-component="body">
     <br>
-<p>User's email address Example: <code>emilio.vonrueden@example.com</code></p>
+<p>User's email address Example: <code>zulauf.frederic@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -1442,10 +1452,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-login"
-               value="fI_,!o5T"
+               value="\V;bv*CArwk!te]m"
                data-component="body">
     <br>
-<p>User's password min:6 Example: <code>fI_,!o5T</code></p>
+<p>User's password min:6 Example: <code>\V;bv*CArwk!te]m</code></p>
         </div>
         </form>
 
@@ -1463,14 +1473,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/logout" \
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/logout" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/logout"
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/logout"
 );
 
 const headers = {
@@ -1584,14 +1594,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://rrn24.techchantier.site/tutor-finder/public/api/api/categories" \
+    --get "https://rrn24.techchantier.com/tutor-finder/public/api/api/categories" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/categories"
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/categories"
 );
 
 const headers = {
@@ -1712,14 +1722,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://rrn24.techchantier.site/tutor-finder/public/api/api/categories/1/tutors" \
+    --get "https://rrn24.techchantier.com/tutor-finder/public/api/api/categories/1/tutors" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/categories/1/tutors"
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/categories/1/tutors"
 );
 
 const headers = {
@@ -1848,10 +1858,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="category"                data-endpoint="GETapi-categories--category_id--tutors"
-               value="14"
+               value="4"
                data-component="url">
     <br>
-<p>The ID of the category Example: <code>14</code></p>
+<p>The ID of the category Example: <code>4</code></p>
             </div>
                     </form>
 
@@ -1872,14 +1882,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://rrn24.techchantier.site/tutor-finder/public/api/api/user" \
+    --get "https://rrn24.techchantier.com/tutor-finder/public/api/api/user" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/user"
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/user"
 );
 
 const headers = {
@@ -1996,14 +2006,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://rrn24.techchantier.site/tutor-finder/public/api/api/qualifications" \
+    --get "https://rrn24.techchantier.com/tutor-finder/public/api/api/qualifications" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/qualifications"
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/qualifications"
 );
 
 const headers = {
@@ -2120,21 +2130,21 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/qualifications" \
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/qualifications" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"title\": \"dsmncy\",
-    \"description\": \"Eum quod doloremque consequatur commodi eum.\",
-    \"institution\": \"drkbqrugytankihocots\",
-    \"year_obtained\": 5
+    \"title\": \"zrbglyhiq\",
+    \"description\": \"Sequi recusandae qui ea minus.\",
+    \"institution\": \"smnf\",
+    \"year_obtained\": 14
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/qualifications"
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/qualifications"
 );
 
 const headers = {
@@ -2143,10 +2153,10 @@ const headers = {
 };
 
 let body = {
-    "title": "dsmncy",
-    "description": "Eum quod doloremque consequatur commodi eum.",
-    "institution": "drkbqrugytankihocots",
-    "year_obtained": 5
+    "title": "zrbglyhiq",
+    "description": "Sequi recusandae qui ea minus.",
+    "institution": "smnf",
+    "year_obtained": 14
 };
 
 fetch(url, {
@@ -2235,10 +2245,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="POSTapi-qualifications"
-               value="dsmncy"
+               value="zrbglyhiq"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>dsmncy</code></p>
+<p>Must not be greater than 255 characters. Example: <code>zrbglyhiq</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -2246,10 +2256,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="POSTapi-qualifications"
-               value="Eum quod doloremque consequatur commodi eum."
+               value="Sequi recusandae qui ea minus."
                data-component="body">
     <br>
-<p>Must not be greater than 1000 characters. Example: <code>Eum quod doloremque consequatur commodi eum.</code></p>
+<p>Must not be greater than 1000 characters. Example: <code>Sequi recusandae qui ea minus.</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>institution</code></b>&nbsp;&nbsp;
@@ -2257,10 +2267,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="institution"                data-endpoint="POSTapi-qualifications"
-               value="drkbqrugytankihocots"
+               value="smnf"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>drkbqrugytankihocots</code></p>
+<p>Must not be greater than 255 characters. Example: <code>smnf</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>year_obtained</code></b>&nbsp;&nbsp;
@@ -2268,10 +2278,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="year_obtained"                data-endpoint="POSTapi-qualifications"
-               value="5"
+               value="14"
                data-component="body">
     <br>
-<p>Must be at least 1950. Must not be greater than 2025. Example: <code>5</code></p>
+<p>Must be at least 1950. Must not be greater than 2025. Example: <code>14</code></p>
         </div>
         </form>
 
@@ -2288,21 +2298,21 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/qualifications/1" \
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/qualifications/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"title\": \"kkbgxatf\",
-    \"description\": \"Voluptatem doloribus laboriosam doloremque mollitia.\",
-    \"institution\": \"bravaj\",
-    \"year_obtained\": 18
+    \"title\": \"zpnukwhljiiecjnexbtjniq\",
+    \"description\": \"Laudantium esse ut iusto quo quia fugit.\",
+    \"institution\": \"rvobjgg\",
+    \"year_obtained\": 6
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/qualifications/1"
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/qualifications/1"
 );
 
 const headers = {
@@ -2311,10 +2321,10 @@ const headers = {
 };
 
 let body = {
-    "title": "kkbgxatf",
-    "description": "Voluptatem doloribus laboriosam doloremque mollitia.",
-    "institution": "bravaj",
-    "year_obtained": 18
+    "title": "zpnukwhljiiecjnexbtjniq",
+    "description": "Laudantium esse ut iusto quo quia fugit.",
+    "institution": "rvobjgg",
+    "year_obtained": 6
 };
 
 fetch(url, {
@@ -2419,10 +2429,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="PUTapi-qualifications--id-"
-               value="kkbgxatf"
+               value="zpnukwhljiiecjnexbtjniq"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>kkbgxatf</code></p>
+<p>Must not be greater than 255 characters. Example: <code>zpnukwhljiiecjnexbtjniq</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -2430,10 +2440,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="PUTapi-qualifications--id-"
-               value="Voluptatem doloribus laboriosam doloremque mollitia."
+               value="Laudantium esse ut iusto quo quia fugit."
                data-component="body">
     <br>
-<p>Must not be greater than 1000 characters. Example: <code>Voluptatem doloribus laboriosam doloremque mollitia.</code></p>
+<p>Must not be greater than 1000 characters. Example: <code>Laudantium esse ut iusto quo quia fugit.</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>institution</code></b>&nbsp;&nbsp;
@@ -2441,10 +2451,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="institution"                data-endpoint="PUTapi-qualifications--id-"
-               value="bravaj"
+               value="rvobjgg"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>bravaj</code></p>
+<p>Must not be greater than 255 characters. Example: <code>rvobjgg</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>year_obtained</code></b>&nbsp;&nbsp;
@@ -2452,10 +2462,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="year_obtained"                data-endpoint="PUTapi-qualifications--id-"
-               value="18"
+               value="6"
                data-component="body">
     <br>
-<p>Must be at least 1950. Must not be greater than 2025. Example: <code>18</code></p>
+<p>Must be at least 1950. Must not be greater than 2025. Example: <code>6</code></p>
         </div>
         </form>
 
@@ -2472,14 +2482,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/qualifications/1" \
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/qualifications/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/qualifications/1"
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/qualifications/1"
 );
 
 const headers = {
@@ -2596,33 +2606,33 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://rrn24.techchantier.site/tutor-finder/public/api/api/gigs?include=voluptate&amp;search=sint&amp;price=molestiae&amp;budget_period=vel&amp;category_id=16&amp;status=pariatur&amp;learner_id=8&amp;include_pending=" \
+    --get "https://rrn24.techchantier.com/tutor-finder/public/api/api/gigs?include=totam&amp;search=vero&amp;price=inventore&amp;budget_period=sint&amp;category_id=17&amp;status=officia&amp;learner_id=19&amp;include_pending=1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"search\": \"xujxeneclhwqcsulrznhcazcnckffeltogcqrnuswufvalylvernftfsuipacpk\",
-    \"price\": \"34725-1\",
-    \"budget_period\": \"monthly\",
-    \"status\": \"completed\",
-    \"include_pending\": true
+    \"search\": \"civrhcrashpoumrdmpikbcqwxvrewgyeciiygkcbpckvkrpkzrnllmzpzwiujwymwrw\",
+    \"price\": \"47-94\",
+    \"budget_period\": \"daily\",
+    \"status\": \"in_progress\",
+    \"include_pending\": false
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/gigs"
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/gigs"
 );
 
 const params = {
-    "include": "voluptate",
-    "search": "sint",
-    "price": "molestiae",
-    "budget_period": "vel",
-    "category_id": "16",
-    "status": "pariatur",
-    "learner_id": "8",
-    "include_pending": "0",
+    "include": "totam",
+    "search": "vero",
+    "price": "inventore",
+    "budget_period": "sint",
+    "category_id": "17",
+    "status": "officia",
+    "learner_id": "19",
+    "include_pending": "1",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -2633,11 +2643,11 @@ const headers = {
 };
 
 let body = {
-    "search": "xujxeneclhwqcsulrznhcazcnckffeltogcqrnuswufvalylvernftfsuipacpk",
-    "price": "34725-1",
-    "budget_period": "monthly",
-    "status": "completed",
-    "include_pending": true
+    "search": "civrhcrashpoumrdmpikbcqwxvrewgyeciiygkcbpckvkrpkzrnllmzpzwiujwymwrw",
+    "price": "47-94",
+    "budget_period": "daily",
+    "status": "in_progress",
+    "include_pending": false
 };
 
 fetch(url, {
@@ -2753,12 +2763,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="include"                data-endpoint="GETapi-gigs"
-               value="voluptate"
+               value="totam"
                data-component="query">
     <br>
 <p>Specify which relationships to include in the response.
 Multiple relationships can be comma-separated.
-Available relationships: learner, category, applications Example: <code>voluptate</code></p>
+Available relationships: learner, category, applications Example: <code>totam</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>search</code></b>&nbsp;&nbsp;
@@ -2766,10 +2776,10 @@ Available relationships: learner, category, applications Example: <code>voluptat
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="search"                data-endpoint="GETapi-gigs"
-               value="sint"
+               value="vero"
                data-component="query">
     <br>
-<p>Search in gig title and description Example: <code>sint</code></p>
+<p>Search in gig title and description Example: <code>vero</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>price</code></b>&nbsp;&nbsp;
@@ -2777,10 +2787,10 @@ Available relationships: learner, category, applications Example: <code>voluptat
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="price"                data-endpoint="GETapi-gigs"
-               value="molestiae"
+               value="inventore"
                data-component="query">
     <br>
-<p>Filter by price range (format: 1000-5000) Example: <code>molestiae</code></p>
+<p>Filter by price range (format: 1000-5000) Example: <code>inventore</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>budget_period</code></b>&nbsp;&nbsp;
@@ -2788,10 +2798,10 @@ Available relationships: learner, category, applications Example: <code>voluptat
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="budget_period"                data-endpoint="GETapi-gigs"
-               value="vel"
+               value="sint"
                data-component="query">
     <br>
-<p>Filter by budget period (hourly/daily/weekly/monthly) Example: <code>vel</code></p>
+<p>Filter by budget period (hourly/daily/weekly/monthly) Example: <code>sint</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>category_id</code></b>&nbsp;&nbsp;
@@ -2799,10 +2809,10 @@ Available relationships: learner, category, applications Example: <code>voluptat
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="category_id"                data-endpoint="GETapi-gigs"
-               value="16"
+               value="17"
                data-component="query">
     <br>
-<p>Filter gigs by category Example: <code>16</code></p>
+<p>Filter gigs by category Example: <code>17</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
@@ -2810,10 +2820,10 @@ Available relationships: learner, category, applications Example: <code>voluptat
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="GETapi-gigs"
-               value="pariatur"
+               value="officia"
                data-component="query">
     <br>
-<p>Filter by gig status (pending/open/in_progress/completed/cancelled) Example: <code>pariatur</code></p>
+<p>Filter by gig status (pending/open/in_progress/completed/cancelled) Example: <code>officia</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>learner_id</code></b>&nbsp;&nbsp;
@@ -2821,10 +2831,10 @@ Available relationships: learner, category, applications Example: <code>voluptat
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="learner_id"                data-endpoint="GETapi-gigs"
-               value="8"
+               value="19"
                data-component="query">
     <br>
-<p>Filter gigs by the learner who created them Example: <code>8</code></p>
+<p>Filter gigs by the learner who created them Example: <code>19</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>include_pending</code></b>&nbsp;&nbsp;
@@ -2845,7 +2855,7 @@ Available relationships: learner, category, applications Example: <code>voluptat
             <code>false</code>
         </label>
     <br>
-<p>Include pending gigs (default: false) Example: <code>false</code></p>
+<p>Include pending gigs (default: false) Example: <code>true</code></p>
             </div>
                         <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -2854,10 +2864,10 @@ Available relationships: learner, category, applications Example: <code>voluptat
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="search"                data-endpoint="GETapi-gigs"
-               value="xujxeneclhwqcsulrznhcazcnckffeltogcqrnuswufvalylvernftfsuipacpk"
+               value="civrhcrashpoumrdmpikbcqwxvrewgyeciiygkcbpckvkrpkzrnllmzpzwiujwymwrw"
                data-component="body">
     <br>
-<p>Must be at least 3 characters. Example: <code>xujxeneclhwqcsulrznhcazcnckffeltogcqrnuswufvalylvernftfsuipacpk</code></p>
+<p>Must be at least 3 characters. Example: <code>civrhcrashpoumrdmpikbcqwxvrewgyeciiygkcbpckvkrpkzrnllmzpzwiujwymwrw</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>price</code></b>&nbsp;&nbsp;
@@ -2865,10 +2875,10 @@ Available relationships: learner, category, applications Example: <code>voluptat
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="price"                data-endpoint="GETapi-gigs"
-               value="34725-1"
+               value="47-94"
                data-component="body">
     <br>
-<p>Must match the regex /^\d+-\d+$/. Example: <code>34725-1</code></p>
+<p>Must match the regex /^\d+-\d+$/. Example: <code>47-94</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>budget_period</code></b>&nbsp;&nbsp;
@@ -2876,10 +2886,10 @@ Available relationships: learner, category, applications Example: <code>voluptat
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="budget_period"                data-endpoint="GETapi-gigs"
-               value="monthly"
+               value="daily"
                data-component="body">
     <br>
-<p>Example: <code>monthly</code></p>
+<p>Example: <code>daily</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>hourly</code></li> <li><code>daily</code></li> <li><code>weekly</code></li> <li><code>monthly</code></li></ul>
         </div>
@@ -2900,10 +2910,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="GETapi-gigs"
-               value="completed"
+               value="in_progress"
                data-component="body">
     <br>
-<p>Example: <code>completed</code></p>
+<p>Example: <code>in_progress</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>pending</code></li> <li><code>open</code></li> <li><code>in_progress</code></li> <li><code>completed</code></li> <li><code>cancelled</code></li></ul>
         </div>
@@ -2937,7 +2947,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
         </form>
 
@@ -2954,18 +2964,18 @@ Must be one of:
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://rrn24.techchantier.site/tutor-finder/public/api/api/gigs/46?include=dolor" \
+    --get "https://rrn24.techchantier.com/tutor-finder/public/api/api/gigs/46?include=fugit" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/gigs/46"
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/gigs/46"
 );
 
 const params = {
-    "include": "dolor",
+    "include": "fugit",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -3092,10 +3102,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="gig"                data-endpoint="GETapi-gigs--gig_id-"
-               value="20"
+               value="13"
                data-component="url">
     <br>
-<p>The ID of the gig Example: <code>20</code></p>
+<p>The ID of the gig Example: <code>13</code></p>
             </div>
                         <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
                                     <div style="padding-left: 28px; clear: unset;">
@@ -3104,10 +3114,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="include"                data-endpoint="GETapi-gigs--gig_id-"
-               value="dolor"
+               value="fugit"
                data-component="query">
     <br>
-<p>Relationships to include (learner,category,applications) Example: <code>dolor</code></p>
+<p>Relationships to include (learner,category,applications) Example: <code>fugit</code></p>
             </div>
                 </form>
 
@@ -3126,24 +3136,24 @@ until it is published.</p>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/gigs" \
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/gigs" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"category_id\": 16,
-    \"title\": \"cupiditate\",
-    \"description\": \"Corrupti rem mollitia molestiae qui cupiditate ab expedita.\",
-    \"budget_period\": \"est\",
-    \"budget\": \"molestiae\",
-    \"location\": \"iure\",
-    \"status\": \"vel\"
+    \"category_id\": 5,
+    \"title\": \"temporibus\",
+    \"description\": \"Omnis velit ipsam omnis.\",
+    \"budget_period\": \"esse\",
+    \"budget\": \"dolores\",
+    \"location\": \"quam\",
+    \"status\": \"quasi\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/gigs"
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/gigs"
 );
 
 const headers = {
@@ -3152,13 +3162,13 @@ const headers = {
 };
 
 let body = {
-    "category_id": 16,
-    "title": "cupiditate",
-    "description": "Corrupti rem mollitia molestiae qui cupiditate ab expedita.",
-    "budget_period": "est",
-    "budget": "molestiae",
-    "location": "iure",
-    "status": "vel"
+    "category_id": 5,
+    "title": "temporibus",
+    "description": "Omnis velit ipsam omnis.",
+    "budget_period": "esse",
+    "budget": "dolores",
+    "location": "quam",
+    "status": "quasi"
 };
 
 fetch(url, {
@@ -3264,10 +3274,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="category_id"                data-endpoint="POSTapi-gigs"
-               value="16"
+               value="5"
                data-component="body">
     <br>
-<p>Valid category ID Example: <code>16</code></p>
+<p>Valid category ID Example: <code>5</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
@@ -3275,10 +3285,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="POSTapi-gigs"
-               value="cupiditate"
+               value="temporibus"
                data-component="body">
     <br>
-<p>Gig title min:10 characters Example: <code>cupiditate</code></p>
+<p>Gig title min:10 characters Example: <code>temporibus</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -3286,10 +3296,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="POSTapi-gigs"
-               value="Corrupti rem mollitia molestiae qui cupiditate ab expedita."
+               value="Omnis velit ipsam omnis."
                data-component="body">
     <br>
-<p>Detailed description min:50 characters Example: <code>Corrupti rem mollitia molestiae qui cupiditate ab expedita.</code></p>
+<p>Detailed description min:50 characters Example: <code>Omnis velit ipsam omnis.</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>budget_period</code></b>&nbsp;&nbsp;
@@ -3297,10 +3307,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="budget_period"                data-endpoint="POSTapi-gigs"
-               value="est"
+               value="esse"
                data-component="body">
     <br>
-<p>Budget time period (hourly/daily/weekly/monthly) Example: <code>est</code></p>
+<p>Budget time period (hourly/daily/weekly/monthly) Example: <code>esse</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>budget</code></b>&nbsp;&nbsp;
@@ -3308,10 +3318,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="budget"                data-endpoint="POSTapi-gigs"
-               value="molestiae"
+               value="dolores"
                data-component="body">
     <br>
-<p>Minimum amount 1000 Example: <code>molestiae</code></p>
+<p>Minimum amount 1000 Example: <code>dolores</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>location</code></b>&nbsp;&nbsp;
@@ -3319,10 +3329,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="location"                data-endpoint="POSTapi-gigs"
-               value="iure"
+               value="quam"
                data-component="body">
     <br>
-<p>Preferred learning location Example: <code>iure</code></p>
+<p>Preferred learning location Example: <code>quam</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
@@ -3330,10 +3340,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="POSTapi-gigs"
-               value="vel"
+               value="quasi"
                data-component="body">
     <br>
-<p>Status of the gig (defaults to pending) Example: <code>vel</code></p>
+<p>Status of the gig (defaults to pending) Example: <code>quasi</code></p>
         </div>
         </form>
 
@@ -3351,24 +3361,24 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PATCH \
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/gigs/46" \
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/gigs/46" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"category_id\": 9,
-    \"title\": \"esse\",
-    \"description\": \"Ducimus debitis unde iste dignissimos culpa rerum quo deleniti.\",
-    \"budget_period\": \"aut\",
-    \"budget\": \"est\",
-    \"location\": \"praesentium\",
-    \"status\": \"vitae\"
+    \"category_id\": 6,
+    \"title\": \"quasi\",
+    \"description\": \"Voluptatem quia aliquid dolorum ullam aut ab.\",
+    \"budget_period\": \"sed\",
+    \"budget\": \"earum\",
+    \"location\": \"ut\",
+    \"status\": \"ut\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/gigs/46"
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/gigs/46"
 );
 
 const headers = {
@@ -3377,13 +3387,13 @@ const headers = {
 };
 
 let body = {
-    "category_id": 9,
-    "title": "esse",
-    "description": "Ducimus debitis unde iste dignissimos culpa rerum quo deleniti.",
-    "budget_period": "aut",
-    "budget": "est",
-    "location": "praesentium",
-    "status": "vitae"
+    "category_id": 6,
+    "title": "quasi",
+    "description": "Voluptatem quia aliquid dolorum ullam aut ab.",
+    "budget_period": "sed",
+    "budget": "earum",
+    "location": "ut",
+    "status": "ut"
 };
 
 fetch(url, {
@@ -3500,10 +3510,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="gig"                data-endpoint="PATCHapi-gigs--gig_id-"
-               value="15"
+               value="9"
                data-component="url">
     <br>
-<p>The ID of the gig Example: <code>15</code></p>
+<p>The ID of the gig Example: <code>9</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -3512,10 +3522,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="category_id"                data-endpoint="PATCHapi-gigs--gig_id-"
-               value="9"
+               value="6"
                data-component="body">
     <br>
-<p>Valid category ID Example: <code>9</code></p>
+<p>Valid category ID Example: <code>6</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
@@ -3523,10 +3533,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="PATCHapi-gigs--gig_id-"
-               value="esse"
+               value="quasi"
                data-component="body">
     <br>
-<p>Gig title min:10 characters Example: <code>esse</code></p>
+<p>Gig title min:10 characters Example: <code>quasi</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -3534,10 +3544,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="PATCHapi-gigs--gig_id-"
-               value="Ducimus debitis unde iste dignissimos culpa rerum quo deleniti."
+               value="Voluptatem quia aliquid dolorum ullam aut ab."
                data-component="body">
     <br>
-<p>Detailed description min:50 characters Example: <code>Ducimus debitis unde iste dignissimos culpa rerum quo deleniti.</code></p>
+<p>Detailed description min:50 characters Example: <code>Voluptatem quia aliquid dolorum ullam aut ab.</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>budget_period</code></b>&nbsp;&nbsp;
@@ -3545,10 +3555,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="budget_period"                data-endpoint="PATCHapi-gigs--gig_id-"
-               value="aut"
+               value="sed"
                data-component="body">
     <br>
-<p>Budget time period (hourly/daily/weekly/monthly) Example: <code>aut</code></p>
+<p>Budget time period (hourly/daily/weekly/monthly) Example: <code>sed</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>budget</code></b>&nbsp;&nbsp;
@@ -3556,10 +3566,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="budget"                data-endpoint="PATCHapi-gigs--gig_id-"
-               value="est"
+               value="earum"
                data-component="body">
     <br>
-<p>Minimum amount 1000 Example: <code>est</code></p>
+<p>Minimum amount 1000 Example: <code>earum</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>location</code></b>&nbsp;&nbsp;
@@ -3567,10 +3577,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="location"                data-endpoint="PATCHapi-gigs--gig_id-"
-               value="praesentium"
+               value="ut"
                data-component="body">
     <br>
-<p>Preferred learning location Example: <code>praesentium</code></p>
+<p>Preferred learning location Example: <code>ut</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
@@ -3578,10 +3588,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="PATCHapi-gigs--gig_id-"
-               value="vitae"
+               value="ut"
                data-component="body">
     <br>
-<p>Status of the gig (pending/open/completed/cancelled) Example: <code>vitae</code></p>
+<p>Status of the gig (pending/open/completed/cancelled) Example: <code>ut</code></p>
         </div>
         </form>
 
@@ -3599,14 +3609,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/gigs/46" \
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/gigs/46" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/gigs/46"
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/gigs/46"
 );
 
 const headers = {
@@ -3716,10 +3726,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="gig"                data-endpoint="DELETEapi-gigs--gig_id-"
-               value="6"
+               value="12"
                data-component="url">
     <br>
-<p>The ID of the gig Example: <code>6</code></p>
+<p>The ID of the gig Example: <code>12</code></p>
             </div>
                     </form>
 
@@ -3737,14 +3747,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PATCH \
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/gigs/46/publish" \
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/gigs/46/publish" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/gigs/46/publish"
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/gigs/46/publish"
 );
 
 const headers = {
@@ -3883,10 +3893,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="gig"                data-endpoint="PATCHapi-gigs--gig_id--publish"
-               value="2"
+               value="3"
                data-component="url">
     <br>
-<p>The ID of the gig Example: <code>2</code></p>
+<p>The ID of the gig Example: <code>3</code></p>
             </div>
                     </form>
 
@@ -3904,14 +3914,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PATCH \
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/gigs/46/unpublish" \
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/gigs/46/unpublish" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/gigs/46/unpublish"
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/gigs/46/unpublish"
 );
 
 const headers = {
@@ -4032,10 +4042,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="gig"                data-endpoint="PATCHapi-gigs--gig_id--unpublish"
-               value="17"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the gig Example: <code>17</code></p>
+<p>The ID of the gig Example: <code>16</code></p>
             </div>
                     </form>
 
@@ -4057,14 +4067,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://rrn24.techchantier.site/tutor-finder/public/api/api/tutor/categories" \
+    --get "https://rrn24.techchantier.com/tutor-finder/public/api/api/tutor/categories" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/tutor/categories"
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/tutor/categories"
 );
 
 const headers = {
@@ -4181,12 +4191,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/tutor/categories" \
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/tutor/categories" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
     \"category_ids\": [
-        \"aut\"
+        \"alias\"
     ]
 }"
 </code></pre></div>
@@ -4194,7 +4204,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/tutor/categories"
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/tutor/categories"
 );
 
 const headers = {
@@ -4204,7 +4214,7 @@ const headers = {
 
 let body = {
     "category_ids": [
-        "aut"
+        "alias"
     ]
 };
 
@@ -4318,10 +4328,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="category_ids.*"                data-endpoint="POSTapi-tutor-categories"
-               value="11"
+               value="20"
                data-component="body">
     <br>
-<p>Must exist in categories table Example: <code>11</code></p>
+<p>Must exist in categories table Example: <code>20</code></p>
                     </div>
                                     </details>
         </div>
@@ -4341,14 +4351,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/tutor/categories/1" \
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/tutor/categories/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/tutor/categories/1"
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/tutor/categories/1"
 );
 
 const headers = {
@@ -4470,10 +4480,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="category"                data-endpoint="DELETEapi-tutor-categories--category_id-"
-               value="5"
+               value="4"
                data-component="url">
     <br>
-<p>The ID of the category Example: <code>5</code></p>
+<p>The ID of the category Example: <code>4</code></p>
             </div>
                     </form>
 
@@ -4495,14 +4505,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://rrn24.techchantier.site/tutor-finder/public/api/api/tutor-profile" \
+    --get "https://rrn24.techchantier.com/tutor-finder/public/api/api/tutor-profile" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/tutor-profile"
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/tutor-profile"
 );
 
 const headers = {
@@ -4618,37 +4628,35 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PATCH \
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/tutor-profile" \
-    --header "Content-Type: application/json" \
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/tutor-profile" \
+    --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --data "{
-    \"bio\": \"beatae\",
-    \"years_of_experience\": 12,
-    \"availability_status\": \"corporis\"
-}"
-</code></pre></div>
+    --form "bio=qui"\
+    --form "years_of_experience=17"\
+    --form "availability_status=id"\
+    --form "profile_video=@C:\Users\MD CHRISTIEN\AppData\Local\Temp\phpC079.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/tutor-profile"
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/tutor-profile"
 );
 
 const headers = {
-    "Content-Type": "application/json",
+    "Content-Type": "multipart/form-data",
     "Accept": "application/json",
 };
 
-let body = {
-    "bio": "beatae",
-    "years_of_experience": 12,
-    "availability_status": "corporis"
-};
+const body = new FormData();
+body.append('bio', 'qui');
+body.append('years_of_experience', '17');
+body.append('availability_status', 'id');
+body.append('profile_video', document.querySelector('input[name="profile_video"]').files[0]);
 
 fetch(url, {
     method: "PATCH",
     headers,
-    body: JSON.stringify(body),
+    body,
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -4687,7 +4695,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <form id="form-PATCHapi-tutor-profile" data-method="PATCH"
       data-path="api/tutor-profile"
       data-authed="1"
-      data-hasfiles="0"
+      data-hasfiles="1"
       data-isarraybody="0"
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('PATCHapi-tutor-profile', this);">
@@ -4722,10 +4730,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Content-Type"                data-endpoint="PATCHapi-tutor-profile"
-               value="application/json"
+               value="multipart/form-data"
                data-component="header">
     <br>
-<p>Example: <code>application/json</code></p>
+<p>Example: <code>multipart/form-data</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
@@ -4745,10 +4753,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="bio"                data-endpoint="PATCHapi-tutor-profile"
-               value="beatae"
+               value="qui"
                data-component="body">
     <br>
-<p>Detailed bio min:50 characters Example: <code>beatae</code></p>
+<p>Detailed bio min:50 characters Example: <code>qui</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>years_of_experience</code></b>&nbsp;&nbsp;
@@ -4756,10 +4764,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="years_of_experience"                data-endpoint="PATCHapi-tutor-profile"
-               value="12"
+               value="17"
                data-component="body">
     <br>
-<p>Years of teaching experience Example: <code>12</code></p>
+<p>Years of teaching experience Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>availability_status</code></b>&nbsp;&nbsp;
@@ -4767,10 +4775,21 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="availability_status"                data-endpoint="PATCHapi-tutor-profile"
-               value="corporis"
+               value="id"
                data-component="body">
     <br>
-<p>Tutor's availability (available/busy) Example: <code>corporis</code></p>
+<p>Tutor's availability (available/busy) Example: <code>id</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>profile_video</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="file" style="display: none"
+                              name="profile_video"                data-endpoint="PATCHapi-tutor-profile"
+               value=""
+               data-component="body">
+    <br>
+<p>Must be a file. Must not be greater than 20480 kilobytes. Example: <code>C:\Users\MD CHRISTIEN\AppData\Local\Temp\phpC079.tmp</code></p>
         </div>
         </form>
 
@@ -4788,18 +4807,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PATCH \
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/tutors/13/verify" \
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/tutors/1/verify" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"verification_status\": \"vel\"
+    \"verification_status\": \"veritatis\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/tutors/13/verify"
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/tutors/1/verify"
 );
 
 const headers = {
@@ -4808,7 +4827,7 @@ const headers = {
 };
 
 let body = {
-    "verification_status": "vel"
+    "verification_status": "veritatis"
 };
 
 fetch(url, {
@@ -4912,10 +4931,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="userId"                data-endpoint="PATCHapi-tutors--userId--verify"
-               value="13"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the tutor Example: <code>13</code></p>
+<p>The ID of the tutor Example: <code>1</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -4924,10 +4943,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="verification_status"                data-endpoint="PATCHapi-tutors--userId--verify"
-               value="vel"
+               value="veritatis"
                data-component="body">
     <br>
-<p>Status (verified/rejected) Example: <code>vel</code></p>
+<p>Status (verified/rejected) Example: <code>veritatis</code></p>
         </div>
         </form>
 
@@ -4948,20 +4967,20 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://rrn24.techchantier.site/tutor-finder/public/api/api/tutors?search=mathematics&amp;category_id=1&amp;available=available&amp;include=include%3DtutorProfile%2Ccategories" \
+    --get "https://rrn24.techchantier.com/tutor-finder/public/api/api/tutors?search=mathematics&amp;category_id=1&amp;available=available&amp;include=include%3DtutorProfile%2Ccategories" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"search\": \"aairyxbhiufamuubwyvnkxzgmptvbydcizpdxlhotvuxwwehtngrmhpnzrwatfmpfarwvmijoiojgdg\",
+    \"search\": \"hwhbcvasaksslmiireumjocyxfbgkdvsowpjjbiauqaclgjtphfwzvggmpvhobbocusndmirlvoupvme\",
     \"available\": \"busy\",
-    \"include\": \"deserunt\"
+    \"include\": \"possimus\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/tutors"
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/tutors"
 );
 
 const params = {
@@ -4979,9 +4998,9 @@ const headers = {
 };
 
 let body = {
-    "search": "aairyxbhiufamuubwyvnkxzgmptvbydcizpdxlhotvuxwwehtngrmhpnzrwatfmpfarwvmijoiojgdg",
+    "search": "hwhbcvasaksslmiireumjocyxfbgkdvsowpjjbiauqaclgjtphfwzvggmpvhobbocusndmirlvoupvme",
     "available": "busy",
-    "include": "deserunt"
+    "include": "possimus"
 };
 
 fetch(url, {
@@ -5137,10 +5156,10 @@ Available: tutorProfile, categories, qualifications, applications Example: <code
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="search"                data-endpoint="GETapi-tutors"
-               value="aairyxbhiufamuubwyvnkxzgmptvbydcizpdxlhotvuxwwehtngrmhpnzrwatfmpfarwvmijoiojgdg"
+               value="hwhbcvasaksslmiireumjocyxfbgkdvsowpjjbiauqaclgjtphfwzvggmpvhobbocusndmirlvoupvme"
                data-component="body">
     <br>
-<p>Must be at least 3 characters. Example: <code>aairyxbhiufamuubwyvnkxzgmptvbydcizpdxlhotvuxwwehtngrmhpnzrwatfmpfarwvmijoiojgdg</code></p>
+<p>Must be at least 3 characters. Example: <code>hwhbcvasaksslmiireumjocyxfbgkdvsowpjjbiauqaclgjtphfwzvggmpvhobbocusndmirlvoupvme</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>category_id</code></b>&nbsp;&nbsp;
@@ -5172,10 +5191,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="include"                data-endpoint="GETapi-tutors"
-               value="deserunt"
+               value="possimus"
                data-component="body">
     <br>
-<p>Example: <code>deserunt</code></p>
+<p>Example: <code>possimus</code></p>
         </div>
         </form>
 
@@ -5192,14 +5211,14 @@ Must be one of:
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://rrn24.techchantier.site/tutor-finder/public/api/api/tutors/1?include=include%3DtutorProfile%2Ccategories" \
+    --get "https://rrn24.techchantier.com/tutor-finder/public/api/api/tutors/1?include=include%3DtutorProfile%2Ccategories" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/tutor-finder/public/api/api/tutors/1"
+    "https://rrn24.techchantier.com/tutor-finder/public/api/api/tutors/1"
 );
 
 const params = {
