@@ -21,8 +21,8 @@ class TutorProfileResource extends JsonResource
             'verification_status' => $this->verification_status,
             'availability_status' => $this->availability_status,
             'profile_video' => $this->profile_video,
-            'updated_at' => $this->updated_at->format('Y-m-d H:i:s'),
-            'created_at' => $this->created_at->format('Y-m-d H:i:s'),
+            'updated_at' => $this->updated_at,
+            'created_at' => $this->created_at
         ];
     }
 }

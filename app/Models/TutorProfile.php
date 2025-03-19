@@ -12,10 +12,11 @@ class TutorProfile extends Model
 
     protected $fillable = [
         'user_id',
-        'bio',
-        'years_of_experience',
-        'verification_status',
-        'availability_status'
+        'bio', 
+        'years_of_experience', 
+        'verification_status', 
+        'availability_status',
+        'profile_video'
     ];
 
     public function user(): BelongsTo

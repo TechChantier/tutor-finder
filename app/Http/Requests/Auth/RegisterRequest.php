@@ -21,11 +21,11 @@ class RegisterRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        $rules = [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'phone_number' => ['required', 'string', 'min:9', 'regex:/^[0-9+\-\s()]*$/'],
+            'phone_number' => ['required', 'string', 'unique:users,phone_number', 'min:9', 'regex:/^[0-9+\-\s()]*$/'],
             'user_type' => ['required', 'string', 'in:tutor,learner'],
             'location' => ['required', 'string', 'max:255'],
             'profile_image' => ['required', 'image', 'mimes:jpeg,png,jpg', 'max:2048']
@@ -35,6 +35,8 @@ class RegisterRequest extends FormRequest
         if ($this->input('user_type') === 'tutor') {
             $rules['profile_video'] = ['nullable', 'file', 'mimes:mp4,mov,avi', 'max:20480'];
         }
+        
+        return $rules;
     }
 
     /**
@@ -47,7 +49,7 @@ class RegisterRequest extends FormRequest
         return [
             'user_type.in' => 'User type must be either tutor or learner',
             'password.confirmed' => 'Password confirmation does not match',
-            'phone_number.min' => 'Phone number must be at least 10 characters',
+            'phone_number.min' => 'Phone number must be at least 9 characters',
             'phone_number.regex' => 'Phone number must contain only digits, spaces, and the following characters: +()-',
             'profile_image.required' => 'Profile image is required',
             'profile_video.mimes' => 'Profile video must be in MP4, MOV, or AVI format',

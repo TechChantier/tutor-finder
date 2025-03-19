@@ -29,7 +29,7 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
        return [
-            'bio' => ['required', 'string', 'min:50', 'max:1000'],
+            'bio' => ['sometimes', 'string', 'min:50', 'max:1000'],
             'years_of_experience' => ['sometimes', 'integer', 'min:0'],
             'availability_status' => ['sometimes', 'string', 'in:available,busy'],
             'profile_video' => ['sometimes', 'file', 'mimes:mp4,mov,avi', 'max:20480']

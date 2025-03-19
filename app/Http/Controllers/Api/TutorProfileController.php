@@ -8,6 +8,7 @@ use App\Http\Requests\TutorProfile\UpdateRequest;
 use App\Http\Resources\TutorResource;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 /**
 * @group Tutor Profile Management
@@ -61,12 +62,34 @@ class TutorProfileController extends Controller
     *  }
     * }
     */
-   public function update(UpdateRequest $request)
-   {
-       $profile = $request->user()->tutorProfile;
-       $profile->update($request->validated());
-       return new TutorProfileResource($profile->fresh());
-   }
+    public function update(UpdateRequest $request)
+    {
+    //     Log::info('All request data: ', $request->all());
+    //    Log::info('Files array: ', $request->allFiles());
+    //    Log::info('POST data: ', $_POST);
+    //    Log::info('FILES data: ', $_FILES);
+       
+        $profile = $request->user()->tutorProfile;
+        $data = $request->validated();
+        
+        // Debug file upload
+        // Log::info('Has file: ' . $request->hasFile('profile_video'));
+        
+        // Handle video upload
+        if ($request->hasFile('profile_video')) {
+            $videoFile = $request->file('profile_video');
+            // Log::info('File info: ' . $videoFile->getClientOriginalName());
+            
+            // Store the file in public disk
+            $videoPath = $videoFile->store('profile_videos', 'public');
+            // Log::info('Stored at: ' . $videoPath);
+            
+            $data['profile_video'] = $videoPath;
+        }
+        
+        $profile->update($data);
+        return new TutorProfileResource($profile->fresh());
+    }
 
    /**
     * Verify Tutor
