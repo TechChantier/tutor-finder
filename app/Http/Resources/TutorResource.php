@@ -17,6 +17,7 @@ class TutorResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
+            'email' => $this->email,
             'location' => $this->location,
             // 'whatsapp_number' => $this->whatsapp_number,
             'profile_image' => $this->profile_image,
@@ -26,6 +27,8 @@ class TutorResource extends JsonResource
                 'verification_status' => $this->tutorProfile?->verification_status,
                 'availability_status' => $this->tutorProfile?->availability_status,
                 'profile_video' => $this->tutorProfile->profile_video,
+                'price_weekly' => $this->tutorProfile->price_weekly,
+                'price_monthly' => $this->tutorProfile->price_monthly,
             ]),
             'qualifications' => $this->whenLoaded('qualifications'),
             'categories' => $this->when($this->categories, 

@@ -21,6 +21,8 @@ class TutorProfileResource extends JsonResource
             'verification_status' => $this->verification_status,
             'availability_status' => $this->availability_status,
             'profile_video' => $this->profile_video,
+            'price_weekly' => $this->price_weekly,
+            'price_monthly' => $this->price_monthly,
             'updated_at' => $this->updated_at,
             'created_at' => $this->created_at
         ];

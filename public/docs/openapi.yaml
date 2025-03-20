@@ -141,7 +141,7 @@ paths:
                 status:
                   type: string
                   description: 'Status of application (accepted/rejected)'
-                  example: vel
+                  example: voluptatem
                   nullable: false
               required:
                 - status
@@ -158,7 +158,7 @@ paths:
         in: path
         name: application
         description: 'The ID of the application'
-        example: 8
+        example: 12
         required: true
         schema:
           type: integer
@@ -225,7 +225,7 @@ paths:
                 proposal_message:
                   type: string
                   description: 'The application proposal text min:50 characters'
-                  example: cupiditate
+                  example: neque
                   nullable: false
               required:
                 - proposal_message
@@ -234,7 +234,7 @@ paths:
         in: path
         name: gig_id
         description: 'The ID of the gig.'
-        example: 46
+        example: 1
         required: true
         schema:
           type: integer
@@ -375,7 +375,7 @@ paths:
         in: path
         name: gig_id
         description: 'The ID of the gig.'
-        example: 46
+        example: 1
         required: true
         schema:
           type: integer
@@ -383,7 +383,7 @@ paths:
         in: path
         name: gig
         description: 'The ID of the gig'
-        example: 9
+        example: 20
         required: true
         schema:
           type: integer
@@ -506,32 +506,32 @@ paths:
                 name:
                   type: string
                   description: "User's full name"
-                  example: aliquid
+                  example: debitis
                   nullable: false
                 email:
                   type: string
                   description: "User's email address must be unique"
-                  example: voconner@example.com
+                  example: winston19@example.net
                   nullable: false
                 password:
                   type: string
                   description: 'Minimum of 8 characters'
-                  example: 'S;7nT*:C'
+                  example: 'oU1[?6t$ChDx}E$'
                   nullable: false
                 phone_number:
                   type: string
                   description: 'Min 10 characters, valid phone number format'
-                  example: velit
+                  example: non
                   nullable: false
                 user_type:
                   type: string
                   description: "Either 'tutor' or 'learner'"
-                  example: dolores
+                  example: unde
                   nullable: false
                 location:
                   type: string
                   description: "User's location"
-                  example: enim
+                  example: voluptas
                   nullable: false
                 profile_image:
                   type: string
@@ -541,7 +541,7 @@ paths:
                 password_confirmation:
                   type: string
                   description: 'Must match password'
-                  example: laudantium
+                  example: sint
                   nullable: false
                 profile_video:
                   type: string
@@ -617,12 +617,12 @@ paths:
                 email:
                   type: string
                   description: "User's email address"
-                  example: zulauf.frederic@example.net
+                  example: zander82@example.net
                   nullable: false
                 password:
                   type: string
                   description: "User's password min:6"
-                  example: '\V;bv*CArwk!te]m'
+                  example: '3#6[|3^K>]&d'
                   nullable: false
               required:
                 - email
@@ -792,7 +792,7 @@ paths:
         in: path
         name: category
         description: 'The ID of the category'
-        example: 4
+        example: 12
         required: true
         schema:
           type: integer
@@ -858,22 +858,22 @@ paths:
                 title:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: zrbglyhiq
+                  example: ivmrvxlaqwapdo
                   nullable: false
                 description:
                   type: string
                   description: 'Must not be greater than 1000 characters.'
-                  example: 'Sequi recusandae qui ea minus.'
+                  example: 'Saepe ipsa soluta facere qui est explicabo.'
                   nullable: false
                 institution:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: smnf
+                  example: jodcykblkyqz
                   nullable: false
                 year_obtained:
                   type: integer
                   description: 'Must be at least 1950. Must not be greater than 2025.'
-                  example: 14
+                  example: 10
                   nullable: false
               required:
                 - title
@@ -900,22 +900,22 @@ paths:
                 title:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: zpnukwhljiiecjnexbtjniq
+                  example: abipwsbtxqzrhkf
                   nullable: false
                 description:
                   type: string
                   description: 'Must not be greater than 1000 characters.'
-                  example: 'Laudantium esse ut iusto quo quia fugit.'
+                  example: 'Qui impedit eum modi corporis.'
                   nullable: false
                 institution:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: rvobjgg
+                  example: zqraus
                   nullable: false
                 year_obtained:
                   type: integer
                   description: 'Must be at least 1950. Must not be greater than 2025.'
-                  example: 6
+                  example: 21
                   nullable: false
       security: []
     delete:
@@ -936,99 +936,575 @@ paths:
         required: true
         schema:
           type: integer
+  /api/connection-requests:
+    get:
+      summary: 'Get all connection requests for the authenticated user'
+      operationId: getAllConnectionRequestsForTheAuthenticatedUser
+      description: "Returns connection requests either sent or received by the user,\ndepending on whether they are a learner or tutor."
+      parameters:
+        -
+          in: query
+          name: status
+          description: 'Filter by request status (pending/accepted/rejected)'
+          example: reiciendis
+          required: false
+          schema:
+            type: string
+            description: 'Filter by request status (pending/accepted/rejected)'
+            example: reiciendis
+            nullable: false
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      learner:
+                        id: 2
+                        name: 'John Doe'
+                      tutor:
+                        id: 3
+                        name: 'Jane Smith'
+                      message: "I'd like to connect for mathematics tutoring"
+                      status: pending
+                      period_type: weekly
+                      amount_paid: 5000
+                      payment_completed: true
+                      created_at: '2023-06-15T14:30:00.000Z'
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        learner:
+                          id: 2
+                          name: 'John Doe'
+                        tutor:
+                          id: 3
+                          name: 'Jane Smith'
+                        message: "I'd like to connect for mathematics tutoring"
+                        status: pending
+                        period_type: weekly
+                        amount_paid: 5000
+                        payment_completed: true
+                        created_at: '2023-06-15T14:30:00.000Z'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        learner:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 2
+                            name:
+                              type: string
+                              example: 'John Doe'
+                        tutor:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 3
+                            name:
+                              type: string
+                              example: 'Jane Smith'
+                        message:
+                          type: string
+                          example: "I'd like to connect for mathematics tutoring"
+                        status:
+                          type: string
+                          example: pending
+                        period_type:
+                          type: string
+                          example: weekly
+                        amount_paid:
+                          type: integer
+                          example: 5000
+                        payment_completed:
+                          type: boolean
+                          example: true
+                        created_at:
+                          type: string
+                          example: '2023-06-15T14:30:00.000Z'
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  description: ''
+                  example: accepted
+                  nullable: false
+                  enum:
+                    - pending
+                    - accepted
+                    - rejected
+      security: []
+    post:
+      summary: 'Create Connection Request'
+      operationId: createConnectionRequest
+      description: "Creates a new connection request from a learner to a tutor.\nOnly authenticated learners can create connection requests."
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    learner:
+                      id: 2
+                      name: 'John Doe'
+                    tutor:
+                      id: 3
+                      name: 'Jane Smith'
+                    message: 'I would like help with advanced calculus topics'
+                    status: pending
+                    period_type: weekly
+                    amount_paid: 5000
+                    payment_completed: false
+                    created_at: '2023-06-15T14:30:00.000Z'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      learner:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 2
+                          name:
+                            type: string
+                            example: 'John Doe'
+                      tutor:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 3
+                          name:
+                            type: string
+                            example: 'Jane Smith'
+                      message:
+                        type: string
+                        example: 'I would like help with advanced calculus topics'
+                      status:
+                        type: string
+                        example: pending
+                      period_type:
+                        type: string
+                        example: weekly
+                      amount_paid:
+                        type: integer
+                        example: 5000
+                      payment_completed:
+                        type: boolean
+                        example: false
+                      created_at:
+                        type: string
+                        example: '2023-06-15T14:30:00.000Z'
+        400:
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  -
+                    description: ''
+                    type: object
+                    example:
+                      message: 'You already have a pending request for this tutor.'
+                    properties:
+                      message:
+                        type: string
+                        example: 'You already have a pending request for this tutor.'
+                  -
+                    description: ''
+                    type: object
+                    example:
+                      message: 'Selected user is not a tutor'
+                    properties:
+                      message:
+                        type: string
+                        example: 'Selected user is not a tutor'
+                  -
+                    description: ''
+                    type: object
+                    example:
+                      message: 'Tutor has not set price for this period'
+                    properties:
+                      message:
+                        type: string
+                        example: 'Tutor has not set price for this period'
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                tutor_id:
+                  type: integer
+                  description: 'The ID of the tutor to connect with.'
+                  example: 3
+                  nullable: false
+                message:
+                  type: string
+                  description: 'A message to the tutor explaining the connection request.'
+                  example: 'I would like help with advanced calculus topics.'
+                  nullable: false
+                learner_whatsapp:
+                  type: string
+                  description: "The learner's WhatsApp number for contact purposes."
+                  example: '+1234567890'
+                  nullable: false
+                period_type:
+                  type: string
+                  description: 'The billing period for the connection (weekly or monthly).'
+                  example: weekly
+                  nullable: false
+              required:
+                - tutor_id
+                - message
+                - learner_whatsapp
+                - period_type
+      security: []
+  '/api/connection-requests/{id}/pay':
+    post:
+      summary: 'Mark Connection Request as Paid'
+      operationId: markConnectionRequestAsPaid
+      description: "Marks a connection request as paid, simulating payment completion.\nOnly the learner who created the request can mark it as paid."
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    learner:
+                      id: 2
+                      name: 'John Doe'
+                    tutor:
+                      id: 3
+                      name: 'Jane Smith'
+                    message: 'I would like help with advanced calculus topics'
+                    status: pending
+                    period_type: weekly
+                    amount_paid: 5000
+                    payment_completed: true
+                    created_at: '2023-06-15T14:30:00.000Z'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      learner:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 2
+                          name:
+                            type: string
+                            example: 'John Doe'
+                      tutor:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 3
+                          name:
+                            type: string
+                            example: 'Jane Smith'
+                      message:
+                        type: string
+                        example: 'I would like help with advanced calculus topics'
+                      status:
+                        type: string
+                        example: pending
+                      period_type:
+                        type: string
+                        example: weekly
+                      amount_paid:
+                        type: integer
+                        example: 5000
+                      payment_completed:
+                        type: boolean
+                        example: true
+                      created_at:
+                        type: string
+                        example: '2023-06-15T14:30:00.000Z'
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthorized
+                properties:
+                  message:
+                    type: string
+                    example: Unauthorized
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the connection request.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/connection-requests/{id}/accept':
+    post:
+      summary: 'Accept Connection Request'
+      operationId: acceptConnectionRequest
+      description: "Allows a tutor to accept a connection request that has been paid for.\nSets the connection start and end dates and updates status to accepted."
+      parameters: []
+      responses:
+        400:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n  \"data\": {\n    \"id\": 1,\n    \"learner\": {\n      \"id\": 2,\n      \"name\": \"John Doe\"\n    },\n    \"tutor\": {\n      \"id\": 3,\n      \"name\": \"Jane Smith\"\n    },\n    \"message\": \"I would like help with advanced calculus topics\",\n    \"status\": \"accepted\",\n    \"period_type\": \"weekly\",\n    \"amount_paid\": 5000,\n    \"payment_completed\": true,\n    \"tutor_whatsapp\": \"+1234567890\",\n    \"start_date\": \"2023-06-15T14:30:00.000Z\",\n    \"end_date\": \"2023-06-22T14:30:00.000Z\",\n    \"created_at\": \"2023-06-15T14:30:00.000Z\"\n  }\n}\n\n* @response {\n  \"message\": \"Cannot accept request. Payment not completed.\"\n}"
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                tutor_whatsapp:
+                  type: string
+                  description: "The tutor's WhatsApp number for contact purposes."
+                  example: '+1234567890'
+                  nullable: false
+              required:
+                - tutor_whatsapp
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the connection request.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/connection-requests/{id}/reject':
+    post:
+      summary: 'Reject Connection Request'
+      operationId: rejectConnectionRequest
+      description: "Allows a tutor to reject a connection request.\nOnly the tutor who received the request can reject it."
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    learner:
+                      id: 2
+                      name: 'John Doe'
+                    tutor:
+                      id: 3
+                      name: 'Jane Smith'
+                    message: 'I would like help with advanced calculus topics'
+                    status: rejected
+                    period_type: weekly
+                    amount_paid: 5000
+                    payment_completed: true
+                    created_at: '2023-06-15T14:30:00.000Z'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      learner:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 2
+                          name:
+                            type: string
+                            example: 'John Doe'
+                      tutor:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 3
+                          name:
+                            type: string
+                            example: 'Jane Smith'
+                      message:
+                        type: string
+                        example: 'I would like help with advanced calculus topics'
+                      status:
+                        type: string
+                        example: rejected
+                      period_type:
+                        type: string
+                        example: weekly
+                      amount_paid:
+                        type: integer
+                        example: 5000
+                      payment_completed:
+                        type: boolean
+                        example: true
+                      created_at:
+                        type: string
+                        example: '2023-06-15T14:30:00.000Z'
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthorized
+                properties:
+                  message:
+                    type: string
+                    example: Unauthorized
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the connection request.'
+        example: 1
+        required: true
+        schema:
+          type: integer
   /api/gigs:
     get:
       summary: 'List All Gigs'
       operationId: listAllGigs
-      description: 'Get a list of all available learning gigs. By default, pending gigs are excluded.'
+      description: "Get a list of all available learning gigs. By default, only open gigs are returned.\nFor authenticated users, their own gigs of all statuses are included."
       parameters:
         -
           in: query
           name: include
           description: "Specify which relationships to include in the response.\n            Multiple relationships can be comma-separated.\n            Available relationships: learner, category, applications"
-          example: totam
+          example: deleniti
           required: false
           schema:
             type: string
             description: "Specify which relationships to include in the response.\n            Multiple relationships can be comma-separated.\n            Available relationships: learner, category, applications"
-            example: totam
+            example: deleniti
             nullable: false
         -
           in: query
           name: search
           description: 'Search in gig title and description'
-          example: vero
+          example: id
           required: false
           schema:
             type: string
             description: 'Search in gig title and description'
-            example: vero
+            example: id
             nullable: false
         -
           in: query
           name: price
           description: 'Filter by price range (format: 1000-5000)'
-          example: inventore
+          example: fugit
           required: false
           schema:
             type: string
             description: 'Filter by price range (format: 1000-5000)'
-            example: inventore
+            example: fugit
             nullable: false
         -
           in: query
           name: budget_period
           description: 'Filter by budget period (hourly/daily/weekly/monthly)'
-          example: sint
+          example: impedit
           required: false
           schema:
             type: string
             description: 'Filter by budget period (hourly/daily/weekly/monthly)'
-            example: sint
+            example: impedit
             nullable: false
         -
           in: query
           name: category_id
           description: 'Filter gigs by category'
-          example: 17
+          example: 4
           required: false
           schema:
             type: integer
             description: 'Filter gigs by category'
-            example: 17
+            example: 4
             nullable: false
         -
           in: query
           name: status
-          description: 'Filter by gig status (pending/open/in_progress/completed/cancelled)'
-          example: officia
+          description: 'Filter by gig status (pending/open/completed/cancelled)'
+          example: dignissimos
           required: false
           schema:
             type: string
-            description: 'Filter by gig status (pending/open/in_progress/completed/cancelled)'
-            example: officia
+            description: 'Filter by gig status (pending/open/completed/cancelled)'
+            example: dignissimos
             nullable: false
         -
           in: query
           name: learner_id
           description: 'Filter gigs by the learner who created them'
-          example: 19
+          example: 6
           required: false
           schema:
             type: integer
             description: 'Filter gigs by the learner who created them'
-            example: 19
-            nullable: false
-        -
-          in: query
-          name: include_pending
-          description: 'Include pending gigs (default: false)'
-          example: true
-          required: false
-          schema:
-            type: boolean
-            description: 'Include pending gigs (default: false)'
-            example: true
+            example: 6
             nullable: false
       responses:
         200:
@@ -1125,12 +1601,12 @@ paths:
                 search:
                   type: string
                   description: 'Must be at least 3 characters.'
-                  example: civrhcrashpoumrdmpikbcqwxvrewgyeciiygkcbpckvkrpkzrnllmzpzwiujwymwrw
+                  example: sevmpgkosewkwqnmbzrajybgmiygrjzgiuapjzzrxqlbmixgjnesprbeoyxkheoxvkmhzfuruwcuon
                   nullable: false
                 price:
                   type: string
                   description: 'Must match the regex /^\d+-\d+$/.'
-                  example: 47-94
+                  example: 1844-44889
                   nullable: false
                 budget_period:
                   type: string
@@ -1150,23 +1626,17 @@ paths:
                 status:
                   type: string
                   description: ''
-                  example: in_progress
+                  example: open
                   nullable: false
                   enum:
                     - pending
                     - open
-                    - in_progress
                     - completed
                     - cancelled
                 learner_id:
-                  type: string
+                  type: integer
                   description: 'The <code>id</code> of an existing record in the users table.'
-                  example: null
-                  nullable: false
-                include_pending:
-                  type: boolean
-                  description: ''
-                  example: false
+                  example: 2
                   nullable: false
       security: []
     post:
@@ -1232,32 +1702,32 @@ paths:
                 title:
                   type: string
                   description: 'Gig title min:10 characters'
-                  example: temporibus
+                  example: distinctio
                   nullable: false
                 description:
                   type: string
                   description: 'Detailed description min:50 characters'
-                  example: 'Omnis velit ipsam omnis.'
+                  example: 'Dolorem eligendi aliquam quia id.'
                   nullable: false
                 budget_period:
                   type: string
                   description: 'Budget time period (hourly/daily/weekly/monthly)'
-                  example: esse
+                  example: ut
                   nullable: false
                 budget:
                   type: numeric
                   description: 'Minimum amount 1000'
-                  example: dolores
+                  example: modi
                   nullable: false
                 location:
                   type: string
                   description: 'Preferred learning location'
-                  example: quam
+                  example: sint
                   nullable: false
                 status:
                   type: string
                   description: 'Status of the gig (defaults to pending)'
-                  example: quasi
+                  example: molestiae
                   nullable: false
               required:
                 - category_id
@@ -1276,12 +1746,12 @@ paths:
           in: query
           name: include
           description: 'Relationships to include (learner,category,applications)'
-          example: fugit
+          example: saepe
           required: false
           schema:
             type: string
             description: 'Relationships to include (learner,category,applications)'
-            example: fugit
+            example: saepe
             nullable: false
       responses:
         200:
@@ -1397,37 +1867,37 @@ paths:
                 category_id:
                   type: integer
                   description: 'Valid category ID'
-                  example: 6
+                  example: 1
                   nullable: false
                 title:
                   type: string
                   description: 'Gig title min:10 characters'
-                  example: quasi
+                  example: iusto
                   nullable: false
                 description:
                   type: string
                   description: 'Detailed description min:50 characters'
-                  example: 'Voluptatem quia aliquid dolorum ullam aut ab.'
+                  example: 'Excepturi voluptates nobis tempore praesentium laboriosam consequatur reiciendis in.'
                   nullable: false
                 budget_period:
                   type: string
                   description: 'Budget time period (hourly/daily/weekly/monthly)'
-                  example: sed
+                  example: minima
                   nullable: false
                 budget:
                   type: numeric
                   description: 'Minimum amount 1000'
-                  example: earum
+                  example: consequatur
                   nullable: false
                 location:
                   type: string
                   description: 'Preferred learning location'
-                  example: ut
+                  example: dignissimos
                   nullable: false
                 status:
                   type: string
                   description: 'Status of the gig (pending/open/completed/cancelled)'
-                  example: ut
+                  example: vel
                   nullable: false
               required:
                 - category_id
@@ -1451,7 +1921,7 @@ paths:
         in: path
         name: gig_id
         description: 'The ID of the gig.'
-        example: 46
+        example: 1
         required: true
         schema:
           type: integer
@@ -1459,7 +1929,7 @@ paths:
         in: path
         name: gig
         description: 'The ID of the gig'
-        example: 13
+        example: 9
         required: true
         schema:
           type: integer
@@ -1541,7 +2011,7 @@ paths:
         in: path
         name: gig_id
         description: 'The ID of the gig.'
-        example: 46
+        example: 1
         required: true
         schema:
           type: integer
@@ -1607,7 +2077,7 @@ paths:
         in: path
         name: gig_id
         description: 'The ID of the gig.'
-        example: 46
+        example: 1
         required: true
         schema:
           type: integer
@@ -1615,7 +2085,7 @@ paths:
         in: path
         name: gig
         description: 'The ID of the gig'
-        example: 16
+        example: 17
         required: true
         schema:
           type: integer
@@ -1710,7 +2180,7 @@ paths:
                   type: array
                   description: 'List of category IDs'
                   example:
-                    - alias
+                    - sunt
                   items:
                     type: string
               required:
@@ -1761,7 +2231,7 @@ paths:
         in: path
         name: category
         description: 'The ID of the category'
-        example: 4
+        example: 18
         required: true
         schema:
           type: integer
@@ -1848,22 +2318,32 @@ paths:
                 bio:
                   type: string
                   description: 'Detailed bio min:50 characters'
-                  example: qui
+                  example: beatae
                   nullable: false
                 years_of_experience:
                   type: integer
                   description: 'Years of teaching experience'
-                  example: 17
+                  example: 7
                   nullable: false
                 availability_status:
                   type: string
                   description: "Tutor's availability (available/busy)"
-                  example: id
+                  example: sed
                   nullable: false
                 profile_video:
                   type: string
                   format: binary
                   description: 'Must be a file. Must not be greater than 20480 kilobytes.'
+                  nullable: false
+                price_weekly:
+                  type: number
+                  description: 'Must be at least 0.'
+                  example: 28
+                  nullable: false
+                price_monthly:
+                  type: number
+                  description: 'Must be at least 0.'
+                  example: 13
                   nullable: false
               required:
                 - bio
@@ -1915,7 +2395,7 @@ paths:
                 verification_status:
                   type: string
                   description: 'Status (verified/rejected)'
-                  example: veritatis
+                  example: ut
                   nullable: false
               required:
                 - verification_status
@@ -1924,7 +2404,7 @@ paths:
         in: path
         name: userId
         description: 'The ID of the tutor'
-        example: 1
+        example: 15
         required: true
         schema:
           type: integer
@@ -2048,7 +2528,7 @@ paths:
                 search:
                   type: string
                   description: 'Must be at least 3 characters.'
-                  example: hwhbcvasaksslmiireumjocyxfbgkdvsowpjjbiauqaclgjtphfwzvggmpvhobbocusndmirlvoupvme
+                  example: fleycnklovpkpjfqylqpgoatenzgqqeglmsqgakjrvgdlnhtpbllnmajrqwwfuvatsymufguuwnfnlqpneazhk
                   nullable: false
                 category_id:
                   type: string
@@ -2058,7 +2538,7 @@ paths:
                 available:
                   type: string
                   description: ''
-                  example: busy
+                  example: available
                   nullable: false
                   enum:
                     - available
@@ -2066,7 +2546,7 @@ paths:
                 include:
                   type: string
                   description: ''
-                  example: possimus
+                  example: eligendi
                   nullable: false
       security: []
   '/api/tutors/{id}':

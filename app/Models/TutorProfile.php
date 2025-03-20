@@ -16,7 +16,9 @@ class TutorProfile extends Model
         'years_of_experience', 
         'verification_status', 
         'availability_status',
-        'profile_video'
+        'profile_video',
+        'price_weekly',
+        'price_monthly'
     ];
 
     public function user(): BelongsTo

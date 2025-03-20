@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "0fcf3c6f-e9cc-4d08-871d-c5487bda019a",
+        "_postman_id": "1b405fe4-22e8-4e57-87fd-6b226aed9190",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -69,7 +69,7 @@
                                 {
                                     "id": "application",
                                     "key": "application",
-                                    "value": "8",
+                                    "value": "12",
                                     "description": "The ID of the application"
                                 }
                             ]
@@ -87,7 +87,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"status\":\"vel\"}"
+                            "raw": "{\"status\":\"voluptatem\"}"
                         },
                         "description": "Accept or reject an application (Learner only)."
                     },
@@ -118,7 +118,7 @@
                                 {
                                     "id": "gig_id",
                                     "key": "gig_id",
-                                    "value": "46",
+                                    "value": "1",
                                     "description": "The ID of the gig."
                                 },
                                 {
@@ -142,7 +142,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"proposal_message\":\"cupiditate\"}"
+                            "raw": "{\"proposal_message\":\"neque\"}"
                         },
                         "description": "Submit an application for a specific gig."
                     },
@@ -205,13 +205,13 @@
                                 {
                                     "id": "gig_id",
                                     "key": "gig_id",
-                                    "value": "46",
+                                    "value": "1",
                                     "description": "The ID of the gig."
                                 },
                                 {
                                     "id": "gig",
                                     "key": "gig",
-                                    "value": "9",
+                                    "value": "20",
                                     "description": "The ID of the gig"
                                 }
                             ]
@@ -276,43 +276,43 @@
                             "formdata": [
                                 {
                                     "key": "name",
-                                    "value": "aliquid",
+                                    "value": "debitis",
                                     "type": "text",
                                     "description": "User's full name"
                                 },
                                 {
                                     "key": "email",
-                                    "value": "voconner@example.com",
+                                    "value": "winston19@example.net",
                                     "type": "text",
                                     "description": "User's email address must be unique"
                                 },
                                 {
                                     "key": "password",
-                                    "value": "S;7nT*:C",
+                                    "value": "oU1[?6t$ChDx}E$",
                                     "type": "text",
                                     "description": "Minimum of 8 characters"
                                 },
                                 {
                                     "key": "phone_number",
-                                    "value": "velit",
+                                    "value": "non",
                                     "type": "text",
                                     "description": "Min 10 characters, valid phone number format"
                                 },
                                 {
                                     "key": "user_type",
-                                    "value": "dolores",
+                                    "value": "unde",
                                     "type": "text",
                                     "description": "Either 'tutor' or 'learner'"
                                 },
                                 {
                                     "key": "location",
-                                    "value": "enim",
+                                    "value": "voluptas",
                                     "type": "text",
                                     "description": "User's location"
                                 },
                                 {
                                     "key": "password_confirmation",
-                                    "value": "laudantium",
+                                    "value": "sint",
                                     "type": "text",
                                     "description": "Must match password"
                                 },
@@ -370,7 +370,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"zulauf.frederic@example.net\",\"password\":\"\\\\V;bv*CArwk!te]m\"}"
+                            "raw": "{\"email\":\"zander82@example.net\",\"password\":\"3#6[|3^K>]&d\"}"
                         },
                         "description": "Authenticate a user and get access token.",
                         "auth": {
@@ -483,7 +483,7 @@
                                 {
                                     "id": "category",
                                     "key": "category",
-                                    "value": "4",
+                                    "value": "12",
                                     "description": "The ID of the category"
                                 }
                             ]
@@ -638,7 +638,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"zrbglyhiq\",\"description\":\"Sequi recusandae qui ea minus.\",\"institution\":\"smnf\",\"year_obtained\":14}"
+                            "raw": "{\"title\":\"ivmrvxlaqwapdo\",\"description\":\"Saepe ipsa soluta facere qui est explicabo.\",\"institution\":\"jodcykblkyqz\",\"year_obtained\":10}"
                         },
                         "description": "",
                         "auth": {
@@ -677,7 +677,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"zpnukwhljiiecjnexbtjniq\",\"description\":\"Laudantium esse ut iusto quo quia fugit.\",\"institution\":\"rvobjgg\",\"year_obtained\":6}"
+                            "raw": "{\"title\":\"abipwsbtxqzrhkf\",\"description\":\"Qui impedit eum modi corporis.\",\"institution\":\"zqraus\",\"year_obtained\":21}"
                         },
                         "description": "",
                         "auth": {
@@ -721,6 +721,251 @@
                         }
                     },
                     "response": []
+                },
+                {
+                    "name": "Get all connection requests for the authenticated user",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/connection-requests",
+                            "query": [
+                                {
+                                    "key": "status",
+                                    "value": "reiciendis",
+                                    "description": "Filter by request status (pending\/accepted\/rejected)",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/connection-requests?status=reiciendis"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"status\":\"accepted\"}"
+                        },
+                        "description": "Returns connection requests either sent or received by the user,\ndepending on whether they are a learner or tutor.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"learner\": {\n        \"id\": 2,\n        \"name\": \"John Doe\"\n      },\n      \"tutor\": {\n        \"id\": 3,\n        \"name\": \"Jane Smith\"\n      },\n      \"message\": \"I'd like to connect for mathematics tutoring\",\n      \"status\": \"pending\",\n      \"period_type\": \"weekly\",\n      \"amount_paid\": 5000,\n      \"payment_completed\": true,\n      \"created_at\": \"2023-06-15T14:30:00.000Z\"\n    }\n  ]\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Create Connection Request",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/connection-requests",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/connection-requests"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"tutor_id\":3,\"message\":\"I would like help with advanced calculus topics.\",\"learner_whatsapp\":\"+1234567890\",\"period_type\":\"weekly\"}"
+                        },
+                        "description": "Creates a new connection request from a learner to a tutor.\nOnly authenticated learners can create connection requests.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"data\": {\n    \"id\": 1,\n    \"learner\": {\n      \"id\": 2,\n      \"name\": \"John Doe\"\n    },\n    \"tutor\": {\n      \"id\": 3,\n      \"name\": \"Jane Smith\"\n    },\n    \"message\": \"I would like help with advanced calculus topics\",\n    \"status\": \"pending\",\n    \"period_type\": \"weekly\",\n    \"amount_paid\": 5000,\n    \"payment_completed\": false,\n    \"created_at\": \"2023-06-15T14:30:00.000Z\"\n  }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"You already have a pending request for this tutor.\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"Selected user is not a tutor\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"Tutor has not set price for this period\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Mark Connection Request as Paid",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/connection-requests\/:id\/pay",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/connection-requests\/:id\/pay",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the connection request."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Marks a connection request as paid, simulating payment completion.\nOnly the learner who created the request can mark it as paid.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"data\": {\n    \"id\": 1,\n    \"learner\": {\n      \"id\": 2,\n      \"name\": \"John Doe\"\n    },\n    \"tutor\": {\n      \"id\": 3,\n      \"name\": \"Jane Smith\"\n    },\n    \"message\": \"I would like help with advanced calculus topics\",\n    \"status\": \"pending\",\n    \"period_type\": \"weekly\",\n    \"amount_paid\": 5000,\n    \"payment_completed\": true,\n    \"created_at\": \"2023-06-15T14:30:00.000Z\"\n  }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n  \"message\": \"Unauthorized\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Accept Connection Request",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/connection-requests\/:id\/accept",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/connection-requests\/:id\/accept",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the connection request."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"tutor_whatsapp\":\"+1234567890\"}"
+                        },
+                        "description": "Allows a tutor to accept a connection request that has been paid for.\nSets the connection start and end dates and updates status to accepted.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"data\": {\n    \"id\": 1,\n    \"learner\": {\n      \"id\": 2,\n      \"name\": \"John Doe\"\n    },\n    \"tutor\": {\n      \"id\": 3,\n      \"name\": \"Jane Smith\"\n    },\n    \"message\": \"I would like help with advanced calculus topics\",\n    \"status\": \"accepted\",\n    \"period_type\": \"weekly\",\n    \"amount_paid\": 5000,\n    \"payment_completed\": true,\n    \"tutor_whatsapp\": \"+1234567890\",\n    \"start_date\": \"2023-06-15T14:30:00.000Z\",\n    \"end_date\": \"2023-06-22T14:30:00.000Z\",\n    \"created_at\": \"2023-06-15T14:30:00.000Z\"\n  }\n}\n\n* @response {\n  \"message\": \"Cannot accept request. Payment not completed.\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Reject Connection Request",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/connection-requests\/:id\/reject",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/connection-requests\/:id\/reject",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the connection request."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Allows a tutor to reject a connection request.\nOnly the tutor who received the request can reject it.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"data\": {\n    \"id\": 1,\n    \"learner\": {\n      \"id\": 2,\n      \"name\": \"John Doe\"\n    },\n    \"tutor\": {\n      \"id\": 3,\n      \"name\": \"Jane Smith\"\n    },\n    \"message\": \"I would like help with advanced calculus topics\",\n    \"status\": \"rejected\",\n    \"period_type\": \"weekly\",\n    \"amount_paid\": 5000,\n    \"payment_completed\": true,\n    \"created_at\": \"2023-06-15T14:30:00.000Z\"\n  }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n  \"message\": \"Unauthorized\"\n}",
+                            "name": ""
+                        }
+                    ]
                 }
             ]
         },
@@ -737,54 +982,48 @@
                             "query": [
                                 {
                                     "key": "include",
-                                    "value": "totam",
+                                    "value": "deleniti",
                                     "description": "Specify which relationships to include in the response.\n            Multiple relationships can be comma-separated.\n            Available relationships: learner, category, applications",
                                     "disabled": false
                                 },
                                 {
                                     "key": "search",
-                                    "value": "vero",
+                                    "value": "id",
                                     "description": "Search in gig title and description",
                                     "disabled": false
                                 },
                                 {
                                     "key": "price",
-                                    "value": "inventore",
+                                    "value": "fugit",
                                     "description": "Filter by price range (format: 1000-5000)",
                                     "disabled": false
                                 },
                                 {
                                     "key": "budget_period",
-                                    "value": "sint",
+                                    "value": "impedit",
                                     "description": "Filter by budget period (hourly\/daily\/weekly\/monthly)",
                                     "disabled": false
                                 },
                                 {
                                     "key": "category_id",
-                                    "value": "17",
+                                    "value": "4",
                                     "description": "Filter gigs by category",
                                     "disabled": false
                                 },
                                 {
                                     "key": "status",
-                                    "value": "officia",
-                                    "description": "Filter by gig status (pending\/open\/in_progress\/completed\/cancelled)",
+                                    "value": "dignissimos",
+                                    "description": "Filter by gig status (pending\/open\/completed\/cancelled)",
                                     "disabled": false
                                 },
                                 {
                                     "key": "learner_id",
-                                    "value": "19",
+                                    "value": "6",
                                     "description": "Filter gigs by the learner who created them",
-                                    "disabled": false
-                                },
-                                {
-                                    "key": "include_pending",
-                                    "value": "1",
-                                    "description": "Include pending gigs (default: false)",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/gigs?include=totam&search=vero&price=inventore&budget_period=sint&category_id=17&status=officia&learner_id=19&include_pending=1"
+                            "raw": "{{baseUrl}}\/api\/gigs?include=deleniti&search=id&price=fugit&budget_period=impedit&category_id=4&status=dignissimos&learner_id=6"
                         },
                         "method": "GET",
                         "header": [
@@ -799,9 +1038,9 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"search\":\"civrhcrashpoumrdmpikbcqwxvrewgyeciiygkcbpckvkrpkzrnllmzpzwiujwymwrw\",\"price\":\"47-94\",\"budget_period\":\"daily\",\"status\":\"in_progress\",\"include_pending\":false}"
+                            "raw": "{\"search\":\"sevmpgkosewkwqnmbzrajybgmiygrjzgiuapjzzrxqlbmixgjnesprbeoyxkheoxvkmhzfuruwcuon\",\"price\":\"1844-44889\",\"budget_period\":\"daily\",\"status\":\"open\",\"learner_id\":2}"
                         },
-                        "description": "Get a list of all available learning gigs. By default, pending gigs are excluded.",
+                        "description": "Get a list of all available learning gigs. By default, only open gigs are returned.\nFor authenticated users, their own gigs of all statuses are included.",
                         "auth": {
                             "type": "noauth"
                         }
@@ -824,23 +1063,23 @@
                             "query": [
                                 {
                                     "key": "include",
-                                    "value": "fugit",
+                                    "value": "saepe",
                                     "description": "Relationships to include (learner,category,applications)",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/gigs\/:gig_id?include=fugit",
+                            "raw": "{{baseUrl}}\/api\/gigs\/:gig_id?include=saepe",
                             "variable": [
                                 {
                                     "id": "gig_id",
                                     "key": "gig_id",
-                                    "value": "46",
+                                    "value": "1",
                                     "description": "The ID of the gig."
                                 },
                                 {
                                     "id": "gig",
                                     "key": "gig",
-                                    "value": "13",
+                                    "value": "9",
                                     "description": "The ID of the gig"
                                 }
                             ]
@@ -893,7 +1132,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"category_id\":5,\"title\":\"temporibus\",\"description\":\"Omnis velit ipsam omnis.\",\"budget_period\":\"esse\",\"budget\":\"dolores\",\"location\":\"quam\",\"status\":\"quasi\"}"
+                            "raw": "{\"category_id\":5,\"title\":\"distinctio\",\"description\":\"Dolorem eligendi aliquam quia id.\",\"budget_period\":\"ut\",\"budget\":\"modi\",\"location\":\"sint\",\"status\":\"molestiae\"}"
                         },
                         "description": "Create a new gig in pending status (Learner only). The gig will not be visible to others\nuntil it is published."
                     },
@@ -918,13 +1157,13 @@
                                 {
                                     "id": "gig_id",
                                     "key": "gig_id",
-                                    "value": "46",
+                                    "value": "1",
                                     "description": "The ID of the gig."
                                 },
                                 {
                                     "id": "gig",
                                     "key": "gig",
-                                    "value": "9",
+                                    "value": "10",
                                     "description": "The ID of the gig"
                                 }
                             ]
@@ -942,7 +1181,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"category_id\":6,\"title\":\"quasi\",\"description\":\"Voluptatem quia aliquid dolorum ullam aut ab.\",\"budget_period\":\"sed\",\"budget\":\"earum\",\"location\":\"ut\",\"status\":\"ut\"}"
+                            "raw": "{\"category_id\":1,\"title\":\"iusto\",\"description\":\"Excepturi voluptates nobis tempore praesentium laboriosam consequatur reiciendis in.\",\"budget_period\":\"minima\",\"budget\":\"consequatur\",\"location\":\"dignissimos\",\"status\":\"vel\"}"
                         },
                         "description": "Update an existing gig (Gig owner only)."
                     },
@@ -967,13 +1206,13 @@
                                 {
                                     "id": "gig_id",
                                     "key": "gig_id",
-                                    "value": "46",
+                                    "value": "1",
                                     "description": "The ID of the gig."
                                 },
                                 {
                                     "id": "gig",
                                     "key": "gig",
-                                    "value": "12",
+                                    "value": "7",
                                     "description": "The ID of the gig"
                                 }
                             ]
@@ -1013,7 +1252,7 @@
                                 {
                                     "id": "gig_id",
                                     "key": "gig_id",
-                                    "value": "46",
+                                    "value": "1",
                                     "description": "The ID of the gig."
                                 },
                                 {
@@ -1071,13 +1310,13 @@
                                 {
                                     "id": "gig_id",
                                     "key": "gig_id",
-                                    "value": "46",
+                                    "value": "1",
                                     "description": "The ID of the gig."
                                 },
                                 {
                                     "id": "gig",
                                     "key": "gig",
-                                    "value": "16",
+                                    "value": "17",
                                     "description": "The ID of the gig"
                                 }
                             ]
@@ -1165,7 +1404,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"category_ids\":[\"alias\"]}"
+                            "raw": "{\"category_ids\":[\"sunt\"]}"
                         },
                         "description": "Add categories that the tutor can teach."
                     },
@@ -1196,7 +1435,7 @@
                                 {
                                     "id": "category",
                                     "key": "category",
-                                    "value": "4",
+                                    "value": "18",
                                     "description": "The ID of the category"
                                 }
                             ]
@@ -1293,21 +1532,33 @@
                             "formdata": [
                                 {
                                     "key": "bio",
-                                    "value": "qui",
+                                    "value": "beatae",
                                     "type": "text",
                                     "description": "Detailed bio min:50 characters"
                                 },
                                 {
                                     "key": "years_of_experience",
-                                    "value": "17",
+                                    "value": "7",
                                     "type": "text",
                                     "description": "Years of teaching experience"
                                 },
                                 {
                                     "key": "availability_status",
-                                    "value": "id",
+                                    "value": "sed",
                                     "type": "text",
                                     "description": "Tutor's availability (available\/busy)"
+                                },
+                                {
+                                    "key": "price_weekly",
+                                    "value": "28",
+                                    "type": "text",
+                                    "description": "Must be at least 0."
+                                },
+                                {
+                                    "key": "price_monthly",
+                                    "value": "13",
+                                    "type": "text",
+                                    "description": "Must be at least 0."
                                 },
                                 {
                                     "key": "profile_video",
@@ -1344,7 +1595,7 @@
                                 {
                                     "id": "userId",
                                     "key": "userId",
-                                    "value": "1",
+                                    "value": "15",
                                     "description": "The ID of the tutor"
                                 }
                             ]
@@ -1362,7 +1613,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"verification_status\":\"veritatis\"}"
+                            "raw": "{\"verification_status\":\"ut\"}"
                         },
                         "description": "Update tutor's verification status."
                     },
@@ -1428,7 +1679,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"search\":\"hwhbcvasaksslmiireumjocyxfbgkdvsowpjjbiauqaclgjtphfwzvggmpvhobbocusndmirlvoupvme\",\"available\":\"busy\",\"include\":\"possimus\"}"
+                            "raw": "{\"search\":\"fleycnklovpkpjfqylqpgoatenzgqqeglmsqgakjrvgdlnhtpbllnmajrqwwfuvatsymufguuwnfnlqpneazhk\",\"available\":\"available\",\"include\":\"eligendi\"}"
                         },
                         "description": "Get a list of all available tutors with optional filters.",
                         "auth": {

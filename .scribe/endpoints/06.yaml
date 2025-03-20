@@ -91,7 +91,7 @@ endpoints:
         name: application
         description: 'The ID of the application'
         required: true
-        example: 8
+        example: 12
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -99,7 +99,7 @@ endpoints:
         custom: []
     cleanUrlParameters:
       id: 7
-      application: 8
+      application: 12
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -107,14 +107,14 @@ endpoints:
         name: status
         description: 'Status of application (accepted/rejected)'
         required: true
-        example: vel
+        example: voluptatem
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      status: vel
+      status: voluptatem
     fileParameters: []
     responses:
       -
@@ -170,7 +170,7 @@ endpoints:
         name: gig_id
         description: 'The ID of the gig.'
         required: true
-        example: 46
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -187,7 +187,7 @@ endpoints:
         nullable: false
         custom: []
     cleanUrlParameters:
-      gig_id: 46
+      gig_id: 1
       gig: 7
     queryParameters: []
     cleanQueryParameters: []
@@ -196,14 +196,14 @@ endpoints:
         name: proposal_message
         description: 'The application proposal text min:50 characters'
         required: true
-        example: cupiditate
+        example: neque
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      proposal_message: cupiditate
+      proposal_message: neque
     fileParameters: []
     responses:
       -
@@ -310,7 +310,7 @@ endpoints:
         name: gig_id
         description: 'The ID of the gig.'
         required: true
-        example: 46
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -320,15 +320,15 @@ endpoints:
         name: gig
         description: 'The ID of the gig'
         required: true
-        example: 9
+        example: 20
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      gig_id: 46
-      gig: 9
+      gig_id: 1
+      gig: 20
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

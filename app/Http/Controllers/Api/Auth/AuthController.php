@@ -93,6 +93,8 @@ class AuthController extends Controller
                 'years_of_experience' => 0,
                 'verification_status' => 'pending',
                 'availability_status' => 'available',
+                'price_weekly'=> 0,
+                'price_monthly'=> 0
             ];
             
             // Handle optional profile video for tutors

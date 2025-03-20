@@ -121,4 +121,14 @@ class User extends Authenticatable
     {
         return $this->user_type === 'tutor';
     }
+
+        public function connectionRequestsAsTutor(): HasMany
+    {
+        return $this->hasMany(ConnectionRequest::class, 'tutor_id');
+    }
+
+    public function connectionRequestsAsLearner(): HasMany
+    {
+        return $this->hasMany(ConnectionRequest::class, 'learner_id');
+    }
 }

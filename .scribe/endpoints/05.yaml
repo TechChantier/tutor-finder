@@ -76,7 +76,7 @@ endpoints:
         name: bio
         description: 'Detailed bio min:50 characters'
         required: true
-        example: qui
+        example: beatae
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -86,7 +86,7 @@ endpoints:
         name: years_of_experience
         description: 'Years of teaching experience'
         required: true
-        example: 17
+        example: 7
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -96,7 +96,7 @@ endpoints:
         name: availability_status
         description: "Tutor's availability (available/busy)"
         required: false
-        example: id
+        example: sed
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -112,10 +112,32 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         custom: []
+      price_weekly:
+        name: price_weekly
+        description: 'Must be at least 0.'
+        required: false
+        example: 28
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      price_monthly:
+        name: price_monthly
+        description: 'Must be at least 0.'
+        required: false
+        example: 13
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
     cleanBodyParameters:
-      bio: qui
-      years_of_experience: 17
-      availability_status: id
+      bio: beatae
+      years_of_experience: 7
+      availability_status: sed
+      price_weekly: 28
+      price_monthly: 13
     fileParameters:
       profile_video: null
     responses:
@@ -162,14 +184,14 @@ endpoints:
         name: userId
         description: 'The ID of the tutor'
         required: true
-        example: 1
+        example: 15
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      userId: 1
+      userId: 15
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -177,14 +199,14 @@ endpoints:
         name: verification_status
         description: 'Status (verified/rejected)'
         required: true
-        example: veritatis
+        example: ut
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      verification_status: veritatis
+      verification_status: ut
     fileParameters: []
     responses:
       -

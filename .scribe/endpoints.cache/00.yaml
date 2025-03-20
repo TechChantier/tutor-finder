@@ -106,7 +106,7 @@ endpoints:
         name: title
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: zrbglyhiq
+        example: ivmrvxlaqwapdo
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -116,7 +116,7 @@ endpoints:
         name: description
         description: 'Must not be greater than 1000 characters.'
         required: true
-        example: 'Sequi recusandae qui ea minus.'
+        example: 'Saepe ipsa soluta facere qui est explicabo.'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -126,7 +126,7 @@ endpoints:
         name: institution
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: smnf
+        example: jodcykblkyqz
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -136,17 +136,17 @@ endpoints:
         name: year_obtained
         description: 'Must be at least 1950. Must not be greater than 2025.'
         required: true
-        example: 14
+        example: 10
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      title: zrbglyhiq
-      description: 'Sequi recusandae qui ea minus.'
-      institution: smnf
-      year_obtained: 14
+      title: ivmrvxlaqwapdo
+      description: 'Saepe ipsa soluta facere qui est explicabo.'
+      institution: jodcykblkyqz
+      year_obtained: 10
     fileParameters: []
     responses: []
     responseFields: []
@@ -192,7 +192,7 @@ endpoints:
         name: title
         description: 'Must not be greater than 255 characters.'
         required: false
-        example: zpnukwhljiiecjnexbtjniq
+        example: abipwsbtxqzrhkf
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -202,7 +202,7 @@ endpoints:
         name: description
         description: 'Must not be greater than 1000 characters.'
         required: false
-        example: 'Laudantium esse ut iusto quo quia fugit.'
+        example: 'Qui impedit eum modi corporis.'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -212,7 +212,7 @@ endpoints:
         name: institution
         description: 'Must not be greater than 255 characters.'
         required: false
-        example: rvobjgg
+        example: zqraus
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -222,17 +222,17 @@ endpoints:
         name: year_obtained
         description: 'Must be at least 1950. Must not be greater than 2025.'
         required: false
-        example: 6
+        example: 21
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      title: zpnukwhljiiecjnexbtjniq
-      description: 'Laudantium esse ut iusto quo quia fugit.'
-      institution: rvobjgg
-      year_obtained: 6
+      title: abipwsbtxqzrhkf
+      description: 'Qui impedit eum modi corporis.'
+      institution: zqraus
+      year_obtained: 21
     fileParameters: []
     responses: []
     responseFields: []
@@ -276,6 +276,458 @@ endpoints:
     cleanBodyParameters: []
     fileParameters: []
     responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/connection-requests
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get all connection requests for the authenticated user'
+      description: |-
+        Returns connection requests either sent or received by the user,
+        depending on whether they are a learner or tutor.
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      status:
+        name: status
+        description: 'Filter by request status (pending/accepted/rejected)'
+        required: false
+        example: reiciendis
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanQueryParameters:
+      status: reiciendis
+    bodyParameters:
+      status:
+        name: status
+        description: ''
+        required: false
+        example: accepted
+        type: string
+        enumValues:
+          - pending
+          - accepted
+          - rejected
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      status: accepted
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "data": [
+              {
+                "id": 1,
+                "learner": {
+                  "id": 2,
+                  "name": "John Doe"
+                },
+                "tutor": {
+                  "id": 3,
+                  "name": "Jane Smith"
+                },
+                "message": "I'd like to connect for mathematics tutoring",
+                "status": "pending",
+                "period_type": "weekly",
+                "amount_paid": 5000,
+                "payment_completed": true,
+                "created_at": "2023-06-15T14:30:00.000Z"
+              }
+            ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/connection-requests
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create Connection Request'
+      description: |-
+        Creates a new connection request from a learner to a tutor.
+        Only authenticated learners can create connection requests.
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      tutor_id:
+        name: tutor_id
+        description: 'The ID of the tutor to connect with.'
+        required: true
+        example: 3
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      message:
+        name: message
+        description: 'A message to the tutor explaining the connection request.'
+        required: true
+        example: 'I would like help with advanced calculus topics.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      learner_whatsapp:
+        name: learner_whatsapp
+        description: "The learner's WhatsApp number for contact purposes."
+        required: true
+        example: '+1234567890'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      period_type:
+        name: period_type
+        description: 'The billing period for the connection (weekly or monthly).'
+        required: true
+        example: weekly
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      tutor_id: 3
+      message: 'I would like help with advanced calculus topics.'
+      learner_whatsapp: '+1234567890'
+      period_type: weekly
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "data": {
+              "id": 1,
+              "learner": {
+                "id": 2,
+                "name": "John Doe"
+              },
+              "tutor": {
+                "id": 3,
+                "name": "Jane Smith"
+              },
+              "message": "I would like help with advanced calculus topics",
+              "status": "pending",
+              "period_type": "weekly",
+              "amount_paid": 5000,
+              "payment_completed": false,
+              "created_at": "2023-06-15T14:30:00.000Z"
+            }
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 400
+        content: |-
+          {
+            "message": "You already have a pending request for this tutor."
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 400
+        content: |-
+          {
+            "message": "Selected user is not a tutor"
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 400
+        content: |-
+          {
+            "message": "Tutor has not set price for this period"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/connection-requests/{id}/pay'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Mark Connection Request as Paid'
+      description: |-
+        Marks a connection request as paid, simulating payment completion.
+        Only the learner who created the request can mark it as paid.
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the connection request.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "data": {
+              "id": 1,
+              "learner": {
+                "id": 2,
+                "name": "John Doe"
+              },
+              "tutor": {
+                "id": 3,
+                "name": "Jane Smith"
+              },
+              "message": "I would like help with advanced calculus topics",
+              "status": "pending",
+              "period_type": "weekly",
+              "amount_paid": 5000,
+              "payment_completed": true,
+              "created_at": "2023-06-15T14:30:00.000Z"
+            }
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: |-
+          {
+            "message": "Unauthorized"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/connection-requests/{id}/accept'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Accept Connection Request'
+      description: |-
+        Allows a tutor to accept a connection request that has been paid for.
+        Sets the connection start and end dates and updates status to accepted.
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the connection request.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      tutor_whatsapp:
+        name: tutor_whatsapp
+        description: "The tutor's WhatsApp number for contact purposes."
+        required: true
+        example: '+1234567890'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      tutor_whatsapp: '+1234567890'
+    fileParameters: []
+    responses:
+      -
+        status: 400
+        content: |-
+          {
+            "data": {
+              "id": 1,
+              "learner": {
+                "id": 2,
+                "name": "John Doe"
+              },
+              "tutor": {
+                "id": 3,
+                "name": "Jane Smith"
+              },
+              "message": "I would like help with advanced calculus topics",
+              "status": "accepted",
+              "period_type": "weekly",
+              "amount_paid": 5000,
+              "payment_completed": true,
+              "tutor_whatsapp": "+1234567890",
+              "start_date": "2023-06-15T14:30:00.000Z",
+              "end_date": "2023-06-22T14:30:00.000Z",
+              "created_at": "2023-06-15T14:30:00.000Z"
+            }
+          }
+
+          * @response {
+            "message": "Cannot accept request. Payment not completed."
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/connection-requests/{id}/reject'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Reject Connection Request'
+      description: |-
+        Allows a tutor to reject a connection request.
+        Only the tutor who received the request can reject it.
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the connection request.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "data": {
+              "id": 1,
+              "learner": {
+                "id": 2,
+                "name": "John Doe"
+              },
+              "tutor": {
+                "id": 3,
+                "name": "Jane Smith"
+              },
+              "message": "I would like help with advanced calculus topics",
+              "status": "rejected",
+              "period_type": "weekly",
+              "amount_paid": 5000,
+              "payment_completed": true,
+              "created_at": "2023-06-15T14:30:00.000Z"
+            }
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: |-
+          {
+            "message": "Unauthorized"
+          }
+        headers: []
+        description: ''
+        custom: []
     responseFields: []
     auth: []
     controller: null

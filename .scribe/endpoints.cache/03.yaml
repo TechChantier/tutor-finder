@@ -79,7 +79,7 @@ endpoints:
         name: search
         description: 'Must be at least 3 characters.'
         required: false
-        example: hwhbcvasaksslmiireumjocyxfbgkdvsowpjjbiauqaclgjtphfwzvggmpvhobbocusndmirlvoupvme
+        example: fleycnklovpkpjfqylqpgoatenzgqqeglmsqgakjrvgdlnhtpbllnmajrqwwfuvatsymufguuwnfnlqpneazhk
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -99,7 +99,7 @@ endpoints:
         name: available
         description: ''
         required: false
-        example: busy
+        example: available
         type: string
         enumValues:
           - available
@@ -111,16 +111,16 @@ endpoints:
         name: include
         description: ''
         required: false
-        example: possimus
+        example: eligendi
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      search: hwhbcvasaksslmiireumjocyxfbgkdvsowpjjbiauqaclgjtphfwzvggmpvhobbocusndmirlvoupvme
-      available: busy
-      include: possimus
+      search: fleycnklovpkpjfqylqpgoatenzgqqeglmsqgakjrvgdlnhtpbllnmajrqwwfuvatsymufguuwnfnlqpneazhk
+      available: available
+      include: eligendi
     fileParameters: []
     responses:
       -

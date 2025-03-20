@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\ApplicationController;
 use App\Http\Controllers\Api\Auth\AuthController;
 use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\ConnectionRequestController;
 use App\Http\Controllers\Api\GigController;
 use App\Http\Controllers\Api\TutorsController;
 use App\Http\Controllers\Api\QualificationController;
@@ -117,4 +118,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/gigs/{gig}/applications', [ApplicationController::class, 'gigApplications']);
     Route::patch('/gigs/{gig}/publish', [GigController::class, 'publish'])->name('gigs.publish');
     Route::patch('/gigs/{gig}/unpublish', [GigController::class, 'unpublish'])->name('gigs.unpublish');
+
+    // Connection Request routes
+    Route::get('/connection-requests', [ConnectionRequestController::class, 'index']);
+    Route::post('/connection-requests', [ConnectionRequestController::class, 'store']);
+    Route::post('/connection-requests/{id}/pay', [ConnectionRequestController::class, 'markAsPaid']);
+    Route::post('/connection-requests/{id}/accept', [ConnectionRequestController::class, 'accept']);
+    Route::post('/connection-requests/{id}/reject', [ConnectionRequestController::class, 'reject']);
 });
