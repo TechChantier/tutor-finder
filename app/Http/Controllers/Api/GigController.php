@@ -32,7 +32,8 @@ class GigController extends Controller
     /**
      * List All Gigs
      * 
-     * Get a list of all available learning gigs. By default, pending gigs are excluded.
+     * Get a list of all available learning gigs. By default, only open gigs are returned.
+     * For authenticated users, their own gigs of all statuses are included.
      * 
      * @queryParam include string Specify which relationships to include in the response. 
      *             Multiple relationships can be comma-separated.
@@ -41,9 +42,8 @@ class GigController extends Controller
      * @queryParam price string Filter by price range (format: 1000-5000)
      * @queryParam budget_period string Filter by budget period (hourly/daily/weekly/monthly)
      * @queryParam category_id integer Filter gigs by category
-     * @queryParam status string Filter by gig status (pending/open/in_progress/completed/cancelled)
+     * @queryParam status string Filter by gig status (pending/open/completed/cancelled)
      * @queryParam learner_id integer Filter gigs by the learner who created them
-     * @queryParam include_pending boolean Include pending gigs (default: false)
      * 
      * @response {
      *  "data": [
@@ -70,49 +70,55 @@ class GigController extends Controller
     public function index(Request $request)
     {
         $query = $this->loadRelationships(Gig::query());
-
+    
         // Validate filter parameters
         $filters = $request->validate([
             'search' => ['sometimes','string','min:3'],
             'price' => ['sometimes','string','regex:/^\d+-\d+$/'],
             'budget_period' => ['sometimes','string','in:hourly,daily,weekly,monthly'],
             'category_id' => ['sometimes','exists:categories,id'],
-            'status' => ['sometimes','in:pending,open,in_progress,completed,cancelled'],
-            'learner_id' => ['sometimes','exists:users,id'],
-            'include_pending' => ['sometimes','boolean']
+            'status' => ['sometimes','in:pending,open,completed,cancelled'],
+            'learner_id' => ['sometimes', 'integer', 'exists:users,id'],
+            // 'learner_id' => ['sometimes','exists:users,id'],
         ]);
-
-        // By default, exclude pending gigs unless explicitly requested
+    
+        // By default, show only open gigs
         if (empty($filters['status'])) {
-            if (empty($filters['include_pending']) || $filters['include_pending'] === false) {
-                $query->where('status', '!=', Gig::STATUS_PENDING);
+            // Only apply default status filter if not filtering by learner_id
+            if (empty($filters['learner_id'])) {
+                $query->where('status', Gig::STATUS_OPEN);
             }
+            // If filtering by learner_id, show all statuses
         }
-
+        else {
+            // If status is explicitly specified, apply that filter
+            $query->where('status', $filters['status']);
+        }
+    
         // Apply search filter
         if (!empty($filters['search'])) {
             $query->where(function($q) use ($filters) {
                 $q->where('title', 'like', '%' . $filters['search'] . '%')
-                ->orWhere('description', 'like', '%' . $filters['search'] . '%');
+                  ->orWhere('description', 'like', '%' . $filters['search'] . '%');
             });
         }
-
+    
         // Apply price range filter
         if (!empty($filters['price'])) {
             [$minPrice, $maxPrice] = explode('-', $filters['price']);
             $query->whereBetween('budget', [(int)$minPrice, (int)$maxPrice]);
         }
-
+    
         // Apply budget period filter
         if (!empty($filters['budget_period'])) {
             $query->where('budget_period', $filters['budget_period']);
         }
-
+    
         // Apply category filter
         if (!empty($filters['category_id'])) {
             $query->where('category_id', $filters['category_id']);
         }
-
+    
         // Apply status filter
         if (!empty($filters['status'])) {
             $query->where('status', $filters['status']);
@@ -131,10 +137,12 @@ class GigController extends Controller
             
             $query->where('learner_id', $filters['learner_id']);
         }
-
+    
         $gigs = $query->latest()->get();
         return GigResource::collection($gigs);
     }
+
+
 
    /**
     * Create Gig

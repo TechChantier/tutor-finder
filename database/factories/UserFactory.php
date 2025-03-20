@@ -34,7 +34,7 @@ class UserFactory extends Factory
             'password' => Hash::make('password'),
             'remember_token' => Str::random(10),
             'phone_number' => fake()->phoneNumber(),
-            'whatsapp_number' => fake()->phoneNumber(),
+            // 'whatsapp_number' => fake()->phoneNumber(),
             'user_type' => fake()->randomElement(['tutor', 'learner']),
             'location' => fake()->city(),
             'profile_image' => 'avatars/default-' . $gender . '.png',

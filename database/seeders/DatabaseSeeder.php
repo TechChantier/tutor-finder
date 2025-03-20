@@ -18,7 +18,10 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // 1. First run CategorySeeder since other models depend on categories
-        $this->call(CategorySeeder::class);
+        $this->call(
+            CategorySeeder::class,
+            // GigSeeder::class,
+        );
 
         // 2. Create test users
         $testTutor = User::factory()->create([

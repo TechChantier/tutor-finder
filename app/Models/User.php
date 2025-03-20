@@ -102,14 +102,23 @@ class User extends Authenticatable
         return $this->hasMany(Gig::class, 'learner_id');
     }
 
-    // Helper methods
-    public function isTutor(): bool
-    {
-        return $this->user_type === 'tutor';
-    }
-
+      /**
+     * Check if the user is a learner.
+     *
+     * @return bool
+     */
     public function isLearner(): bool
     {
         return $this->user_type === 'learner';
+    }
+
+    /**
+     * Check if the user is a tutor.
+     *
+     * @return bool
+     */
+    public function isTutor(): bool
+    {
+        return $this->user_type === 'tutor';
     }
 }
