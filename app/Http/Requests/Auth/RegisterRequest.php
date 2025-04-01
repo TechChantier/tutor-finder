@@ -28,7 +28,7 @@ class RegisterRequest extends FormRequest
             'phone_number' => ['required', 'string', 'unique:users,phone_number', 'min:9', 'regex:/^[0-9+\-\s()]*$/'],
             'user_type' => ['required', 'string', 'in:tutor,learner'],
             'location' => ['required', 'string', 'max:255'],
-            'profile_image' => ['required', 'image', 'mimes:jpeg,png,jpg', 'max:2048']
+            'profile_image' => ['sometimes', 'image', 'mimes:jpeg,png,jpg', 'max:2048']
         ];
         
         // Add profile_video field for tutors only
