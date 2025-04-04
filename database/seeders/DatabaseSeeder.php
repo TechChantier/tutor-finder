@@ -57,33 +57,8 @@ class DatabaseSeeder extends Seeder
                 ->create(['tutor_id' => $tutor->id]);
         });
 
-        // 5. Create gigs for learners
-        User::where('user_type', 'learner')->each(function ($learner) {
-            Gig::factory()
-                ->count(rand(1, 3))
-                ->create([
-                    'learner_id' => $learner->id,
-                    'category_id' => Category::inRandomOrder()->first()->id
-                ]);
-        });
-
-        // 6. Create applications for open gigs
-        Gig::where('status', 'open')->each(function ($gig) {
-            // Get 1-3 random tutors who haven't applied yet
-            $tutors = User::where('user_type', 'tutor')
-                ->whereDoesntHave('applications', function ($query) use ($gig) {
-                    $query->where('gig_id', $gig->id);
-                })
-                ->inRandomOrder()
-                ->take(rand(1, 3))
-                ->get();
-
-            foreach ($tutors as $tutor) {
-                Application::factory()->create([
-                    'gig_id' => $gig->id,
-                    'tutor_id' => $tutor->id
-                ]);
-            }
-        });
+        $this->call([
+            GigSeeder::class
+        ]);
     }
 }
